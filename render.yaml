@@ -1,15 +1,9 @@
 services:
-  - type: web
+    - type: web
     name: prismlive
-    runtime: python
-    plan: free
+    env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn --worker-class gthread --threads 100 app:app
-    healthCheckPath: /home
+    startCommand: gunicorn app:app
     envVars:
-      - key: PYTHON_VERSION
-        value: 3.12.8
-      - key: SECRET_KEY
-        generateValue: true
-      - key: COOKIE_SECURE
-        value: "1"
+            - key: PYTHON_VERSION
+        value: 3.11.0
