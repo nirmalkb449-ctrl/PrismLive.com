@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prism Live - Our Sponsors & Partners</title>
+    <style>
+        :root {
+            --primary: #0a192f;
+            --secondary: #1d4ed8;
+            --accent: #3b82f6;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Navbar style matching reference */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background-color: #0f172a;
+            color: var(--white);
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--white);
+        }
+
+        /* Hero Section (Clean/Light style variant for sponsors details) */
+        .hero {
+            padding: 80px 8% 50px 8%;
+            text-align: center;
+            background: linear-gradient(135deg, #599de0 0%, #e2e8f0 100%);
+        }
+
+        .hero-tag {
+            color: var(--secondary);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: rgb(27, 91, 163);
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.15;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: 0 auto;
+            color: var(--text-light);
+            font-size: 1.05rem;
+        }
+
+        /* Sponsor Tier / Containers Section */
+        .sponsors-section {
+            padding: 70px 8%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .tier-title {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            font-weight: 700;
+            margin: 40px 0 20px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--border);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        /* Containers Grid (Without blue background, image-focused details) */
+        .sponsors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .sponsor-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sponsor-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.08);
+        }
+
+        .sponsor-img-container {
+            width: 100%;
+            height: 160px;
+            background-color: #f8fafc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .sponsor-img-container img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.8;
+            transition: filter 0.3s ease, opacity 0.3s ease;
+        }
+
+        .sponsor-card:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        .sponsor-body {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .sponsor-category {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--text-light);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .sponsor-body h3 {
+            font-size: 1.25rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .sponsor-body p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .sponsor-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px dashed var(--border);
+            font-size: 0.85rem;
+        }
+
+        .sponsor-link {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .sponsor-link:hover {
+            text-decoration: underline;
+        }
+
+        .contribution-tag {
+            background: #eff6ff;
+            color: var(--secondary);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            margin: 60px 8%;
+            background: #0f172a;
+            color: var(--white);
+            border-radius: 16px;
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        .cta-banner h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .cta-banner p {
+            color: #94a3b8;
+            max-width: 550px;
+            margin: 0 auto 25px auto;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-block;
+            transition: background 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent);
+        }
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+            width: 94%;
+            max-width: 1180px;
+
+            margin: 0 auto 20px;
+
+            padding: 20px 30px;
+
+            background: #06346f;
+
+            color: white;
+
+            display: flex;
+            justify-content: space-between;
+
+            border-radius: 0 0 10px 10px;
+        }
+
+        .footer-logo {
+            font-size: 17px;
+            font-weight: 800;
+        }
+
+        .footer-text {
+            color: #c4d6e9;
+            font-size: 8px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar matching Prism Live theme
+    <header class="navbar">
+        <a href="#" class="logo">Prism Live</a>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Project</a></li>
+            <li><a href="#">Programs</a></li>
+            <li><a href="#">Talent</a></li>
+            <li><a href="#">Workshops</a></li>
+            <li><a href="#" class="active">Sponsors</a></li>
+            <li><a href="#">Media</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </header> -->
+
+    <!-- Hero Section (Light UI layout without solid blue block for details page feel) -->
+    <section class="hero">
+        <!-- <span class="hero-tag">Partners in Creativity</span> -->
+        <h1>Powered by Visionary Sponsors</h1>
+        <p>Meet the organizations and brands backing Prism Live programs, driving mentorship, production quality, and youth talent development worldwide.</p>
+    </section>
+
+    <!-- Sponsors Details Grid Containers -->
+    <section class="sponsors-section">
+        <div class="section-header">
+            <h2>Our Ecosystem Supporters</h2>
+            <p>Detailed view of strategic financial, technical, and venue partners.</p>
+        </div>
+
+        <!-- Tier 1: Title Sponsor / Headline Partners -->
+        <div class="tier-title">Headline & Title Partners</div>
+        <div class="sponsors-grid">
+            <div class="sponsor-card">
+                <div class="sponsor-img-container">
+                    <!-- Placeholder vector/logo via SVG data or clean img -->
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='50' viewBox='0 0 160 50'><rect width='160' height='50' fill='none'/><text x='50% ' y='50% ' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='18' fill='%231e293b'>CINEOPTIX</text></svg>" alt="CineOptix Logo">
+                </div>
+                <div class="sponsor-body">
+                    <span class="sponsor-category">Optical & Gear Sponsor</span>
+                    <h3>CineOptix Global</h3>
+                    <p>Providing high-end cinema camera packages, anamorphic lenses, and technical crew training workshops for our Technical & Crew track.</p>
+                    <div class="sponsor-footer">
+                        <span class="contribution-tag">Official Gear</span>
+                        <a href="#" class="sponsor-link">Partner Profile →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sponsor-card">
+                <div class="sponsor-img-container">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='50' viewBox='0 0 160 50'><rect width='160' height='50' fill='none'/><text x='50% ' y='50% ' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='18' fill='%231e293b'>AETHERAUDIO</text></svg>" alt="AetherAudio Logo">
+                </div>
+                <div class="sponsor-body">
+                    <span class="sponsor-category">Sound & Post-Production</span>
+                    <h3>Aether Audio Labs</h3>
+                    <p>Supplying Dolby Atmos mixing suite access, spatial audio mentorship, and sound design licensing support for completed student projects.</p>
+                    <div class="sponsor-footer">
+                        <span class="contribution-tag">Sound Suite</span>
+                        <a href="#" class="sponsor-link">Partner Profile →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tier 2: Production & Supporting Partners -->
+        <div class="tier-title">Production & Venue Contributors</div>
+        <div class="sponsors-grid">
+            <div class="sponsor-card">
+                <div class="sponsor-img-container">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='50' viewBox='0 0 160 50'><rect width='160' height='50' fill='none'/><text x='50% ' y='50% ' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='16' fill='%231e293b'>VELVETSTAGE</text></svg>" alt="VelvetStage Logo">
+                </div>
+                <div class="sponsor-body">
+                    <span class="sponsor-category">Rehearsal & Performance</span>
+                    <h3>VelvetStage Studios</h3>
+                    <p>Allocating multi-track performance blackboxes and movement studio hours for Acting & Performance cohort rehearsals.</p>
+                    <div class="sponsor-footer">
+                        <span class="contribution-tag">Venue Partner</span>
+                        <a href="#" class="sponsor-link">Partner Profile →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sponsor-card">
+                <div class="sponsor-img-container">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='50' viewBox='0 0 160 50'><rect width='160' height='50' fill='none'/><text x='50% ' y='50% ' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='16' fill='%231e293b'>SCRIPTFORGE</text></svg>" alt="ScriptForge Logo">
+                </div>
+                <div class="sponsor-body">
+                    <span class="sponsor-category">Writing Infrastructure</span>
+                    <h3>ScriptForge AI/Cloud</h3>
+                    <p>Granting enterprise writing workspace tiers, collaborative outlining vaults, and writer residency grants for Story Development participants.</p>
+                    <div class="sponsor-footer">
+                        <span class="contribution-tag">Software Grant</span>
+                        <a href="#" class="sponsor-link">Partner Profile →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sponsor-card">
+                <div class="sponsor-img-container">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='50' viewBox='0 0 160 50'><rect width='160' height='50' fill='none'/><text x='50% ' y='50% ' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='16' fill='%231e293b'>LUMENLIGHT</text></svg>" alt="LumenLight Logo">
+                </div>
+                <div class="sponsor-body">
+                    <span class="sponsor-category">Lighting & Grip</span>
+                    <h3>LumenLight Rigging</h3>
+                    <p>Providing modular LED panels, wireless DMX controllers, and live practical lighting masterclasses on set.</p>
+                    <div class="sponsor-footer">
+                        <span class="contribution-tag">Lighting Rig</span>
+                        <a href="#" class="sponsor-link">Partner Profile →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <section class="cta-banner">
+        <h2>Want to Sponsor a Prism Live Program?</h2>
+        <p>Connect with emerging directors, writers, and technical talent. Request our partnership prospectus for upcoming seasonal cohorts.</p>
+        <a href="#" class="btn-primary">Become a Sponsor</a>
+    </section>
+
+    <!-- Footer -->
+   <footer>
+
+        <div class="footer-logo">
+            Prism Live
+        </div>
+
+        <div class="footer-text">
+            © Prism Live. All Rights Reserved.
+        </div>
+
+    </footer>
+
+
+</body>
+</html>

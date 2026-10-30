@@ -1,0 +1,481 @@
+<!-- ================= CONTACT DETAILS ================= -->
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f4f8fc;
+        color: #123f6d;
+    }
+
+    .contact-details {
+        width: 100%;
+        padding: 70px 6%;
+        background: #f4f8fc;
+    }
+
+    .contact-title {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .contact-title h1 {
+        font-size: 38px;
+        font-weight: 800;
+        color: #064b82;
+        margin-bottom: 12px;
+    }
+
+    .contact-title p {
+        font-size: 15px;
+        color: #718096;
+    }
+
+    /* Main Layout */
+
+    .contact-container {
+        max-width: 1150px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1fr 1.4fr;
+        gap: 35px;
+    }
+
+    /* Left Contact Information */
+
+    .contact-info {
+        background: white;
+        border-radius: 12px;
+        padding: 35px;
+        border: 1px solid #dbe4ec;
+        box-shadow: 0 8px 25px rgba(0, 60, 120, 0.06);
+    }
+
+    .contact-info h2 {
+        font-size: 25px;
+        color: #064b82;
+        margin-bottom: 12px;
+    }
+
+    .contact-info > p {
+        font-size: 14px;
+        line-height: 1.8;
+        color: #718096;
+        margin-bottom: 30px;
+    }
+
+    /* Contact Cards */
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        padding: 18px;
+        margin-bottom: 15px;
+        border: 1px solid #dce5ed;
+        border-radius: 10px;
+        background: #ffffff;
+        transition: 0.3s ease;
+    }
+
+    .contact-item:hover {
+        transform: translateY(-3px);
+        border-color: #1683d8;
+        box-shadow: 0 7px 18px rgba(0, 100, 180, 0.08);
+    }
+
+    .contact-icon {
+        width: 48px;
+        height: 48px;
+        min-width: 48px;
+        border: 2px solid #1683d8;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #0875c5;
+        font-size: 20px;
+    }
+
+    .contact-item h4 {
+        font-size: 14px;
+        color: #164e7d;
+        margin-bottom: 5px;
+    }
+
+    .contact-item p {
+        font-size: 13px;
+        color: #718096;
+        line-height: 1.5;
+    }
+
+    /* Right Details */
+
+    .contact-message {
+        background: white;
+        border-radius: 12px;
+        padding: 35px;
+        border: 1px solid #dbe4ec;
+        box-shadow: 0 8px 25px rgba(0, 60, 120, 0.06);
+    }
+
+    .contact-message h2 {
+        font-size: 25px;
+        color: #064b82;
+        margin-bottom: 10px;
+    }
+
+    .contact-message p {
+        font-size: 14px;
+        color: #718096;
+        line-height: 1.7;
+        margin-bottom: 25px;
+    }
+
+    /* Business Information */
+
+    .detail-box {
+        background: #f7fafc;
+        border-left: 4px solid #1683d8;
+        padding: 20px;
+        margin-bottom: 18px;
+        border-radius: 7px;
+    }
+
+    .detail-box h3 {
+        font-size: 16px;
+        color: #064b82;
+        margin-bottom: 8px;
+    }
+
+    .detail-box p {
+        margin: 0;
+        font-size: 14px;
+        color: #66788a;
+        line-height: 1.7;
+    }
+
+    /* Social Links */
+
+    .social-title {
+        margin-top: 28px;
+        margin-bottom: 15px;
+        font-size: 17px;
+        color: #064b82;
+    }
+
+    .social-links {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .social-links a {
+        text-decoration: none;
+        padding: 10px 18px;
+        border-radius: 6px;
+        background: #064b82;
+        color: white;
+        font-size: 13px;
+        font-weight: 600;
+        transition: 0.3s ease;
+    }
+
+    .social-links a:hover {
+        background: #064b82;
+        transform: translateY(-2px);
+    }
+
+    /* Map */
+
+    .map-section {
+        max-width: 1150px;
+        margin: 35px auto 0;
+        background: white;
+        padding: 15px;
+        border-radius: 12px;
+        border: 1px solid #dbe4ec;
+        box-shadow: 0 8px 25px rgba(0, 60, 120, 0.06);
+    }
+
+    .map-section iframe {
+        width: 100%;
+        height: 300px;
+        border: 0;
+        border-radius: 8px;
+    }
+    /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+            width: 94%;
+            max-width: 1180px;
+
+            margin: 0 auto 20px;
+
+            padding: 20px 30px;
+
+            background: #06346f;
+
+            color: white;
+
+            display: flex;
+            justify-content: space-between;
+
+            border-radius: 0 0 10px 10px;
+        }
+
+        .footer-logo {
+            font-size: 17px;
+            font-weight: 800;
+        }
+
+        .footer-text {
+            color: #c4d6e9;
+            font-size: 8px;
+        }
+
+
+    /* Responsive */
+
+    @media (max-width: 850px) {
+
+        .contact-container {
+            grid-template-columns: 1fr;
+        }
+
+        .contact-title h1 {
+            font-size: 30px;
+        }
+
+        .contact-details {
+            padding: 50px 5%;
+        }
+    }
+
+    @media (max-width: 500px) {
+
+        .contact-info,
+        .contact-message {
+            padding: 25px;
+        }
+
+        .contact-title h1 {
+            font-size: 27px;
+        }
+
+        .contact-item {
+            align-items: flex-start;
+        }
+    }
+</style>
+
+
+<section class="contact-details">
+
+    <!-- Title -->
+
+    <div class="contact-title">
+        <h1>Contact Details</h1>
+        <p>Connect with Prism Live and let's create something meaningful together.</p>
+    </div>
+
+
+    <div class="contact-container">
+
+        <!-- LEFT SIDE -->
+
+        <div class="contact-info">
+
+            <h2>Let's Connect</h2>
+
+            <p>
+                Whether you are a creative professional, aspiring talent,
+                mentor, partner, organization, or collaborator,
+                Prism Live welcomes meaningful conversations and new possibilities.
+            </p>
+
+
+            <!-- Email -->
+
+            <div class="contact-item">
+
+                <div class="contact-icon">
+                    ✉
+                </div>
+
+                <div>
+                    <h4>Email Us</h4>
+                    <p>hello@prismlive.com</p>
+                </div>
+
+            </div>
+
+
+            <!-- Phone -->
+
+            <div class="contact-item">
+
+                <div class="contact-icon">
+                    ☎
+                </div>
+
+                <div>
+                    <h4>Call Us</h4>
+                    <p>+91 98765 43210</p>
+                </div>
+
+            </div>
+
+
+            <!-- Address -->
+
+            <div class="contact-item">
+
+                <div class="contact-icon">
+                    ⌖
+                </div>
+
+                <div>
+                    <h4>Our Location</h4>
+                    <p>
+                        Prism Live Creative Centre,<br>
+                        Kerala, India
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- Working Hours -->
+
+            <div class="contact-item">
+
+                <div class="contact-icon">
+                    ◷
+                </div>
+
+                <div>
+                    <h4>Working Hours</h4>
+                    <p>
+                        Monday – Saturday<br>
+                        9:00 AM – 6:00 PM
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+
+        <div class="contact-message">
+
+            <h2>Prism Live</h2>
+
+            <p>
+                A platform for creativity, talent, learning, collaboration,
+                innovation and meaningful community engagement.
+            </p>
+
+
+            <div class="detail-box">
+
+                <h3>For General Enquiries</h3>
+
+                <p>
+                    Contact us for information about Prism Live,
+                    our initiatives, activities, partnerships and opportunities.
+                </p>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <h3>For Talent & Creatives</h3>
+
+                <p>
+                    Share your talent, creative work, ideas or portfolio
+                    and explore opportunities to connect with the Prism Live community.
+                </p>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <h3>For Partnerships</h3>
+
+                <p>
+                    Organizations, institutions, mentors and collaborators
+                    can connect with us to explore meaningful partnerships
+                    and joint initiatives.
+                </p>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <h3>For Workshops & Programs</h3>
+
+                <p>
+                    Get information about upcoming workshops, training programs,
+                    creative sessions and community activities.
+                </p>
+
+            </div>
+
+
+            <h3 class="social-title">Connect With Us</h3>
+
+            <div class="social-links">
+
+                <a href="#">Facebook</a>
+
+                <a href="#">Instagram</a>
+
+                <a href="#">YouTube</a>
+
+                <a href="#">LinkedIn</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- LOCATION MAP -->
+
+    <div class="map-section">
+
+        <iframe
+            src="https://www.google.com/maps?q=10.4934355,76.2134649&z=15&output=embed"
+            allowfullscreen=""
+            loading="lazy">
+        </iframe>
+
+    </div>
+     <footer>
+
+        <div class="footer-logo">
+            Prism Live
+        </div>
+
+        <div class="footer-text">
+            © Prism Live. All Rights Reserved.
+        </div>
+
+    </footer>
+
+
+</section>

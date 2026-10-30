@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Future Makers Initiative | Prism Live</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #f3f7fb;
+            color: #26384d;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           PAGE CONTAINER
+        ========================= */
+
+        .page {
+            width: 100%;
+            max-width: 820px;
+            margin: 25px auto 60px;
+            padding: 0 20px;
+        }
+
+        /* =========================
+           BACK BUTTON
+        ========================= */
+
+        .back {
+            display: inline-block;
+            margin-bottom: 22px;
+
+            color: #1684bd;
+            text-decoration: none;
+
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .back:hover {
+            color: #0b6594;
+        }
+
+        /* =========================
+           MAIN CARD
+        ========================= */
+
+        .project-card {
+            background: #ffffff;
+
+            border-radius: 14px;
+            overflow: hidden;
+
+            box-shadow:
+                0 8px 25px rgba(40, 70, 100, 0.08);
+        }
+
+        /* =========================
+           HERO IMAGE
+        ========================= */
+
+        .project-image {
+            width: 100%;
+            height: 350px;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+            display: block;
+        }
+
+        /* =========================
+           CONTENT
+        ========================= */
+
+        .project-content {
+            padding: 40px;
+        }
+
+        .project-content h1 {
+            font-size: 32px;
+            color: #20364e;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .subtitle {
+            color: #718096;
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 28px;
+        }
+
+        .divider {
+            border: none;
+            border-top: 1px solid #e5e9ee;
+            margin: 25px 0;
+        }
+
+        /* =========================
+           SECTIONS
+        ========================= */
+
+        .section {
+            margin-bottom: 28px;
+        }
+
+        .section h2 {
+            font-size: 19px;
+            color: #25384d;
+            margin-bottom: 12px;
+        }
+
+        .section p {
+            font-size: 14px;
+            color: #536477;
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        /* =========================
+           FOCUS CARDS
+        ========================= */
+
+        .focus-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 16px;
+
+            margin-top: 18px;
+        }
+
+        .focus-card {
+            background: #f8fafc;
+
+            border: 1px solid #dce4ec;
+
+            border-radius: 10px;
+
+            padding: 18px;
+        }
+
+        .focus-card h3 {
+            font-size: 14px;
+            color: #26384d;
+            margin-bottom: 8px;
+        }
+
+        .focus-card p {
+            font-size: 12px;
+            color: #718096;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* =========================
+           HIGHLIGHT BOX
+        ========================= */
+
+        .highlight {
+            background: #eef7fc;
+
+            border-left: 4px solid #168ac2;
+
+            border-radius: 6px;
+
+            padding: 18px 20px;
+
+            margin: 22px 0;
+        }
+
+        .highlight h3 {
+            color: #176f9f;
+            font-size: 15px;
+            margin-bottom: 6px;
+        }
+
+        .highlight p {
+            margin: 0;
+            font-size: 13px;
+            color: #5d7083;
+        }
+
+        /* =========================
+           BUTTONS
+        ========================= */
+
+        .buttons {
+            display: flex;
+            gap: 14px;
+            margin-top: 35px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+
+            padding: 11px 22px;
+
+            border-radius: 6px;
+
+            text-decoration: none;
+
+            font-size: 13px;
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+        .primary {
+            background: #168ac2;
+            color: #ffffff;
+        }
+
+        .primary:hover {
+            background: #0d6f9e;
+        }
+
+        .secondary {
+            background: #e3eaf1;
+            color: #35485d;
+        }
+
+        .secondary:hover {
+            background: #d3dde7;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .page {
+                margin-top: 20px;
+            }
+
+            .project-image {
+                height: 260px;
+            }
+
+            .project-content {
+                padding: 25px;
+            }
+
+            .project-content h1 {
+                font-size: 27px;
+            }
+
+            .focus-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @media (max-width: 480px) {
+
+            .project-image {
+                height: 220px;
+            }
+
+            .project-content {
+                padding: 20px;
+            }
+
+            .project-content h1 {
+                font-size: 24px;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                text-align: center;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<div class="page">
+
+    <!-- BACK -->
+
+    <a href="prismlive_explore_page.html" class="back">
+        ← Back
+    </a>
+
+
+    <!-- PROJECT CARD -->
+
+    <div class="project-card">
+
+
+        <!-- PROJECT IMAGE -->
+
+        <div class="project-image">
+
+            <img
+                src="images/inno.jpg"
+                alt="Future Makers Initiative"
+            >
+
+        </div>
+
+
+        <!-- PROJECT CONTENT -->
+
+        <div class="project-content">
+
+
+            <!-- TITLE -->
+
+            <h1>
+                Future Makers Initiative
+            </h1>
+
+            <p class="subtitle">
+                A forward-looking platform empowering innovators,
+                creators and emerging problem-solvers to explore
+                ideas, build solutions and shape a better future.
+            </p>
+
+
+            <hr class="divider">
+
+
+            <!-- ABOUT -->
+
+            <div class="section">
+
+                <h2>
+                    About the Project
+                </h2>
+
+                <p>
+                    The Future Makers Initiative is designed to
+                    connect people with ideas, technology, creativity
+                    and opportunities. It provides an environment
+                    where individuals can explore emerging possibilities
+                    and transform ideas into practical projects.
+                </p>
+
+                <p>
+                    Through collaborative learning, innovation
+                    challenges, workshops and mentorship, the
+                    initiative encourages participants to think
+                    differently, experiment with new approaches and
+                    develop solutions for real-world challenges.
+                </p>
+
+            </div>
+
+
+            <!-- HIGHLIGHT -->
+
+            <div class="highlight">
+
+                <h3>
+                    Build Ideas. Create Solutions. Shape Tomorrow.
+                </h3>
+
+                <p>
+                    Future Makers brings together curious minds,
+                    emerging talent and experienced mentors to create
+                    meaningful ideas for the future.
+                </p>
+
+            </div>
+
+
+            <!-- KEY FOCUS -->
+
+            <div class="section">
+
+                <h2>
+                    Key Focus Areas
+                </h2>
+
+
+                <div class="focus-grid">
+
+
+                    <div class="focus-card">
+
+                        <h3>
+                            Innovation Labs
+                        </h3>
+
+                        <p>
+                            Collaborative spaces for exploring
+                            new ideas, technologies and creative
+                            approaches.
+                        </p>
+
+                    </div>
+
+
+                    <div class="focus-card">
+
+                        <h3>
+                            Future Skills
+                        </h3>
+
+                        <p>
+                            Developing digital, creative,
+                            entrepreneurial and problem-solving
+                            capabilities.
+                        </p>
+
+                    </div>
+
+
+                    <div class="focus-card">
+
+                        <h3>
+                            Idea Development
+                        </h3>
+
+                        <p>
+                            Supporting participants in turning
+                            early concepts into practical projects.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- SECOND ROW -->
+
+            <div class="focus-grid">
+
+
+                <div class="focus-card">
+
+                    <h3>
+                        Technology & AI
+                    </h3>
+
+                    <p>
+                        Exploring emerging technologies and
+                        responsible applications of artificial
+                        intelligence.
+                    </p>
+
+                </div>
+
+
+                <div class="focus-card">
+
+                    <h3>
+                        Mentorship
+                    </h3>
+
+                    <p>
+                        Connecting emerging talent with experienced
+                        professionals and creative mentors.
+                    </p>
+
+                </div>
+
+
+                <div class="focus-card">
+
+                    <h3>
+                        Social Impact
+                    </h3>
+
+                    <p>
+                        Encouraging solutions that create positive
+                        value for communities and society.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+            <hr class="divider">
+
+
+            <!-- TIMELINE -->
+
+            <div class="section">
+
+                <h2>
+                    Project Timeline & Impact
+                </h2>
+
+                <p>
+                    The initiative begins with idea discovery and
+                    skill development, followed by collaborative
+                    workshops, innovation challenges and prototype
+                    development.
+                </p>
+
+                <p>
+                    Future phases can expand into innovation labs,
+                    mentorship networks, community projects and
+                    larger collaborative initiatives.
+                </p>
+
+            </div>
+
+
+            <!-- FUTURE VISION -->
+
+            <div class="section">
+
+                <h2>
+                    Future Vision
+                </h2>
+
+                <p>
+                    The long-term vision is to create a connected
+                    ecosystem where people can discover their
+                    potential, collaborate across disciplines and
+                    contribute ideas that address emerging
+                    opportunities and challenges.
+                </p>
+
+            </div>
+
+
+            <!-- BUTTONS -->
+
+            <div class="buttons">
+
+                <a
+                    href="register.html"
+                    class="btn primary"
+                >
+                    Join This Project
+                </a>
+
+
+                <a
+                    href="projects.html"
+                    class="btn secondary"
+                >
+                    Explore More Projects
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</body>
+</html>

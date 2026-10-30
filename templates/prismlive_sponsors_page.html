@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Prism Live | Project</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --blue: #075bc7;
+            --blue2: #0877e4;
+            --dark-blue: #063d83;
+            --text: #08458b;
+            --muted: #6c7f95;
+            --light: #f5f8fc;
+            --border: #dce5ef;
+            --white: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: var(--light);
+            color: var(--text);
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* =========================================
+           NAVBAR
+        ========================================= */
+
+        .navbar {
+            height: 67px;
+            background: linear-gradient(105deg, #084381, #1976d2);
+            position: relative;
+            z-index: 20;
+        }
+
+        .nav-container {
+            width: 94%;
+            max-width: 1240px;
+            height: 100%;
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            color: white;
+            font-size: 20px;
+            font-weight: 800;
+             letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            transition: 0.25s;
+        }
+
+        .nav-links a:hover {
+            opacity: .7;
+        }
+
+        .get-started {
+            padding: 9px 16px;
+            border: 1px solid rgba(255,255,255,.8);
+            border-radius: 5px;
+        }
+
+        .menu-button {
+            display: none;
+            border: 0;
+            background: transparent;
+            color: white;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+
+        /* =========================================
+           PROJECT HERO
+        ========================================= */
+
+        /* ================= PROJECT HERO ================= */
+
+.project-hero {
+    width: 100%;
+    min-height: 330px;
+
+    margin: 0;
+    padding: 55px 7%;
+
+    background: linear-gradient(
+        100deg,
+        #084381 0%,
+        #1760a5 45%,
+        #1976d2 100%
+        
+    );
+    /* url("images/photos3.avif")
+        center/cover no-repeat; */
+
+    
+
+     color: white;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hero content */
+.project-hero-content {
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.project-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+    color: white;
+}
+
+.project-hero h1 {
+    max-width: 650px;
+
+    font-size: 42px;
+    line-height: 1.12;
+    font-weight: 800;
+
+    margin-bottom: 15px;
+}
+
+.project-hero p {
+    max-width: 560px;
+
+    font-size: 13px;
+    line-height: 1.7;
+
+    color: #e5f2ff;
+
+    margin-bottom: 25px;
+}
+
+.project-btn {
+    display: inline-block;
+
+    padding: 12px 22px;
+
+    background: white;
+    color: #0755aa;
+
+    border-radius: 5px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+ .hero-btn.primary {
+            background: rgb(243, 244, 247);
+            color: var(--blue);
+        }
+       
+
+/* ===============================
+   INTRODUCTION
+================================ */
+
+.intro {
+
+    padding: 55px 35px;
+
+    background: white;
+}
+
+.intro-container {
+
+    max-width: 1050px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 45px;
+
+    align-items: center;
+}
+
+.intro-image {
+
+    width: 100%;
+
+    height: 280px;
+
+    object-fit: cover;
+
+    border-radius: 8px;
+}
+
+.intro-text small {
+
+    color: #0067d8;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.intro-text h2 {
+
+    font-size: 27px;
+
+    margin: 8px 0 15px;
+
+    color: #123b75;
+}
+
+.intro-text p {
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+    color: #596b82;
+
+    margin-bottom: 10px;
+}
+
+
+/* ===============================
+   SPONSOR SECTION
+================================ */
+
+.sponsors {
+
+    padding: 55px 35px;
+
+    background: #f7f9fc;
+}
+
+.section-heading {
+
+    text-align: center;
+
+    margin-bottom: 35px;
+}
+
+.section-heading small {
+
+    color: #0067d8;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.section-heading h2 {
+
+    font-size: 27px;
+
+    color: #123b75;
+
+    margin: 6px 0;
+}
+
+.section-heading p {
+
+    font-size: 12px;
+
+    color: #718096;
+}
+
+
+/* ===============================
+   SPONSOR GRID
+================================ */
+
+.sponsor-grid {
+
+    max-width: 1050px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 15px;
+}
+
+
+/* Sponsor card */
+
+.sponsor-card {
+
+    min-height: 180px;
+
+    background: white;
+
+    border: 1px solid #e1e8f0;
+
+    border-radius: 8px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 20px;
+
+    transition: 0.3s;
+}
+
+.sponsor-card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 12px 30px rgba(0,70,150,0.12);
+
+    border-color: #a9d3fa;
+}
+
+
+/* Sponsor logo */
+
+.sponsor-logo {
+
+    width: 65px;
+
+    height: 65px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0057c8,
+            #3882bb
+        );
+
+    color: white;
+
+    font-size: 20px;
+
+    font-weight: 800;
+
+    margin-bottom: 13px;
+}
+
+.sponsor-card h3 {
+
+    font-size: 14px;
+
+    color: #123b75;
+
+    margin-bottom: 5px;
+}
+
+.sponsor-card p {
+
+    font-size: 10px;
+
+    color: #7b8796;
+}
+
+
+/* ===============================
+   PARTNERSHIP TYPES
+================================ */
+
+.partnership {
+
+    padding: 55px 35px;
+
+    background: white;
+}
+
+.partnership-grid {
+
+    max-width: 1050px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+.partner-box {
+
+    border: 1px solid #e0e8f1;
+
+    border-radius: 8px;
+
+    padding: 25px;
+
+    text-align: center;
+
+    background: #ffffff;
+}
+
+.partner-icon {
+
+    width: 50px;
+
+    height: 50px;
+
+    margin: 0 auto 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #eaf4ff;
+
+    color: #0067d8;
+
+    font-size: 22px;
+}
+
+.partner-box h3 {
+
+    font-size: 15px;
+
+    color: #123b75;
+
+    margin-bottom: 8px;
+}
+
+.partner-box p {
+
+    font-size: 11px;
+
+    line-height: 1.7;
+
+    color: #718096;
+}
+
+
+/* ===============================
+   SPONSOR STATISTICS
+================================ */
+
+.statistics {
+
+    background:
+        linear-gradient(
+            135deg,
+            #0056c7,
+            #006edb
+        );
+
+    color: white;
+
+    padding: 38px 25px;
+}
+
+.statistics-grid {
+
+    max-width: 1050px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+}
+
+.stat {
+
+    text-align: center;
+
+    border-right:
+        1px solid rgba(255,255,255,0.18);
+}
+
+.stat:last-child {
+    border-right: none;
+}
+
+.stat strong {
+
+    display: block;
+
+    font-size: 30px;
+
+    font-weight: 800;
+}
+
+.stat span {
+
+    font-size: 10px;
+
+    color: rgba(255,255,255,0.85);
+}
+
+
+/* ===============================
+   CTA
+================================ */
+
+.cta {
+
+    padding: 55px 25px;
+
+    text-align: center;
+
+    background: #ffffff;
+}
+
+.cta h2 {
+
+    color: #123b75;
+
+    font-size: 28px;
+
+    margin-bottom: 10px;
+}
+
+.cta p {
+
+    max-width: 600px;
+
+    margin: auto auto 20px;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+    color: #718096;
+}
+
+.cta-button {
+
+    display: inline-block;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0057c8,
+            #0079df
+        );
+
+    color: white;
+
+    padding: 11px 24px;
+
+    border-radius: 5px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+.cta-button:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 20px rgba(0,80,180,0.2);
+}
+
+
+/* ===============================
+   FOOTER
+================================ */
+
+ footer {
+            width: 94%;
+            max-width: 1180px;
+
+            margin: 0 auto 20px;
+
+            padding: 20px 30px;
+
+            background: #06346f;
+
+            color: white;
+
+            display: flex;
+            justify-content: space-between;
+
+            border-radius: 0 0 10px 10px;
+        }
+
+        .footer-logo {
+            font-size: 17px;
+            font-weight: 800;
+        }
+
+        .footer-text {
+            color: #c4d6e9;
+            font-size: 8px;
+        }
+
+
+/* ===============================
+   MOBILE
+================================ */
+
+@media (max-width: 850px) {
+
+    .nav-menu {
+        display: none;
+    }
+
+    .navbar {
+        padding: 0 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 36px;
+    }
+
+    .intro-container {
+        grid-template-columns: 1fr;
+    }
+
+    .sponsor-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .partnership-grid {
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .statistics-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 25px;
+    }
+
+    .stat {
+        border-right: none;
+    }
+}
+
+
+@media (max-width: 550px) {
+
+    .hero {
+        min-height: 380px;
+    }
+
+    .hero-content h1 {
+        font-size: 31px;
+    }
+
+    .intro,
+    .sponsors,
+    .partnership {
+        padding: 45px 20px;
+    }
+
+    .sponsor-grid,
+    .partnership-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .statistics-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .intro-image {
+        height: 230px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="website">
+
+
+    <!-- =========================================
+         NAVBAR
+    ========================================= -->
+
+    <header class="navbar">
+
+        <div class="nav-container">
+
+            <a href="#" class="logo">
+                Prism Live
+            </a>
+
+            <nav class="nav-links">
+
+                <a href="{{ url_for('home') }}">Home</a>
+                <a href="{{ url_for('about') }}">about</a>
+
+                <a class="active" href="prismlive_project_page.html"
+                   style="font-weight:700;">
+                    Project
+                </a>
+
+                <a href="prismlive_program_page.html">Programs</a>
+                <a href="prismlive_talent_page.html">Talent</a>
+                <a href="prismlive_workshop_page.html">Workshops</a>
+                <a class="active" href="prismlive_sponsors_page.html">Sponsors</a>
+                <a href="{{ url_for('media') }}">media</a>
+                <a href="{{ url_for('contact') }}">contact</a>
+
+                <!-- <a href="#" class="get-started">
+                    Get Started
+                </a> -->
+
+            </nav>
+
+            <button
+                class="menu-button"
+                onclick="toggleMenu()">
+
+                ☰
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================
+         HERO
+    ========================================= -->
+
+    <section class="project-hero">
+
+        <div class="hero-content">
+
+            <div class="hero-label">
+                Prism Live Sponsors
+            </div>
+
+            <h1 class="hero-title">
+                Powering Creative <br>
+                Ideas Into Reality
+            </h1>
+
+            <p class="hero-text">
+                Our sponsors play a vital role in transforming creative ideas into meaningful experiences. Together, we support emerging talent, innovative projects, inspiring programs and opportunities that create a lasting impact.
+            </p>
+
+            <a href="prismlive_sponsors_info_page.html" class="project-btn">
+         more Details
+</a>
+
+        </div>
+
+    </section>
+
+
+<!-- =========================================
+     INTRO
+========================================= -->
+
+<section class="intro">
+
+    <div class="intro-container">
+
+        <img
+            src="images/photos1.avif"
+            alt="Prism Live Partnership"
+            class="intro-image"
+        >
+
+        <div class="intro-text">
+
+            <small>
+                OUR PARTNERS
+            </small>
+
+            <h2>
+                Building Stronger Partnerships
+            </h2>
+
+            <p>
+                Prism Live brings together creative people,
+                organizations and businesses to create meaningful
+                opportunities.
+            </p>
+
+            <p>
+                Our sponsors help us develop projects, programs,
+                workshops and community initiatives.
+            </p>
+
+            <p>
+                Together we can transform ideas into practical
+                opportunities and sustainable impact.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     SPONSORS
+========================================= -->
+
+<section class="sponsors">
+
+    <div class="section-heading">
+
+        <small>
+            OUR SUPPORTERS
+        </small>
+
+        <h2>
+            Our Sponsors &amp; Partners
+        </h2>
+
+        <p>
+            Organizations supporting the Prism Live ecosystem.
+        </p>
+
+    </div>
+
+
+    <div class="sponsor-grid">
+
+
+        <div class="sponsor-card">
+
+            <div class="sponsor-logo">
+                PS
+            </div>
+
+            <h3>
+                Prime Solutions
+            </h3>
+
+            <p>
+                Strategic Partner
+            </p>
+
+        </div>
+
+
+        <div class="sponsor-card">
+
+            <div class="sponsor-logo">
+                AI
+            </div>
+
+            <h3>
+                Apex Innovations
+            </h3>
+
+            <p>
+                Technology Partner
+            </p>
+
+        </div>
+
+
+        <div class="sponsor-card">
+
+            <div class="sponsor-logo">
+                GC
+            </div>
+
+            <h3>
+                Global Connect
+            </h3>
+
+            <p>
+                Community Partner
+            </p>
+
+        </div>
+
+
+        <div class="sponsor-card">
+
+            <div class="sponsor-logo">
+                NS
+            </div>
+
+            <h3>
+                Nova Systems
+            </h3>
+
+            <p>
+                Digital Partner
+            </p>
+
+        </div>
+
+
+        <div class="sponsor-card">
+
+            <div class="sponsor-logo">
+                EC
+            </div>
+
+            <h3>
+                Eco Connect
+            </h3>
+
+            <p>
+                Sustainability Partner
+            </p>
+
+        </div>
+
+
+        <div class="sponsor-card">
+
+            <div class="sponsor-logo">
+                FC
+            </div>
+
+            <h3>
+                Future Core
+            </h3>
+
+            <p>
+                Innovation Partner
+            </p>
+
+        </div>
+
+
+        <div class="sponsor-card">
+
+            <div class="sponsor-logo">
+                BC
+            </div>
+
+            <h3>
+                Bright Capital
+            </h3>
+
+            <p>
+                Financial Partner
+            </p>
+
+        </div>
+
+
+        <div class="sponsor-card">
+
+            <div class="sponsor-logo">
+                HG
+            </div>
+
+            <h3>
+                Horizon Group
+            </h3>
+
+            <p>
+                Corporate Partner
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     PARTNERSHIP TYPES
+========================================= -->
+
+<section class="partnership">
+
+    <div class="section-heading">
+
+        <small>
+            PARTNERSHIP OPPORTUNITIES
+        </small>
+
+        <h2>
+            Work With Prism Live
+        </h2>
+
+        <p>
+            Different ways organizations can participate
+            in the Prism Live ecosystem.
+        </p>
+
+    </div>
+
+
+    <div class="partnership-grid">
+
+
+        <div class="partner-box">
+
+            <div class="partner-icon">
+                ★
+            </div>
+
+            <h3>
+                Strategic Sponsor
+            </h3>
+
+            <p>
+                Support long-term programs, projects and
+                strategic initiatives of Prism Live.
+            </p>
+
+        </div>
+
+
+        <div class="partner-box">
+
+            <div class="partner-icon">
+                ◆
+            </div>
+
+            <h3>
+                Program Sponsor
+            </h3>
+
+            <p>
+                Sponsor specific programs, workshops,
+                competitions and creative activities.
+            </p>
+
+        </div>
+
+
+        <div class="partner-box">
+
+            <div class="partner-icon">
+                ♡
+            </div>
+
+            <h3>
+                Community Partner
+            </h3>
+
+            <p>
+                Support community development and
+                social impact initiatives.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     STATISTICS
+========================================= -->
+
+<section class="statistics">
+
+    <div class="statistics-grid">
+
+
+        <div class="stat">
+
+            <strong>
+                25+
+            </strong>
+
+            <span>
+                Partner Organizations
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <strong>
+                50+
+            </strong>
+
+            <span>
+                Supported Programs
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <strong>
+                100+
+            </strong>
+
+            <span>
+                Collaborative Projects
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <strong>
+                20+
+            </strong>
+
+            <span>
+                Communities Reached
+            </span>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     CTA
+========================================= -->
+
+<section class="cta">
+
+    <h2>
+        Become a Prism Live Sponsor
+    </h2>
+
+    <p>
+        Join our growing network of partners and support
+        creative, professional and community-focused
+        initiatives through meaningful collaboration.
+    </p>
+
+    <a
+        href="contact.html"
+        class="cta-button"
+    >
+        Become a Sponsor
+    </a>
+
+</section>
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+ <footer>
+
+        <div class="footer-logo">
+            Prism Live
+        </div>
+
+        <div class="footer-text">
+            © Prism Live. All Rights Reserved.
+        </div>
+
+    </footer>
+
+
+
+</div>
+
+</body>
+</html>

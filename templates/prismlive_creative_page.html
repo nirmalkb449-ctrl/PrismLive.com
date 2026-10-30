@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Community Hub - Project Details</title>
+    <!-- Google Fonts for Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f7fb; /* Matches your explore page background */
+            color: #334155;
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Back Link */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: #0284c7;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: #0369a1;
+        }
+
+        /* Main Card Container */
+        .details-card {
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        /* Hero Image */
+        .details-hero {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .details-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Badge */
+        .badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #0284c7;
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 6px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Content Body */
+        .details-body {
+            padding: 40px;
+        }
+
+        .details-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 16px;
+        }
+
+        .details-subtitle {
+            font-size: 1.125rem;
+            color: #64748b;
+            margin-bottom: 30px;
+        }
+
+        /* Section Styling */
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-top: 30px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            margin-bottom: 16px;
+            color: #475569;
+        }
+
+        /* Highlights Grid */
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .highlight-item {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .highlight-item h4 {
+            font-size: 1rem;
+            color: #1e293b;
+            margin-bottom: 6px;
+        }
+
+        .highlight-item p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+            color: #64748b;
+        }
+
+        /* Action Buttons */
+        .action-container {
+            margin-top: 40px;
+            display: flex;
+            gap: 16px;
+        }
+
+        .btn-primary {
+            background-color: #0284c7;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #0369a1;
+        }
+
+        .btn-secondary {
+            background-color: #e2e8f0;
+            color: #334155;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-secondary:hover {
+            background-color: #cbd5e1;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .details-body {
+                padding: 20px;
+            }
+            .details-title {
+                font-size: 1.75rem;
+            }
+            .details-hero {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Back navigation matching explore page theme -->
+        <a href="prismlive_explore_page.html" class="back-link">← Back </a>
+
+        <div class="details-card">
+            <!-- Hero Image and Badge -->
+            <div class="details-hero">
+                <!-- <span class="badge">Creative</span> -->
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" alt="Creative Community Hub Workspace">
+            </div>
+
+            <!-- Content Area -->
+            <div class="details-body">
+                <h1 class="details-title">Creative Community Hub</h1>
+                <p class="details-subtitle">A collaborative initiative connecting artists, creators and professionals through shared experiences.</p>
+
+                <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 24px 0;">
+
+                <h3 class="section-title">About the Project</h3>
+                <p>The Creative Community Hub was built to bridge the gap between independent creators, local artists, and digital professionals. By providing an open environment for shared brainstorming, resource pooling, and collaborative workshops, we foster organic growth and cross-disciplinary art forms.</p>
+                <p>Whether you're looking for feedback on a design system, a co-founder for a multimedia project, or simply a space to network with like-minded individuals, this ecosystem serves as your launchpad.</p>
+
+                <h3 class="section-title">Key Focus Areas</h3>
+                <div class="highlights-grid">
+                    <div class="highlight-item">
+                        <h4>Cross-Disciplinary Art</h4>
+                        <p>Merging traditional visual arts with modern digital workflows and UI/UX design concepts.</p>
+                    </div>
+                    <div class="highlight-item">
+                        <h4>Shared Workspaces</h4>
+                        <p>Physical and virtual environments equipped with the latest collaborative tools.</p>
+                    </div>
+                    <div class="highlight-item">
+                        <h4>Mentorship Sessions</h4>
+                        <p>Regular guided sessions hosted by industry veterans and creative directors.</p>
+                    </div>
+                </div>
+
+                <h3 class="section-title">Project Timeline & Impact</h3>
+                <p>Since its inception, the hub has successfully launched over 45 community-driven art installations, digital toolkits, and collaborative portfolios. Phase two introduces remote collaboration pods and global virtual galleries.</p>
+
+                <div class="action-container">
+                    <a href="#" class="btn-primary">Join This Project</a>
+                    <a href="#" class="btn-secondary">Download Overview PDF</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

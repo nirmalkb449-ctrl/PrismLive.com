@@ -1,0 +1,2005 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Prism Live | Projects</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+<style>
+
+/* ===============================
+   RESET
+================================ */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Poppins",sans-serif;
+    background:#f4f6fa;
+    color:#1d4776;
+}
+
+a{
+    text-decoration:none;
+}
+
+
+/* ===============================
+   NAVBAR
+================================ */
+
+.navbar{
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    height:70px;
+
+    padding:0 5%;
+
+    display:flex;
+
+    align-items:center;
+
+    z-index:100;
+
+    background:
+    linear-gradient(
+        180deg,
+        rgba(8,50,100,.45),
+        transparent
+    );
+}
+
+
+.logo{
+
+    color:#ffffff;
+
+    font-size:21px;
+
+    font-weight:800;
+
+    letter-spacing:.3px;
+
+    margin-right:auto;
+}
+
+
+.nav-menu{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+}
+
+
+.nav-menu a{
+
+    color:#ffffff;
+
+    font-size:11px;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+
+.nav-menu a:hover,
+.nav-menu .active{
+
+    color:#9edcff;
+}
+
+
+.get-started{
+
+    border:1px solid
+    rgba(255,255,255,.65);
+
+    padding:10px 18px;
+
+    border-radius:5px;
+}
+
+
+.get-started:hover{
+
+    background:#ffffff;
+
+    color:#1268bd !important;
+}
+
+
+/* ===============================
+   PROJECT HERO
+================================ */
+
+.project-hero{
+
+    min-height:560px;
+
+    display:flex;
+
+    align-items:center;
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:120px 5% 70px;
+
+    background:
+
+    linear-gradient(
+        90deg,
+        rgba(7,48,105,.96),
+        rgba(10,91,180,.82),
+        rgba(10, 77, 172, 0.62)
+    ),
+
+    url("images/project-banner.jpg")
+    center/cover no-repeat;
+}
+
+
+/* EXTRA BLUE GLOW */
+
+.project-hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    radial-gradient(
+        circle at 75% 40%,
+        rgba(45,148,255,.22),
+        transparent 45%
+    );
+}
+
+
+.hero-content{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:700px;
+}
+
+
+.hero-small{
+
+    display:block;
+
+    color:#b9e4ff;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:4px;
+
+    margin-bottom:20px;
+}
+
+
+.hero-content h1{
+
+    color:#ffffff;
+
+    font-size:62px;
+
+    font-weight:800;
+
+    line-height:1.08;
+
+    margin-bottom:22px;
+}
+
+
+.hero-content h1 span{
+
+    display:block;
+}
+
+
+.hero-content p{
+
+    max-width:650px;
+
+    color:rgba(255,255,255,.88);
+
+    font-size:13px;
+
+    line-height:1.9;
+
+    margin-bottom:28px;
+}
+
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:15px;
+}
+
+
+.btn-primary{
+
+    background:#ffffff;
+
+    color:#17589b;
+
+    padding:13px 25px;
+
+    border-radius:5px;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    transition:.3s;
+}
+
+
+.btn-primary:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 12px 30px
+    rgba(0,0,0,.2);
+}
+
+
+.btn-outline{
+
+    color:#ffffff;
+
+    border:1px solid
+    rgba(255,255,255,.7);
+
+    padding:13px 25px;
+
+    border-radius:5px;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    transition:.3s;
+}
+
+
+.btn-outline:hover{
+
+    background:#ffffff;
+
+    color:#17589b;
+}
+
+
+/* ===============================
+   INTRODUCTION
+================================ */
+
+.project-intro{
+
+    padding:75px 8%;
+
+    text-align:center;
+
+    background:#ffffff;
+}
+
+
+.section-small{
+
+    display:block;
+
+    color:#2876bc;
+
+    font-size:10px;
+
+    font-weight:700;
+
+    letter-spacing:4px;
+
+    margin-bottom:12px;
+}
+
+
+.section-title{
+
+    color:#244d7c;
+
+    font-size:34px;
+
+    font-weight:800;
+
+    margin-bottom:15px;
+}
+
+
+.section-description{
+
+    max-width:800px;
+
+    margin:auto;
+
+    color:#758398;
+
+    font-size:12px;
+
+    line-height:1.9;
+}
+
+
+/* ===============================
+   PROJECT FILTER
+================================ */
+
+.project-section{
+
+    padding:70px 8%;
+
+    background:#f3f6fa;
+}
+
+
+.project-filter{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin:35px 0 45px;
+}
+
+
+.filter-btn{
+
+    padding:10px 20px;
+
+    border:1px solid #dce6f0;
+
+    background:#ffffff;
+
+    color:#426180;
+
+    border-radius:4px;
+
+    font-size:11px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+
+.filter-btn:hover,
+.filter-btn.active{
+
+    background:#126bc6;
+
+    color:#ffffff;
+
+    border-color:#126bc6;
+}
+
+
+/* ===============================
+   PROJECT CARDS
+================================ */
+
+.project-grid{
+
+    max-width:1150px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:25px;
+}
+
+
+.project-card{
+
+    background:#ffffff;
+
+    border-radius:8px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 10px 30px
+    rgba(12,67,125,.08);
+
+    transition:.35s;
+}
+
+
+.project-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+    0 20px 45px
+    rgba(12,67,125,.16);
+}
+
+
+.project-image{
+
+    height:230px;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+
+.project-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.5s;
+}
+
+
+.project-card:hover
+.project-image img{
+
+    transform:scale(1.08);
+}
+
+
+.project-category{
+
+    position:absolute;
+
+    top:15px;
+
+    left:15px;
+
+    background:#126bc6;
+
+    color:#ffffff;
+
+    padding:6px 13px;
+
+    border-radius:3px;
+
+    font-size:9px;
+
+    font-weight:700;
+
+    letter-spacing:.5px;
+}
+
+
+.project-info{
+
+    padding:23px;
+}
+
+
+.project-info h3{
+
+    color:#244d7c;
+
+    font-size:17px;
+
+    margin-bottom:8px;
+}
+
+
+.project-info p{
+
+    color:#778599;
+
+    font-size:11px;
+
+    line-height:1.8;
+
+    margin-bottom:18px;
+}
+
+
+.project-link{
+
+    color:#1474d1;
+
+    font-size:11px;
+
+    font-weight:700;
+}
+
+
+.project-link:hover{
+
+    color:#073f82;
+}
+
+
+/* ===============================
+   FEATURED PROJECT
+================================ */
+
+.featured-project{
+
+    padding:85px 8%;
+
+    background:#ffffff;
+}
+
+
+.featured-container{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:60px;
+
+    align-items:center;
+}
+
+
+.featured-image{
+
+    position:relative;
+}
+
+
+.featured-image img{
+
+    width:100%;
+
+    height:400px;
+
+    object-fit:cover;
+
+    border-radius:8px;
+}
+
+
+.project-badge{
+
+    position:absolute;
+
+    bottom:-25px;
+
+    right:-20px;
+
+    background:#126bc6;
+
+    color:#ffffff;
+
+    padding:25px 30px;
+
+    border-radius:7px;
+
+    text-align:center;
+
+    box-shadow:
+    0 12px 30px
+    rgba(0,80,170,.2);
+}
+
+
+.project-badge h3{
+
+    font-size:28px;
+}
+
+
+.project-badge p{
+
+    font-size:10px;
+
+    margin-top:4px;
+}
+
+
+.featured-content h2{
+
+    color:#244d7c;
+
+    font-size:36px;
+
+    line-height:1.25;
+
+    margin-bottom:18px;
+}
+
+
+.featured-content p{
+
+    color:#758398;
+
+    font-size:12px;
+
+    line-height:1.9;
+
+    margin-bottom:25px;
+}
+
+
+.project-points{
+
+    list-style:none;
+
+    margin-bottom:28px;
+}
+
+
+.project-points li{
+
+    padding:10px 0;
+
+    border-bottom:
+    1px solid #e5ebf2;
+
+    color:#3e5d7d;
+
+    font-size:12px;
+}
+
+
+.project-points li::before{
+
+    content:"✓";
+
+    color:#1474d1;
+
+    font-weight:800;
+
+    margin-right:10px;
+}
+
+
+/* ===============================
+   PROJECT PROCESS
+================================ */
+
+.process-section{
+
+    padding:80px 8%;
+
+    background:
+    linear-gradient(
+        135deg,
+        #063e80,
+        #0874d6
+    );
+
+    color:#ffffff;
+
+    text-align:center;
+}
+
+
+.process-section
+.section-small{
+
+    color:#b9e6ff;
+}
+
+
+.process-section
+.section-title{
+
+    color:#ffffff;
+}
+
+
+.process-grid{
+
+    max-width:1100px;
+
+    margin:50px auto 0;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:25px;
+}
+
+
+.process-card{
+
+    padding:20px;
+}
+
+
+.process-number{
+
+    width:58px;
+
+    height:58px;
+
+    margin:0 auto 18px;
+
+    border:1px solid
+    rgba(255,255,255,.4);
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:18px;
+
+    font-weight:800;
+}
+
+
+.process-card h3{
+
+    font-size:15px;
+
+    margin-bottom:10px;
+}
+
+
+.process-card p{
+
+    color:
+    rgba(255,255,255,.8);
+
+    font-size:11px;
+
+    line-height:1.8;
+}
+
+
+/* ===============================
+   STATISTICS
+================================ */
+
+.statistics{
+
+    padding:50px 8%;
+
+    background:#ffffff;
+}
+
+
+.stats-grid{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+}
+
+
+.stat{
+
+    text-align:center;
+
+    padding:10px;
+
+    border-right:
+    1px solid #e2e9f1;
+}
+
+
+.stat:last-child{
+
+    border-right:none;
+}
+
+
+.stat h3{
+
+    color:#126bc6;
+
+    font-size:32px;
+
+    font-weight:800;
+}
+
+
+.stat p{
+
+    color:#778599;
+
+    font-size:11px;
+
+    margin-top:5px;
+}
+
+
+/* ===============================
+   CTA
+================================ */
+
+.project-cta{
+
+    padding:90px 20px;
+
+    text-align:center;
+
+    position:relative;
+
+    overflow:hidden;
+
+    color:#ffffff;
+
+    background:
+
+    linear-gradient(
+        rgba(5,53,117,.94),
+        rgba(5,100,196,.88)
+    ),
+
+    url("images/project-cta.jpg")
+    center/cover no-repeat;
+}
+
+
+.project-cta h2{
+
+    font-size:40px;
+
+    font-weight:800;
+
+    margin-bottom:15px;
+}
+
+
+.project-cta p{
+
+    max-width:650px;
+
+    margin:
+    0 auto 28px;
+
+    color:
+    rgba(255,255,255,.88);
+
+    font-size:13px;
+
+    line-height:1.8;
+}
+
+
+.cta-button{
+
+    display:inline-block;
+
+    background:#ffffff;
+
+    color:#126bc6;
+
+    padding:14px 28px;
+
+    border-radius:5px;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    transition:.3s;
+}
+
+
+.cta-button:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 12px 30px
+    rgba(0,0,0,.2);
+}
+
+/* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+            width: 94%;
+            max-width: 1180px;
+
+            margin: 0 auto 20px;
+
+            padding: 20px 30px;
+
+            background: #06346f;
+
+            color: white;
+
+            display: flex;
+            justify-content: space-between;
+
+            border-radius: 0 0 10px 10px;
+        }
+
+        .footer-logo {
+            font-size: 17px;
+            font-weight: 800;
+        }
+
+        .footer-text {
+            color: #c4d6e9;
+            font-size: 8px;
+        }
+
+
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media(max-width:1000px){
+
+    .nav-menu{
+        display:none;
+    }
+
+    .hero-content h1{
+        font-size:52px;
+    }
+
+    .project-grid{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .featured-container{
+        grid-template-columns:1fr;
+    }
+
+    .process-grid{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+}
+
+
+@media(max-width:600px){
+
+    .navbar{
+        padding:0 7%;
+    }
+
+    .project-hero{
+        min-height:560px;
+        padding:120px 7% 70px;
+    }
+
+    .hero-content h1{
+        font-size:42px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .project-grid{
+        grid-template-columns:1fr;
+    }
+
+    .process-grid{
+        grid-template-columns:1fr;
+    }
+
+    .stats-grid{
+        grid-template-columns:
+        repeat(2,1fr);
+
+        gap:25px;
+    }
+
+    .stat{
+        border:none;
+    }
+
+    .section-title{
+        font-size:27px;
+    }
+
+    .featured-content h2{
+        font-size:29px;
+    }
+
+    .project-cta h2{
+        font-size:30px;
+    }
+
+    .project-badge{
+        right:10px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ===============================
+     NAVBAR
+================================ -->
+
+<header class="navbar">
+
+    <a href="index.html"
+       class="logo">
+
+        Prism Live
+
+    </a>
+
+
+    <nav class="nav-menu">
+<!-- 
+      <a href="{{ url_for('home') }}">Home</a>
+                <a href="{{ url_for('about') }}">about</a>
+                <a href="prismlive_project_page.html">Project</a>
+                <a href="prismlive_program_page.html">Programs</a>
+                <a href="prismlive_talent_page.html">Talent</a>
+                <a href="prismlive_workshop_page.html">Workshops</a>
+                <a href="prismlive_sponsors_page.html">Sponsors</a>
+                <a href="{{ url_for('media') }}">media</a>
+
+                <a class="active" href="prismlive_contact_page.html"
+                   style="font-weight:700;">
+                    Contact
+                </a> -->
+
+    </nav>
+
+</header>
+
+
+
+<!-- ===============================
+     HERO SECTION
+================================ -->
+
+<section class="project-hero">
+
+    <div class="hero-content">
+
+        <span class="hero-small">
+
+            PRISM LIVE PROJECTS
+
+        </span>
+
+
+        <h1>
+
+            <span>Ideas.</span>
+
+            <span>Innovation.</span>
+
+            <span>Impact.</span>
+
+        </h1>
+
+
+        <p>
+
+            Explore meaningful projects that connect
+            creativity, technology, talent and communities.
+            Prism Live transforms ideas into experiences
+            that inspire collaboration and create real-world
+            impact.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a href="#projects"
+               class="btn-primary">
+
+
+                Explore Projects
+
+            </a>
+
+<!-- 
+            <a href="#featured"
+               class="btn-outline">
+
+                Featured Project
+
+            </a> -->
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===============================
+     INTRODUCTION
+================================ -->
+
+<section class="project-intro">
+
+    <span class="section-small">
+
+        CREATE • CONNECT • IMPACT
+
+    </span>
+
+
+    <h2 class="section-title">
+
+        Projects That Turn Ideas Into Action
+
+    </h2>
+
+
+    <p class="section-description">
+
+        Prism Live brings together creative minds,
+        professionals and communities to develop projects
+        that encourage innovation, collaboration and
+        sustainable growth.
+
+    </p>
+
+</section>
+
+
+
+<!-- ===============================
+     PROJECT EXPLORE
+================================ -->
+
+<section class="project-section"
+         id="projects">
+
+
+    <div style="text-align:center;">
+
+        <span class="section-small">
+
+            EXPLORE PROJECTS
+
+        </span>
+
+
+        <h2 class="section-title">
+
+            Discover What We Create
+
+        </h2>
+
+
+        <p class="section-description">
+
+            Explore projects across creativity,
+            technology, education and community development.
+
+        </p>
+
+    </div>
+
+
+
+    <!-- FILTER BUTTONS -->
+
+    <div class="project-filter">
+
+        <a class="filter-btn active">
+            All Projects
+        </a>
+
+        <a href="prismlive_creative_page.html" class="filter-btn">
+            Creative
+        </a>
+
+        <a href="prismlive_tech_page.html" class="filter-btn">
+            Technology
+        </a>
+
+        <a href="prismlive_com_page.html" class="filter-btn">
+            Community
+        </a>
+
+        <a href="prismlive_edu_page.html" class="filter-btn">
+            Education
+        </a>
+
+    </div>
+
+
+
+    <!-- PROJECT CARDS -->
+
+    <div class="project-grid">
+
+
+        <!-- PROJECT 1 -->
+
+        <div class="project-card">
+
+            <div class="project-image">
+
+                <img
+                src="images/creative.png"
+                alt="Creative Project">
+
+
+                <span class="project-category">
+
+                    CREATIVE
+
+                </span>
+
+            </div>
+
+
+            <div class="project-info">
+
+                <h3>
+
+                    Creative Community Hub
+
+                </h3>
+
+
+                <p>
+
+                    A collaborative initiative connecting
+                    artists, creators and professionals
+                    through shared experiences.
+
+                </p>
+
+
+                <a href="prismlive_creative_page.html"
+                   class="project-link">
+
+                    Explore Project →
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PROJECT 2 -->
+
+        <div class="project-card">
+
+            <div class="project-image">
+
+                <img
+                src="images/tech.png"
+                alt="Digital Innovation">
+
+
+                <span class="project-category">
+
+                    TECHNOLOGY
+
+                </span>
+
+            </div>
+
+
+            <div class="project-info">
+
+                <h3>
+
+                    Digital Innovation Lab
+
+                </h3>
+
+
+                <p>
+
+                    Exploring technology, digital creativity
+                    and innovative ideas for a changing world.
+
+                </p>
+
+
+                <a href="prismlive_tech_page.html"
+                   class="project-link">
+
+                    Explore Project →
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PROJECT 3 -->
+
+        <div class="project-card">
+
+            <div class="project-image">
+
+                <img
+                src="images/talent02.jpg"
+                alt="Talent Development">
+
+
+                <span class="project-category">
+
+                    TALENT
+
+                </span>
+
+            </div>
+
+
+            <div class="project-info">
+
+                <h3>
+
+                    Talent Development Program
+
+                </h3>
+
+
+                <p>
+
+                    Helping individuals discover their
+                    strengths and develop skills for
+                    future opportunities.
+
+                </p>
+
+
+                <a href="prismlive_talent_info_page.html"
+                   class="project-link">
+
+                    Explore Project →
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PROJECT 4 -->
+
+        <div class="project-card">
+
+            <div class="project-image">
+
+                <img
+                src="images/community.jpg"
+                alt="Community Project">
+
+
+                <span class="project-category">
+
+                    COMMUNITY
+
+                </span>
+
+            </div>
+
+
+            <div class="project-info">
+
+                <h3>
+
+                    Community Connect
+
+                </h3>
+
+
+                <p>
+
+                    Building stronger communities through
+                    collaboration, participation and
+                    creative engagement.
+
+                </p>
+
+
+                <a href="prismlive_com_page.html"
+                   class="project-link">
+
+                    Explore Project →
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PROJECT 5 -->
+
+        <div class="project-card">
+
+            <div class="project-image">
+
+                <img
+                src="images/work.webp"
+                alt="Workshop Project">
+
+
+                <span class="project-category">
+
+                    EDUCATION
+
+                </span>
+
+            </div>
+
+
+            <div class="project-info">
+
+                <h3>
+
+                    Learning & Workshops
+
+                </h3>
+
+
+                <p>
+
+                    Practical learning experiences designed
+                    to inspire creativity, knowledge and
+                    professional development.
+
+                </p>
+
+
+                <a href="prismlive_edu_page.html"
+                   class="project-link">
+
+                    Explore Project →
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PROJECT 6 -->
+
+        <div class="project-card">
+
+            <div class="project-image">
+
+                <img
+                src="images/inno.jpg"
+                alt="Future Innovation">
+
+
+                <span class="project-category">
+
+                    INNOVATION
+
+                </span>
+
+            </div>
+
+
+            <div class="project-info">
+
+                <h3>
+
+                    Future Makers Initiative
+
+                </h3>
+
+
+                <p>
+
+                    A platform for exploring new ideas,
+                    building solutions and creating a
+                    positive future.
+
+                </p>
+
+
+                <a href="prismlive_innovation_page.html"
+                   class="project-link">
+
+                    Explore Project →
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ===============================
+     FEATURED PROJECT
+================================ -->
+
+<section class="featured-project"
+         id="featured">
+
+
+    <div class="featured-container">
+
+
+        <div class="featured-image">
+
+            <img
+            src="images/featured-project.jpg"
+            alt="Featured Project">
+
+
+            <div class="project-badge">
+
+                <h3>
+
+                    24+
+
+                </h3>
+
+                <p>
+
+                    Active Projects
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="featured-content">
+
+            <span class="section-small">
+
+                FEATURED INITIATIVE
+
+            </span>
+
+
+            <h2>
+
+                Building Creative Solutions Together
+
+            </h2>
+
+
+            <p>
+
+                Our projects are designed to create
+                opportunities for people to connect,
+                collaborate and transform ideas into
+                meaningful experiences.
+
+            </p>
+
+
+            <ul class="project-points">
+
+                <li>
+                    Creative Collaboration
+                </li>
+
+                <li>
+                    Professional Mentorship
+                </li>
+
+                <li>
+                    Real-World Experiences
+                </li>
+
+                <li>
+                    Community Participation
+                </li>
+
+            </ul>
+
+
+            <a href="#"
+               class="btn-primary">
+
+                View Project Details
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ===============================
+     PROJECT PROCESS
+================================ -->
+
+<section class="process-section">
+
+
+    <span class="section-small">
+
+        HOW WE WORK
+
+    </span>
+
+
+    <h2 class="section-title">
+
+        From Vision to Impact
+
+    </h2>
+
+
+    <div class="process-grid">
+
+
+        <div class="process-card">
+
+            <div class="process-number">
+
+                01
+
+            </div>
+
+
+            <h3>
+
+                Discover
+
+            </h3>
+
+
+            <p>
+
+                Identify ideas, opportunities
+                and challenges.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="process-card">
+
+            <div class="process-number">
+
+                02
+
+            </div>
+
+
+            <h3>
+
+                Develop
+
+            </h3>
+
+
+            <p>
+
+                Build skills, concepts
+                and practical solutions.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="process-card">
+
+            <div class="process-number">
+
+                03
+
+            </div>
+
+
+            <h3>
+
+                Collaborate
+
+            </h3>
+
+
+            <p>
+
+                Connect people, talent
+                and professional expertise.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="process-card">
+
+            <div class="process-number">
+
+                04
+
+            </div>
+
+
+            <h3>
+
+                Create Impact
+
+            </h3>
+
+
+            <p>
+
+                Transform ideas into
+                meaningful results.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ===============================
+     STATISTICS
+================================ -->
+
+<section class="statistics">
+
+
+    <div class="stats-grid">
+
+
+        <div class="stat">
+
+            <h3>
+
+                24+
+
+            </h3>
+
+            <p>
+
+                Projects
+
+            </p>
+
+        </div>
+
+
+        <div class="stat">
+
+            <h3>
+
+                100+
+
+            </h3>
+
+            <p>
+
+                Participants
+
+            </p>
+
+        </div>
+
+
+        <div class="stat">
+
+            <h3>
+
+                50+
+
+            </h3>
+
+            <p>
+
+                Collaborators
+
+            </p>
+
+        </div>
+
+
+        <div class="stat">
+
+            <h3>
+
+                10+
+
+            </h3>
+
+            <p>
+
+                Communities
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ===============================
+     CALL TO ACTION
+================================ -->
+
+<section class="project-cta">
+
+
+    <h2>
+
+        Have an Idea Worth Creating?
+
+    </h2>
+
+
+    <p>
+
+        Join Prism Live and collaborate with creative
+        people, professionals and communities to transform
+        your ideas into meaningful projects.
+
+    </p>
+
+
+    <a href="contact.html"
+       class="cta-button">
+
+        Start a Project
+
+    </a>
+
+
+</section>
+
+
+ <!-- =========================================
+         FOOTER
+    ========================================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+            Prism Live
+        </div>
+
+        <div class="footer-text">
+            © Prism Live. All Rights Reserved.
+        </div>
+
+    </footer>
+
+
+
+<!-- ===============================
+     SIMPLE FILTER EFFECT
+================================ -->
+
+<script>
+
+const buttons =
+document.querySelectorAll(".filter-btn");
+
+
+buttons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        buttons.forEach(btn => {
+
+            btn.classList.remove("active");
+
+        });
+
+
+        button.classList.add("active");
+
+    });
+
+});
+
+</script>
+
+
+</body>
+
+</html>

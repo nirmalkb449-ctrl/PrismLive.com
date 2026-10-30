@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prism Live - Workshops</title>
+  <style>
+    :root {
+      --primary-blue: #0A66C2;
+      --deep-navy: #0B1D3A;
+      --accent-gradient: linear-gradient(135deg, #1b4965 0%, #0971b6 100%);
+      --bg-light: #f8fafc;
+      --card-bg: #ffffff;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+      --border-color: #e2e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    /* Navigation */
+    .navbar {
+            height: 67px;
+            background: linear-gradient(105deg, #084381, #0877e4);
+            position: relative;
+            z-index: 20;
+        }
+
+        .nav-container {
+            width: 94%;
+            max-width: 1240px;
+            height: 100%;
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            color: white;
+            font-size: 20px;
+            font-weight: 800;
+             letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            transition: 0.25s;
+        }
+
+        .nav-links a:hover {
+            opacity: .7;
+        }
+
+        .get-started {
+            padding: 9px 16px;
+            border: 1px solid rgba(255,255,255,.8);
+            border-radius: 5px;
+        }
+
+        .menu-button {
+            display: none;
+            border: 0;
+            background: transparent;
+            color: white;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+
+
+    /* Hero Section (Matching Program Page Style) */
+    .hero {
+      background: linear-gradient(135deg, rgb(104, 160, 235) 0%, rgb(226, 234, 245) 100%);
+      color: rgb(29, 85, 168);
+      padding: 6rem 2rem 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-tag {
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: rgba(31, 93, 173, 0.85);
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #2059a3;
+      margin-bottom: 1.5rem;
+      line-height: 1.15;
+    }
+
+    .hero p {
+      font-size: 1.125rem;
+      color: rgba(43, 99, 145, 0.9);
+      margin-bottom: 2rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: #ffffff;
+      color: #0f4c81;
+      padding: 0.85rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+
+    /* Section Header */
+    .section-header {
+      text-align: center;
+      padding: 5rem 2rem 3rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .section-header .sub-tag {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #0077b6;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .section-header h2 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    /* Workshop Containers Grid */
+    .workshops-container {
+      max-width: 1200px;
+      margin: 0 auto 6rem;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .workshop-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10.3px 30px -10px rgba(10, 37, 64, 0.08), 0 4px 6px -2px rgba(10, 37, 64, 0.03);
+      border: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .workshop-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px -15px rgba(10, 37, 64, 0.15);
+    }
+
+    .media-container {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      background: #0f172a;
+      overflow: hidden;
+    }
+
+    .media-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .workshop-card:hover .media-container img {
+      transform: scale(1.03);
+    }
+
+    .media-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: none; /* toggled via js or tab switcher if needed, or embedded clean */
+    }
+
+    .media-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(4px);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.35rem 0.85rem;
+      border-radius: 50px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .media-toggle-btns {
+      position: absolute;
+      bottom: 0.75rem;
+      right: 0.75rem;
+      display: flex;
+      gap: 0.5rem;
+      z-index: 10;
+    }
+
+    .toggle-btn {
+      background: rgba(255, 255, 255, 0.9);
+      color: #0f172a;
+      border: none;
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      transition: background 0.2s;
+    }
+
+    .toggle-btn:hover, .toggle-btn.active {
+      background: #0077b6;
+      color: #fff;
+    }
+
+    .card-body {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-meta-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .workshop-card h3 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+
+    .workshop-card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .checklist {
+      list-style: none;
+      margin-bottom: 2rem;
+      flex-grow: 1;
+    }
+
+    .checklist li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.6rem;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+    }
+
+    .checklist li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #0096c7;
+      font-weight: 700;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .card-footer a {
+      color: #0077b6;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: gap 0.2s ease;
+    }
+
+    .card-footer a:hover {
+      gap: 0.65rem;
+    }
+
+    .price-tag {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text-dark);
+    }
+
+   /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+            width: 94%;
+            max-width: 1180px;
+
+            margin: 0 auto 20px;
+
+            padding: 20px 30px;
+
+            background: #06346f;
+
+            color: white;
+
+            display: flex;
+            justify-content: space-between;
+
+            border-radius: 0 0 10px 10px;
+        }
+
+        .footer-logo {
+            font-size: 17px;
+            font-weight: 800;
+        }
+
+        .footer-text {
+            color: #c4d6e9;
+            font-size: 8px;
+        }
+
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.25rem; }
+      .workshops-container { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <!-- <div class="nav-container">
+      <div class="logo">Prism Live</div>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Project</a></li>
+          <li><a href="#">Programs</a></li>
+          <li><a href="#">Talent</a></li>
+          <li><a href="#" class="active">Workshops</a></li>
+          <li><a href="#">Sponsors</a></li>
+          <li><a href="#">Media</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div> -->
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <!-- <div class="hero-tag">Prism Live Workshops</div> -->
+      <h1>Hands-On Creative Mastery</h1>
+      <p>Immerse yourself in intensive live-action workshops led by industry practitioners. Build real skills through interactive studio sessions, peer critique, and live guidance.</p>
+      <a href="#workshops-grid" class="cta-button">Explore Workshops</a>
+    </div>
+  </section>
+
+  <!-- Section Header -->
+  <div class="section-header" id="workshops-grid">
+    <span class="sub-tag">LIVE & INTERACTIVE</span>
+    <h2>Upcoming Specialized Workshops</h2>
+    <p>Switch between visual highlights and video previews for each discipline container below.</p>
+  </div>
+
+  <!-- Workshops Container Grid -->
+  <div class="workshops-container">
+
+    <!-- Workshop 1: Writing & Storytelling -->
+    <article class="workshop-card">
+      <div class="media-container" id="media-1">
+        <span class="media-badge">Workshop 01</span>
+        <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80" alt="Writing Workshop">
+        <iframe data-src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Storywriting Workshop Preview" allowfullscreen></iframe>
+        <div class="media-toggle-btns">
+          <button class="toggle-btn active" onclick="switchMedia(1, 'img')">Image</button>
+          <button class="toggle-btn" onclick="switchMedia(1, 'video')">Video</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta-row">
+          <span>3 Days Intensive</span>
+          <span>Offline / Studio</span>
+        </div>
+        <h3>Mastering Narrative Arc & Dialogues</h3>
+        <p>Transform conceptual loglines into watertight screenplays with industry structure mechanics.</p>
+        <ul class="checklist">
+          <li>Live beat-sheet breakdown sessions</li>
+          <li>Subtext & dialogue rhythm tuning</li>
+          <li>Direct faculty peer critique circle</li>
+        </ul>
+        <div class="card-footer">
+          <span class="price-tag">₹4,999</span>
+          <a href="#">Register Now →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Workshop 2: Acting & Performance -->
+    <article class="workshop-card">
+      <div class="media-container" id="media-2">
+        <span class="media-badge">Workshop 02</span>
+        <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=800&q=80" alt="Acting Workshop">
+        <iframe data-src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Acting Workshop Preview" allowfullscreen></iframe>
+        <div class="media-toggle-btns">
+          <button class="toggle-btn active" onclick="switchMedia(2, 'img')">Image</button>
+          <button class="toggle-btn" onclick="switchMedia(2, 'video')">Video</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta-row">
+          <span>5 Days Practical</span>
+          <span>On-Camera Lab</span>
+        </div>
+        <h3>Camera-Ready Emotional Authenticity</h3>
+        <p>Bridge stage presence with micro-expression nuance tailored for modern cinema and OTT formats.</p>
+        <ul class="checklist">
+          <li>On-camera audition mock simulations</li>
+          <li>Voice modulation & breathing mechanics</li>
+          <li>Instant playback analysis & coaching</li>
+        </ul>
+        <div class="card-footer">
+          <span class="price-tag">₹6,500</span>
+          <a href="#">Register Now →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Workshop 3: Technical & Crew -->
+    <article class="workshop-card">
+      <div class="media-container" id="media-3">
+        <span class="media-badge">Workshop 03</span>
+        <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80" alt="Technical Rig Workshop">
+        <iframe data-src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Technical Crew Workshop Preview" allowfullscreen></iframe>
+        <div class="media-toggle-btns">
+          <button class="toggle-btn active" onclick="switchMedia(3, 'img')">Image</button>
+          <button class="toggle-btn" onclick="switchMedia(3, 'video')">Video</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta-row">
+          <span>4 Days Hands-On</span>
+          <span>Rigging & Lighting</span>
+        </div>
+        <h3>Cinematic Lighting & Multi-Cam Sync</h3>
+        <p>Master grip gear, color profiling, and spatial lighting deployment on dynamic sets.</p>
+        <ul class="checklist">
+          <li>ARRI/Sony cinema rig assembly drills</li>
+          <li>Key-fill-back balancing under pressure</li>
+          <li>DIT workflow & fast color grading basics</li>
+        </ul>
+        <div class="card-footer">
+          <span class="price-tag">₹7,999</span>
+          <a href="#">Register Now →</a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+
+  <!-- Footer -->
+   <footer>
+
+        <div class="footer-logo">
+            Prism Live
+        </div>
+
+        <div class="footer-text">
+            © 2026 Prism Live. All Rights Reserved.
+        </div>
+
+    </footer>
+
+
+  <script>
+    function switchMedia(cardId, type) {
+      const container = document.getElementById('media-' + cardId);
+      const img = container.querySelector('img');
+      const iframe = container.querySelector('iframe');
+      const buttons = container.querySelectorAll('.toggle-btn');
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      if (type === 'video') {
+        img.style.display = 'none';
+        iframe.style.display = 'block';
+        if (!iframe.src && iframe.dataset.src) {
+          iframe.src = iframe.dataset.src;
+        }
+        buttons.classList.add('active');
+      } else {
+        iframe.style.display = 'none';
+        img.style.display = 'block';
+        buttons[0].classList.add('active');
+      }
+    }
+  </script>
+</body>
+</html>

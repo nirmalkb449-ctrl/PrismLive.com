@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Prism Live | Project</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --blue: #075bc7;
+            --blue2: #0877e4;
+            --dark-blue: #063d83;
+            --text: #08458b;
+            --muted: #6c7f95;
+            --light: #f5f8fc;
+            --border: #dce5ef;
+            --white: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: var(--light);
+            color: var(--text);
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* =========================================
+           NAVBAR
+        ========================================= */
+
+        .navbar {
+            height: 67px;
+            background: linear-gradient(105deg, #084381, #1976d2);
+            position: relative;
+            z-index: 20;
+        }
+
+        .nav-container {
+            width: 94%;
+            max-width: 1240px;
+            height: 100%;
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            color: white;
+            font-size: 20px;
+            font-weight: 800;
+             letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            transition: 0.25s;
+        }
+
+        .nav-links a:hover {
+            opacity: .7;
+        }
+
+        .get-started {
+            padding: 9px 16px;
+            border: 1px solid rgba(255,255,255,.8);
+            border-radius: 5px;
+        }
+
+        .menu-button {
+            display: none;
+            border: 0;
+            background: transparent;
+            color: white;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+
+        /* =========================================
+           PROJECT HERO
+        ========================================= */
+
+        /* ================= PROJECT HERO ================= */
+
+.project-hero {
+    width: 100%;
+    min-height: 330px;
+
+    margin: 0;
+    padding: 55px 7%;
+
+    background: linear-gradient(
+        100deg,
+        #084381 0%,
+        #1760a5 45%,
+        #1976d2 100%
+        
+    );
+    /* url("images/photos3.avif")
+        center/cover no-repeat; */
+
+    
+
+     color: white;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hero content */
+.project-hero-content {
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.project-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+    color: white;
+}
+
+.project-hero h1 {
+    max-width: 650px;
+
+    font-size: 42px;
+    line-height: 1.12;
+    font-weight: 800;
+
+    margin-bottom: 15px;
+}
+
+.project-hero p {
+    max-width: 560px;
+
+    font-size: 13px;
+    line-height: 1.7;
+
+    color: #e5f2ff;
+
+    margin-bottom: 25px;
+}
+
+.project-btn {
+    display: inline-block;
+
+    padding: 12px 22px;
+
+    background: white;
+    color: #0755aa;
+
+    border-radius: 5px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+ .hero-btn.primary {
+            background: rgb(243, 244, 247);
+            color: var(--blue);
+        }
+       
+        /* =========================================
+           PROJECT INTRO
+        ========================================= */
+
+        .intro {
+            width: 94%;
+            max-width: 1180px;
+            margin: 18px auto;
+
+            background: white;
+            border-radius: 10px;
+
+            padding: 35px;
+        }
+
+        .intro-heading {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .intro-heading h2 {
+            color: #08458b;
+            font-size: 27px;
+            font-weight: 800;
+        }
+
+        .intro-heading p {
+            color: #708197;
+            font-size: 10px;
+            margin-top: 5px;
+        }
+
+
+        /* =========================================
+           PROJECT JOURNEY
+        ========================================= */
+
+        .timeline {
+            position: relative;
+
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+
+            gap: 5px;
+        }
+
+        .timeline::before {
+            content: "";
+
+            position: absolute;
+
+            top: 23px;
+            left: 6%;
+            right: 6%;
+
+            height: 2px;
+
+            background: #0a67d3;
+        }
+
+        .phase {
+            position: relative;
+            z-index: 2;
+
+            text-align: center;
+        }
+
+        .phase-number {
+            width: 46px;
+            height: 46px;
+
+            margin: 0 auto 10px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            color: white;
+            background: linear-gradient(
+                145deg,
+                #0b73df,
+                #0347a5
+            );
+
+            border: 3px solid white;
+
+            box-shadow:
+                0 0 0 1px #0b65cd;
+
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .phase h3 {
+            color: #08458b;
+            font-size: 9px;
+            line-height: 1.45;
+            min-height: 28px;
+        }
+
+        .phase p {
+            color: #708198;
+            font-size: 8px;
+            margin-top: 5px;
+        }
+
+
+        /* =========================================
+           PROJECT IMAGES
+        ========================================= */
+
+        .project-gallery {
+            width: 94%;
+            max-width: 1180px;
+
+            margin: 0 auto;
+
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+
+            height: 175px;
+        }
+
+        .gallery-item {
+            position: relative;
+
+            overflow: hidden;
+
+            background-size: cover;
+            background-position: center;
+
+            border-right: 2px solid white;
+        }
+
+        .gallery-item:last-child {
+            border-right: 0;
+        }
+
+        .gallery-item::after {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(2,34,73,.55),
+                    transparent 60%
+                );
+        }
+
+        .gallery-label {
+            position: absolute;
+
+            z-index: 2;
+
+            bottom: 10px;
+            left: 10px;
+
+            color: white;
+
+            font-size: 9px;
+            font-weight: 600;
+        }
+
+
+        /*
+            Replace these images with your actual
+            Prism Live project photographs.
+        */
+
+        .image1 {
+            background-image: url("images/project-01.jpg");
+        }
+
+        .image2 {
+            background-image: url("images/project-02.jpg");
+        }
+
+        .image3 {
+            background-image: url("images/project-03.jpg");
+        }
+
+        .image4 {
+            background-image: url("images/project-04.jpg");
+        }
+
+        .image5 {
+            background-image: url("images/project-05.jpg");
+        }
+
+        .image6 {
+            background-image: url("images/project-06.jpg");
+        }
+
+
+        /* =========================================
+           CTA
+        ========================================= */
+
+        .project-cta {
+            width: 94%;
+            max-width: 1180px;
+
+            margin: 0 auto;
+
+            min-height: 75px;
+
+            padding: 15px 7%;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    100deg,
+                    #0c5ac9,
+                    #0879e7
+                );
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+        }
+
+        .project-cta h2 {
+            font-size: 16px;
+            margin-bottom: 2px;
+        }
+
+        .project-cta p {
+            color: #e0efff;
+            font-size: 9px;
+        }
+
+        .register-button {
+            color: white;
+
+            border: 1px solid rgba(255,255,255,.8);
+
+            padding: 9px 18px;
+
+            border-radius: 5px;
+
+            font-size: 9px;
+            font-weight: 600;
+
+            white-space: nowrap;
+        }
+
+
+        /* =========================================
+           PROJECT DETAILS
+        ========================================= */
+
+        .details {
+            width: 94%;
+            max-width: 1180px;
+
+            margin: 18px auto;
+
+            padding: 38px 35px;
+
+            background: white;
+
+            border-radius: 10px;
+        }
+
+        .details-heading {
+            text-align: center;
+
+            margin-bottom: 28px;
+        }
+
+        .details-heading h2 {
+            color: #08458b;
+            font-size: 26px;
+            font-weight: 800;
+        }
+
+        .details-heading p {
+            color: #718197;
+            font-size: 10px;
+            margin-top: 5px;
+        }
+
+        .details-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 15px;
+        }
+
+        .detail-card {
+            padding: 22px 15px;
+
+            text-align: center;
+
+            border: 1px solid var(--border);
+
+            border-radius: 8px;
+
+            transition: .3s;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 12px 25px
+                rgba(8,67,135,.10);
+        }
+
+        .detail-icon {
+            width: 43px;
+            height: 43px;
+
+            margin: 0 auto 12px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 2px solid #0870d3;
+
+            border-radius: 50%;
+
+            color: #0870d3;
+
+            font-size: 17px;
+        }
+
+        .detail-card h3 {
+            color: #08458b;
+            font-size: 11px;
+            margin-bottom: 6px;
+        }
+
+        .detail-card p {
+            color: #718198;
+            font-size: 8px;
+            line-height: 1.55;
+        }
+
+
+        /* =========================================
+           TALENT DISCOVERY
+        ========================================= */
+
+        .talent-section {
+            width: 94%;
+            max-width: 1180px;
+
+            margin: 18px auto 0;
+
+            padding: 35px;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    105deg,
+                    rgba(2,42,91,.96),
+                    rgba(3,87,169,.83)
+                ),
+                url("images/photos3.avif")
+                center/cover;
+
+            border-radius: 10px 10px 0 0;
+        }
+
+        .talent-heading {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .talent-heading h2 {
+            font-size: 25px;
+            font-weight: 800;
+        }
+
+        .talent-heading p {
+            color: #dcecff;
+            font-size: 9px;
+        }
+
+        .talent-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .talent-card {
+            min-height: 140px;
+
+            padding: 18px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            border-radius: 7px;
+
+            border: 1px solid
+                rgba(255,255,255,.35);
+
+            background-size: cover;
+            background-position: center;
+
+            overflow: hidden;
+
+            position: relative;
+        }
+
+        .talent-card::before {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(2,28,61,.92),
+                    rgba(2,28,61,.15)
+                );
+        }
+
+        .talent-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .talent-content h3 {
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        .talent-content p {
+            color: #d9ecff;
+            font-size: 8px;
+            margin-bottom: 10px;
+        }
+
+        .talent-button {
+            display: inline-block;
+
+            padding: 6px 10px;
+
+            color: white;
+
+            border: 1px solid
+                rgba(255,255,255,.8);
+
+            border-radius: 4px;
+
+            font-size: 8px;
+        }
+
+        .talent1 {
+            background-image:
+                url("images/writing.jpg");
+        }
+
+        .talent2 {
+            background-image:
+                url("images/acting.jpg");
+        }
+
+        .talent3 {
+            background-image:
+                url("images/technical.jpg");
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+            width: 94%;
+            max-width: 1180px;
+
+            margin: 0 auto 20px;
+
+            padding: 20px 30px;
+
+            background: #06346f;
+
+            color: white;
+
+            display: flex;
+            justify-content: space-between;
+
+            border-radius: 0 0 10px 10px;
+        }
+
+        .footer-logo {
+            font-size: 17px;
+            font-weight: 800;
+        }
+
+        .footer-text {
+            color: #c4d6e9;
+            font-size: 8px;
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 1000px) {
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .timeline {
+                grid-template-columns:
+                    repeat(3, 1fr);
+
+                gap: 25px 5px;
+            }
+
+            .timeline::before {
+                display: none;
+            }
+
+            .project-gallery {
+                grid-template-columns:
+                    repeat(3, 1fr);
+
+                height: 300px;
+            }
+
+            .details-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .navbar {
+                height: 62px;
+            }
+
+            .nav-links {
+                display: none;
+
+                position: absolute;
+
+                top: 62px;
+                left: 0;
+                right: 0;
+
+                padding: 15px;
+
+                background: #075bc7;
+
+                flex-direction: column;
+                align-items: stretch;
+
+                gap: 4px;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 8px;
+            }
+
+            .menu-button {
+                display: block;
+            }
+
+            .project-hero {
+                min-height: 440px;
+            }
+
+            .hero-content {
+                width: 100%;
+                padding: 80px 28px 40px;
+            }
+
+            .hero-title {
+                font-size: 40px;
+            }
+
+            .timeline {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .project-gallery {
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+                height: 400px;
+            }
+
+            .talent-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-cta {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px 30px;
+            }
+
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+
+
+        @media (max-width: 430px) {
+
+            .intro,
+            .details,
+            .talent-section {
+                padding: 28px 18px;
+            }
+
+            .hero-title {
+                font-size: 34px;
+            }
+
+            .timeline {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .project-gallery {
+                height: 430px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         NAVBAR
+    ========================================= -->
+
+    <header class="navbar">
+
+        <div class="nav-container">
+
+            <a href="#" class="logo">
+                Prism Live
+            </a>
+
+            <nav class="nav-links">
+
+                <a href="{{ url_for('home') }}">Home</a>
+                <a href="{{ url_for('about') }}">about</a>
+
+                <a class="active" href="prismlive_project_page.html"
+                   style="font-weight:700;">
+                    Project
+                </a>
+
+                <a href="prismlive_program_page.html">Programs</a>
+                <a href="prismlive_talent_page.html">Talent</a>
+                <a href="prismlive_workshop_page.html">Workshops</a>
+                <a href="prismlive_sponsors_page.html">Sponsors</a>
+                <a href="{{ url_for('media') }}">media</a>
+                <a href="{{ url_for('contact') }}">contact</a>
+
+                <!-- <a href="#" class="get-started">
+                    Get Started
+                </a> -->
+
+            </nav>
+
+            <button
+                class="menu-button"
+                onclick="toggleMenu()">
+
+                ☰
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================
+         HERO
+    ========================================= -->
+
+    <section class="project-hero">
+
+        <div class="hero-content">
+
+            <div class="hero-label">
+                Prism Live Project
+            </div>
+
+            <h1 class="hero-title">
+                From Creative Ideas
+                To Real-World Impact
+            </h1>
+
+            <p class="hero-text">
+                A structured creative journey that brings together
+                emerging talent, mentors, professionals and
+                production teams to discover, develop and create.
+            </p>
+
+            <a href="prismlive_explore_page.html" class="project-btn">
+    Explore Project
+</a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         INTRO
+    ========================================= -->
+
+    <section class="intro">
+
+        <div class="intro-heading">
+
+            <h2>
+                The Project Journey
+            </h2>
+
+            <p>
+                A 10-month transformational journey in 6 phases.
+            </p>
+
+        </div>
+
+
+        <div class="timeline"
+             id="journey">
+
+
+            <!-- PHASE 01 -->
+
+            <div class="phase">
+
+                <div class="phase-number">
+                    01
+                </div>
+
+                <h3>
+                    Foundation &<br>
+                    Pre-Production
+                </h3>
+
+                <p>
+                    Months 1 - 2
+                </p>
+
+            </div>
+
+
+            <!-- PHASE 02 -->
+
+            <div class="phase">
+
+                <div class="phase-number">
+                    02
+                </div>
+
+                <h3>
+                    Talent Discovery &<br>
+                    Competitions
+                </h3>
+
+                <p>
+                    Months 3 - 4
+                </p>
+
+            </div>
+
+
+            <!-- PHASE 03 -->
+
+            <div class="phase">
+
+                <div class="phase-number">
+                    03
+                </div>
+
+                <h3>
+                    Workshops &<br>
+                    Skill-Building
+                </h3>
+
+                <p>
+                    Month 5
+                </p>
+
+            </div>
+
+
+            <!-- PHASE 04 -->
+
+            <div class="phase">
+
+                <div class="phase-number">
+                    04
+                </div>
+
+                <h3>
+                    Production &<br>
+                    Shooting Camps
+                </h3>
+
+                <p>
+                    Months 6 - 7
+                </p>
+
+            </div>
+
+
+            <!-- PHASE 05 -->
+
+            <div class="phase">
+
+                <div class="phase-number">
+                    05
+                </div>
+
+                <h3>
+                    Post-Production &<br>
+                    Marketing
+                </h3>
+
+                <p>
+                    Months 8 - 9
+                </p>
+
+            </div>
+
+
+            <!-- PHASE 06 -->
+
+            <div class="phase">
+
+                <div class="phase-number">
+                    06
+                </div>
+
+                <h3>
+                    Grand Premiere &<br>
+                    Evaluation
+                </h3>
+
+                <p>
+                    Month 10
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         PROJECT IMAGE GALLERY
+    ========================================= -->
+
+    <section class="project-gallery">
+
+
+        <div class="gallery-item image1">
+
+            <span class="gallery-label">
+                Foundation
+            </span>
+
+        </div>
+
+
+        <div class="gallery-item image2">
+
+            <span class="gallery-label">
+                Talent Discovery
+            </span>
+
+        </div>
+
+
+        <div class="gallery-item image3">
+
+            <span class="gallery-label">
+                Workshops
+            </span>
+
+        </div>
+
+
+        <div class="gallery-item image4">
+
+            <span class="gallery-label">
+                Production
+            </span>
+
+        </div>
+
+
+        <div class="gallery-item image5">
+
+            <span class="gallery-label">
+                Post-Production
+            </span>
+
+        </div>
+
+
+        <div class="gallery-item image6">
+
+            <span class="gallery-label">
+                Grand Premiere
+            </span>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================================
+         CTA
+    ========================================= -->
+
+    <section class="project-cta">
+
+        <div>
+
+            <h2>
+                Be Part of the Journey
+            </h2>
+
+            <p>
+                Join thousands of aspiring creatives building
+                their future with Prism Live.
+            </p>
+
+        </div>
+
+        <a href="#" class="register-button">
+            Register Now
+        </a>
+
+    </section>
+
+
+
+    <!-- =========================================
+         PROJECT DETAILS
+    ========================================= -->
+
+    <section class="details">
+
+        <div class="details-heading">
+
+            <h2>
+                What Makes the Project Different?
+            </h2>
+
+            <p>
+                A complete ecosystem for discovering and developing talent.
+            </p>
+
+        </div>
+
+
+        <div class="details-grid">
+
+
+            <div class="detail-card">
+
+                <div class="detail-icon">
+                    ♧
+                </div>
+
+                <h3>
+                    Fair Selection
+                </h3>
+
+                <p>
+                    Transparent evaluation and
+                    structured talent discovery.
+                </p>
+
+            </div>
+
+
+            <div class="detail-card">
+
+                <div class="detail-icon">
+                    ♙
+                </div>
+
+                <h3>
+                    Expert Mentors
+                </h3>
+
+                <p>
+                    Guidance from experienced
+                    creative professionals.
+                </p>
+
+            </div>
+
+
+            <div class="detail-card">
+
+                <div class="detail-icon">
+                    ♡
+                </div>
+
+                <h3>
+                    Great Opportunities
+                </h3>
+
+                <p>
+                    Collaborate, create and connect
+                    with meaningful opportunities.
+                </p>
+
+            </div>
+
+
+            <div class="detail-card">
+
+                <div class="detail-icon">
+                    ✓
+                </div>
+
+                <h3>
+                    Recognition
+                </h3>
+
+                <p>
+                    Awards, certificates and
+                    creative credits.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         TALENT DISCOVERY
+    ========================================= -->
+
+    <section class="talent-section">
+
+        <div class="talent-heading">
+
+            <h2>
+                Talent Discovery
+            </h2>
+
+            <p>
+                Choose your path. Showcase your talent.
+            </p>
+
+        </div>
+
+
+        <div class="talent-grid">
+
+
+            <div class="talent-card talent1">
+
+                <div class="talent-content">
+
+                    <h3>
+                        Writing
+                    </h3>
+
+                    <p>
+                        Scripts, stories and screenplays
+                    </p>
+
+                    <a href="#" class="talent-button">
+                        Apply Now
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="talent-card talent2">
+
+                <div class="talent-content">
+
+                    <h3>
+                        Acting & Performance
+                    </h3>
+
+                    <p>
+                        Acting, dance, voice and stage
+                    </p>
+
+                    <a href="#" class="talent-button">
+                        Apply Now
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="talent-card talent3">
+
+                <div class="talent-content">
+
+                    <h3>
+                        Technical & Crew
+                    </h3>
+
+                    <p>
+                        Camera, sound, lighting and editing
+                    </p>
+
+                    <a href="#" class="talent-button">
+                        Apply Now
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+            Prism Live
+        </div>
+
+        <div class="footer-text">
+            © Prism Live. All Rights Reserved.
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================= -->
+
+    <script>
+
+        function toggleMenu() {
+
+            const menu =
+                document.querySelector(".nav-links");
+
+            menu.classList.toggle("show");
+
+        }
+
+    </script>
+
+
+</body>
+</html>

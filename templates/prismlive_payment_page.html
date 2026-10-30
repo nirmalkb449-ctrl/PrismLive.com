@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Payment | PrismLive</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Poppins,Arial,sans-serif;background:linear-gradient(135deg,#eaf3ff,#f7faff);color:#16385f;min-height:100vh}
+header{height:76px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 6%;box-shadow:0 3px 18px #17487812}
+.logo{font-size:22px;font-weight:800;color:#0868c7;text-decoration:none}.home{color:#1769b2;text-decoration:none;font-size:13px;font-weight:600}
+main{width:min(560px,92%);margin:55px auto;background:#fff;border:1px solid #e0eaf6;border-radius:22px;padding:34px;box-shadow:0 20px 55px #16477918}
+.kicker{font-size:11px;letter-spacing:2px;color:#3183d1;font-weight:700}h1{font-size:27px;margin:8px 0;color:#123e70}p{font-size:13px;color:#71839b;line-height:1.7}
+label{display:block;font-size:12px;font-weight:600;margin:20px 0 8px}input{width:100%;padding:14px;border:1px solid #d9e5f2;border-radius:11px;font:14px Poppins;outline:none}input:focus{border-color:#2682db}
+button,.paylink{display:block;width:100%;margin-top:16px;padding:14px;border:0;border-radius:11px;background:linear-gradient(120deg,#086ac8,#3998ed);color:#fff;font:600 13px Poppins;text-align:center;text-decoration:none;cursor:pointer}
+.notice{background:#fff7e8;border:1px solid #ffe1a8;color:#805719;border-radius:11px;padding:12px;font-size:11px;line-height:1.6;margin-top:18px}
+.flash{padding:10px 12px;border-radius:9px;background:#fff0f1;color:#a22;font-size:12px;margin:10px 0}
+.upi-box{margin-top:18px;padding:16px;background:#f3f8ff;border:1px solid #dceafa;border-radius:13px;font-size:12px;line-height:1.8}
+@media(max-width:500px){main{padding:24px;margin:28px auto}}
+</style></head>
+<body>
+<header><a class="logo" href="{{ url_for('home') }}">PrismLive</a><a class="home" href="{{ url_for('home') }}">← Home</a></header>
+<main>
+<div class="kicker">SECURE PAYMENT SETUP</div><h1>Make a UPI payment</h1>
+<p>Enter the amount you intend to pay. PrismLive will open a UPI app on your device with the configured payee details.</p>
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% for category, message in messages %}<div class="flash">{{ message }}</div>{% endfor %}
+{% endwith %}
+<form method="post">
+<label for="amount">Payment amount (INR ₹)</label>
+<input id="amount" name="amount" type="number" min="1" max="100000" step="0.01" placeholder="e.g. 500.00" value="{{ amount }}" required>
+<button type="submit">Continue to UPI</button>
+</form>
+{% if upi_link %}
+<div class="upi-box"><strong>Payee:</strong> {{ payee }}<br><strong>UPI ID:</strong> {{ upi_id }}<br><strong>Amount:</strong> ₹{{ amount }}</div>
+<a class="paylink" href="{{ upi_link }}">Open UPI payment app</a>
+{% endif %}
+<div class="notice"><strong>Payment verification:</strong> This page only creates a UPI payment intent. It does not confirm receipt or automatically mark an order as paid. For production payments, integrate a payment provider with signed server-side webhooks and verify transactions before granting access. Never ask customers to share their UPI PIN or OTP.</div>
+</main></body></html>

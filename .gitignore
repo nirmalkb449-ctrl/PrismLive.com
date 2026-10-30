@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+# Local database / secrets
+*.db
+*.sqlite3
+.env
+.env.*
+!.env.example
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+prismlive.db
+instance/

@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Prism Live | Project</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --blue: #075bc7;
+            --blue2: #0877e4;
+            --dark-blue: #063d83;
+            --text: #08458b;
+            --muted: #6c7f95;
+            --light: #f5f8fc;
+            --border: #dce5ef;
+            --white: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: var(--light);
+            color: var(--text);
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* =========================================
+           NAVBAR
+        ========================================= */
+
+        .navbar {
+            height: 67px;
+            background: linear-gradient(105deg, #084381, #1976d2);
+            position: relative;
+            z-index: 20;
+        }
+
+        .nav-container {
+            width: 94%;
+            max-width: 1240px;
+            height: 100%;
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            color: white;
+            font-size: 20px;
+            font-weight: 800;
+             letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            transition: 0.25s;
+        }
+
+        .nav-links a:hover {
+            opacity: .7;
+        }
+
+        .get-started {
+            padding: 9px 16px;
+            border: 1px solid rgba(255,255,255,.8);
+            border-radius: 5px;
+        }
+
+        .menu-button {
+            display: none;
+            border: 0;
+            background: transparent;
+            color: white;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+
+        /* =========================================
+           PROJECT HERO
+        ========================================= */
+
+        /* ================= PROJECT HERO ================= */
+
+.project-hero {
+    width: 100%;
+    min-height: 330px;
+
+    margin: 0;
+    padding: 55px 7%;
+
+    background: linear-gradient(
+        100deg,
+        #084381 0%,
+        #1760a5 45%,
+        #1976d2 100%
+        
+    );
+    /* url("images/photos3.avif")
+        center/cover no-repeat; */
+
+    
+
+     color: white;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hero content */
+.project-hero-content {
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.project-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+    color: white;
+}
+
+.project-hero h1 {
+    max-width: 650px;
+
+    font-size: 42px;
+    line-height: 1.12;
+    font-weight: 800;
+
+    margin-bottom: 15px;
+}
+
+.project-hero p {
+    max-width: 560px;
+
+    font-size: 13px;
+    line-height: 1.7;
+
+    color: #e5f2ff;
+
+    margin-bottom: 25px;
+}
+
+.project-btn {
+    display: inline-block;
+
+    padding: 12px 22px;
+
+    background: white;
+    color: #0755aa;
+
+    border-radius: 5px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+ .hero-btn.primary {
+            background: rgb(243, 244, 247);
+            color: var(--blue);
+        }
+       
+/* =====================================
+   INTRODUCTION
+===================================== */
+
+.talent-intro {
+
+    padding: 65px 8%;
+
+    text-align: center;
+
+    background: #f5f6f8;
+}
+
+
+.section-small {
+
+    display: block;
+
+    color: #2d6fae;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 12px;
+}
+
+
+.section-title {
+
+    font-size: 32px;
+
+    color: #244d7d;
+
+    font-weight: 800;
+
+    margin-bottom: 15px;
+}
+
+
+.section-description {
+
+    max-width: 780px;
+
+    margin: auto;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+    color: #728096;
+}
+
+
+/* =====================================
+   TALENT CATEGORIES
+===================================== */
+
+.categories {
+
+    padding: 70px 8%;
+
+    background: white;
+}
+
+
+.category-grid {
+
+    max-width: 1100px;
+
+    margin: 45px auto 0;
+
+    display: grid;
+
+    grid-template-columns:
+    repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+
+.category-card {
+
+    padding: 30px 20px;
+
+    text-align: center;
+
+    border:
+    1px solid #e2e9f2;
+
+    border-radius: 8px;
+
+    background: white;
+
+    transition: 0.3s;
+}
+
+
+.category-card:hover {
+
+    transform:
+    translateY(-7px);
+
+    box-shadow:
+    0 15px 35px
+    rgba(0,70,150,0.12);
+
+    border-color: #9fd2ff;
+}
+
+
+.category-icon {
+
+    width: 60px;
+
+    height: 60px;
+
+    margin:
+    0 auto 16px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #eaf4ff;
+
+    color: #006fd8;
+
+    font-size: 25px;
+}
+
+
+.category-card h3 {
+
+    font-size: 15px;
+
+    color: #244d7d;
+
+    margin-bottom: 8px;
+}
+
+
+.category-card p {
+
+    font-size: 11px;
+
+    line-height: 1.7;
+
+    color: #7a8798;
+}
+
+
+/* =====================================
+   FEATURED TALENT
+===================================== */
+
+.featured-talent {
+
+    padding: 75px 8%;
+
+    background: #f3f6fa;
+}
+
+
+.talent-grid {
+
+    max-width: 1100px;
+
+    margin: 45px auto 0;
+
+    display: grid;
+
+    grid-template-columns:
+    repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+
+.talent-card {
+
+    background: white;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    box-shadow:
+    0 10px 30px
+    rgba(0,60,130,0.08);
+
+    transition: 0.3s;
+}
+
+
+.talent-card:hover {
+
+    transform:
+    translateY(-8px);
+
+    box-shadow:
+    0 20px 45px
+    rgba(0,60,130,0.15);
+}
+
+
+.talent-image {
+
+    position: relative;
+
+    height: 270px;
+
+    overflow: hidden;
+}
+
+
+.talent-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: 0.5s;
+}
+
+
+.talent-card:hover
+.talent-image img {
+
+    transform: scale(1.07);
+}
+
+
+.talent-tag {
+
+    position: absolute;
+
+    bottom: 15px;
+
+    left: 15px;
+
+    background: #0875dc;
+
+    color: white;
+
+    padding: 7px 14px;
+
+    border-radius: 4px;
+
+    font-size: 10px;
+
+    font-weight: 600;
+}
+
+
+.talent-info {
+
+    padding: 22px;
+}
+
+
+.talent-info h3 {
+
+    font-size: 18px;
+
+    color: #244d7d;
+
+    margin-bottom: 5px;
+}
+
+
+.talent-info span {
+
+    display: block;
+
+    color: #0875dc;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    margin-bottom: 10px;
+}
+
+
+.talent-info p {
+
+    color: #7b8797;
+
+    font-size: 11px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================
+   TALENT OPPORTUNITIES
+===================================== */
+
+.opportunities {
+
+    padding: 75px 8%;
+
+    background: white;
+}
+
+
+.opportunity-container {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap: 60px;
+
+    align-items: center;
+}
+
+
+.opportunity-image img {
+
+    width: 100%;
+
+    height: 390px;
+
+    object-fit: cover;
+
+    border-radius: 8px;
+}
+
+
+.opportunity-text h2 {
+
+    font-size: 34px;
+
+    color: #244d7d;
+
+    margin-bottom: 18px;
+}
+
+
+.opportunity-text p {
+
+    font-size: 12px;
+
+    color: #718096;
+
+    line-height: 1.9;
+
+    margin-bottom: 20px;
+}
+
+
+.opportunity-list {
+
+    list-style: none;
+}
+
+
+.opportunity-list li {
+
+    padding: 12px 0;
+
+    border-bottom:
+    1px solid #e5ebf2;
+
+    color: #34506f;
+
+    font-size: 12px;
+}
+
+
+.opportunity-list li::before {
+
+    content: "✓";
+
+    color: #0875dc;
+
+    font-weight: 700;
+
+    margin-right: 10px;
+}
+
+
+/* =====================================
+   STATISTICS
+===================================== */
+
+.statistics {
+
+    padding: 45px 8%;
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #0058bd,
+        #006fda
+    );
+
+    color: white;
+}
+
+
+.stats-grid {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+    repeat(4, 1fr);
+}
+
+
+.stat {
+
+    text-align: center;
+
+    border-right:
+    1px solid rgba(255,255,255,0.2);
+}
+
+
+.stat:last-child {
+
+    border-right: none;
+}
+
+
+.stat h3 {
+
+    font-size: 30px;
+
+    font-weight: 800;
+}
+
+
+.stat p {
+
+    font-size: 10px;
+
+    margin-top: 5px;
+
+    color:
+    rgba(255,255,255,0.85);
+}
+
+
+/* =====================================
+   CALL TO ACTION
+===================================== */
+
+.talent-cta {
+
+    position: relative;
+
+    padding: 85px 20px;
+
+    text-align: center;
+
+    color: white;
+
+    overflow: hidden;
+
+
+    background:
+
+    linear-gradient(
+        rgba(0,62,140,0.92),
+        rgba(0,82,170,0.94)
+    ),
+
+    url("images/talent-cta.jpg")
+    center/cover no-repeat;
+}
+
+
+.talent-cta h2 {
+
+    position: relative;
+
+    font-size: 38px;
+
+    margin-bottom: 15px;
+}
+
+
+.talent-cta p {
+
+    position: relative;
+
+    max-width: 650px;
+
+    margin:
+    auto auto 25px;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+    color:
+    rgba(255,255,255,0.88);
+}
+
+
+.cta-button {
+
+    position: relative;
+
+    display: inline-block;
+
+    background: white;
+
+    color: #0869cc;
+
+    padding: 13px 28px;
+
+    border-radius: 5px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+
+.cta-button:hover {
+
+    transform:
+    translateY(-3px);
+
+    box-shadow:
+    0 10px 25px
+    rgba(0,0,0,0.2);
+}
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+            width: 94%;
+            max-width: 1180px;
+
+            margin: 0 auto 20px;
+
+            padding: 20px 30px;
+
+            background: #06346f;
+
+            color: white;
+
+            display: flex;
+            justify-content: space-between;
+
+            border-radius: 0 0 10px 10px;
+        }
+
+        .footer-logo {
+            font-size: 17px;
+            font-weight: 800;
+        }
+
+        .footer-text {
+            color: #c4d6e9;
+            font-size: 8px;
+        }
+
+
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media (max-width: 950px) {
+
+    .nav-menu {
+        display: none;
+    }
+
+    .hero-content h1 {
+        font-size: 52px;
+    }
+
+    .category-grid {
+        grid-template-columns:
+        repeat(2, 1fr);
+    }
+
+    .talent-grid {
+        grid-template-columns:
+        repeat(2, 1fr);
+    }
+
+    .opportunity-container {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 0 7%;
+    }
+
+    .talent-hero {
+        min-height: 520px;
+    }
+
+    .hero-content h1 {
+        font-size: 42px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .category-grid,
+    .talent-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns:
+        repeat(2, 1fr);
+
+        gap: 30px;
+    }
+
+    .stat {
+        border-right: none;
+    }
+
+    .section-title {
+        font-size: 27px;
+    }
+
+    .opportunity-text h2 {
+        font-size: 28px;
+    }
+
+    .talent-cta h2 {
+        font-size: 30px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         NAVBAR
+    ========================================= -->
+
+    <header class="navbar">
+
+        <div class="nav-container">
+
+            <a href="#" class="logo">
+                Prism Live
+            </a>
+
+            <nav class="nav-links">
+
+                <a href="{{ url_for('home') }}">Home</a>
+                <a href="{{ url_for('about') }}">about</a>
+
+                <a  href="prismlive_project_page.html"
+                   style="font-weight:700;">
+                    Project
+                </a>
+
+                <a href="prismlive_program_page.html">Programs</a>
+                <a class="active" href="prismlive_talent_page.html">Talent</a>
+                <a href="prismlive_workshop_page.html">Workshops</a>
+                <a href="prismlive_sponsors_page.html">Sponsors</a>
+                <a href="{{ url_for('media') }}">media</a>
+                <a href="{{ url_for('contact') }}">contact</a>
+
+                <!-- <a href="#" class="get-started">
+                    Get Started
+                </a> -->
+
+            </nav>
+
+            <button
+                class="menu-button"
+                onclick="toggleMenu()">
+
+                ☰
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================
+         HERO
+    ========================================= -->
+
+    <section class="project-hero">
+
+        <div class="hero-content">
+
+            <div class="hero-label">
+                Prism Live Talent
+            </div>
+
+            <h1 class="hero-title">
+                Discover Talent. Develop Potential. Create Opportunities.
+            </h1>
+
+            <p class="hero-text">
+                Talent is a platform designed to identify emerging talent, nurture creative potential, and connect passionate individuals with meaningful opportunities. Through mentorship, training, collaboration, and real-world projects, we help talent grow from potential into performance.
+
+            <!-- <a href="prismlive_explore_page.html" class="project-btn">
+    Explore Project
+</a> -->
+
+        </div>
+
+    </section>
+
+
+<!-- =====================================
+     INTRO
+===================================== -->
+
+<section class="talent-intro">
+
+    <span class="section-small">
+        DISCOVER YOUR POTENTIAL
+    </span>
+
+
+    <h2 class="section-title">
+        A Platform for Creative & Professional Talent
+    </h2>
+
+
+    <p class="section-description">
+
+        Prism Live creates opportunities for talented
+        individuals to learn, connect, collaborate and
+        transform their skills into meaningful experiences,
+        projects and professional growth.
+
+    </p>
+
+</section>
+
+
+
+<!-- =====================================
+     TALENT CATEGORIES
+===================================== -->
+
+<section class="categories">
+
+    <div style="text-align:center;">
+
+        <span class="section-small">
+            TALENT AREAS
+        </span>
+
+
+        <h2 class="section-title">
+            Explore Your Talent
+        </h2>
+
+
+        <p class="section-description">
+
+            Discover opportunities across creative,
+            professional and innovative fields.
+
+        </p>
+
+    </div>
+
+
+
+    <div class="category-grid">
+
+
+        <div class="category-card">
+
+            <div class="category-icon">
+                🎨
+            </div>
+
+            <h3>
+                Creative Arts
+            </h3>
+
+            <p>
+                Art, design, photography, film and creative expression.
+            </p>
+
+        </div>
+
+
+
+        <div class="category-card">
+
+            <div class="category-icon">
+                🎤
+            </div>
+
+            <h3>
+                Performing Arts
+            </h3>
+
+            <p>
+                Music, dance, theatre and live performances.
+            </p>
+
+        </div>
+
+
+
+        <div class="category-card">
+
+            <div class="category-icon">
+                💻
+            </div>
+
+            <h3>
+                Digital Talent
+            </h3>
+
+            <p>
+                Technology, digital media and innovative solutions.
+            </p>
+
+        </div>
+
+
+
+        <div class="category-card">
+
+            <div class="category-icon">
+                💼
+            </div>
+
+            <h3>
+                Professional Skills
+            </h3>
+
+            <p>
+                Leadership, business, communication and professional growth.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     FEATURED TALENT
+===================================== -->
+
+<section class="featured-talent"
+         id="featured">
+
+
+    <div style="text-align:center;">
+
+        <span class="section-small">
+            FEATURED TALENT
+        </span>
+
+
+        <h2 class="section-title">
+            Meet Our Community
+        </h2>
+
+
+        <p class="section-description">
+
+            Discover inspiring individuals who are
+            learning, creating and growing with Prism Live.
+
+        </p>
+
+    </div>
+
+
+
+    <div class="talent-grid">
+
+
+        <!-- TALENT 1 -->
+
+        <div class="talent-card">
+
+            <div class="talent-image">
+
+                <img
+                src="images/talent1.jpg"
+                alt="Creative Talent">
+
+                <div class="talent-tag">
+                    CREATIVE
+                </div>
+
+            </div>
+
+
+            <div class="talent-info">
+
+                <h3>
+                    Creative Innovator
+                </h3>
+
+                <span>
+                    Design & Visual Arts
+                </span>
+
+                <p>
+                    Exploring new ideas and transforming
+                    creativity into meaningful experiences.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- TALENT 2 -->
+
+        <div class="talent-card">
+
+            <div class="talent-image">
+
+                <img
+                src="images/talent2.jpg"
+                alt="Performing Artist">
+
+                <div class="talent-tag">
+                    PERFORMANCE
+                </div>
+
+            </div>
+
+
+            <div class="talent-info">
+
+                <h3>
+                    Performing Artist
+                </h3>
+
+                <span>
+                    Music & Performance
+                </span>
+
+                <p>
+                    Developing skills, confidence and
+                    creative expression through performance.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- TALENT 3 -->
+
+        <div class="talent-card">
+
+            <div class="talent-image">
+
+                <img
+                src="images/talent3.jpg"
+                alt="Digital Professional">
+
+                <div class="talent-tag">
+                    DIGITAL
+                </div>
+
+            </div>
+
+
+            <div class="talent-info">
+
+                <h3>
+                    Digital Professional
+                </h3>
+
+                <span>
+                    Technology & Innovation
+                </span>
+
+                <p>
+                    Building digital solutions and exploring
+                    new possibilities through technology.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     OPPORTUNITIES
+===================================== -->
+
+<section class="opportunities">
+
+
+    <div class="opportunity-container">
+
+
+        <div class="opportunity-image">
+
+            <img
+            src="images/talent-opportunities.jpg"
+            alt="Talent Opportunities">
+
+        </div>
+
+
+
+        <div class="opportunity-text">
+
+            <span class="section-small">
+                GROW WITH PRISM LIVE
+            </span>
+
+
+            <h2>
+                Opportunities Beyond Talent
+            </h2>
+
+
+            <p>
+
+                Talent grows when people have access to
+                the right opportunities, guidance,
+                collaboration and real-world experiences.
+
+            </p>
+
+
+            <ul class="opportunity-list">
+
+                <li>
+                    Professional Workshops & Training
+                </li>
+
+                <li>
+                    Mentorship & Expert Guidance
+                </li>
+
+                <li>
+                    Creative & Professional Projects
+                </li>
+
+                <li>
+                    Networking & Collaboration
+                </li>
+
+                <li>
+                    Showcasing & Recognition
+                </li>
+
+            </ul>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     STATISTICS
+===================================== -->
+
+<section class="statistics">
+
+
+    <div class="stats-grid">
+
+
+        <div class="stat">
+
+            <h3>
+                100+
+            </h3>
+
+            <p>
+                Talented Individuals
+            </p>
+
+        </div>
+
+
+        <div class="stat">
+
+            <h3>
+                25+
+            </h3>
+
+            <p>
+                Professional Mentors
+            </p>
+
+        </div>
+
+
+        <div class="stat">
+
+            <h3>
+                30+
+            </h3>
+
+            <p>
+                Creative Projects
+            </p>
+
+        </div>
+
+
+        <div class="stat">
+
+            <h3>
+                10+
+            </h3>
+
+            <p>
+                Talent Communities
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     CALL TO ACTION
+===================================== -->
+
+<section class="talent-cta"
+         id="join">
+
+
+    <h2>
+        Your Talent. Your Opportunity.
+    </h2>
+
+
+    <p>
+
+        Join Prism Live and become part of a growing
+        community where creativity, skills, innovation
+        and opportunities come together.
+
+    </p>
+
+
+    <a href="contact.html"
+       class="cta-button">
+
+        Join Prism Live
+
+    </a>
+
+
+</section>
+
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+            Prism Live
+        </div>
+
+        <div class="footer-text">
+            © Prism Live. All Rights Reserved.
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>

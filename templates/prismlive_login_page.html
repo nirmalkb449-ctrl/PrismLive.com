@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Prism Live | Login</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet">
+
+
+<style>
+
+/* ==============================
+   RESET
+============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    font-family: "Poppins", sans-serif;
+
+    min-height: 100vh;
+
+    background: #f4f6f9;
+
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* ==============================
+   MAIN LOGIN BACKGROUND
+============================== */
+
+.login-page {
+
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 90px 20px 40px;
+
+    background:
+
+    linear-gradient(
+        135deg,
+        rgba(0, 65, 150, 0.96),
+        rgba(23, 102, 175, 0.82),
+        rgba(117, 168, 219, 0.9)
+    ),
+
+    url("images/login-background.jpg")
+    center/cover no-repeat;
+
+    overflow: hidden;
+}
+
+
+/* ==============================
+   BACKGROUND LIGHT EFFECT
+============================== */
+
+.login-page::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 600px;
+
+    height: 600px;
+
+    border-radius: 50%;
+
+    background:
+    rgba(255,255,255,0.07);
+
+    top: -250px;
+
+    right: -180px;
+
+    filter: blur(5px);
+}
+
+
+.login-page::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+
+    height: 450px;
+
+    border-radius: 50%;
+
+    background:
+    rgba(0,190,255,0.08);
+
+    bottom: -220px;
+
+    left: -150px;
+
+    filter: blur(5px);
+}
+
+
+/* ==============================
+   NAVBAR
+============================== */
+
+.navbar {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 72px;
+
+    padding: 0 5%;
+
+    display: flex;
+
+    align-items: center;
+
+    z-index: 10;
+}
+
+
+.logo {
+
+    color: white;
+
+    font-size: 21px;
+
+    font-weight: 800;
+
+    margin-right: auto;
+}
+
+
+.nav-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+}
+
+
+.nav-links a {
+
+    color: white;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+
+.nav-links a:hover {
+
+    color: #a9ddff;
+}
+
+
+.get-started {
+
+    border:
+    1px solid rgba(255,255,255,0.65);
+
+    padding: 9px 18px;
+
+    border-radius: 5px;
+}
+
+
+
+/* ==============================
+   LOGIN CONTAINER
+============================== */
+
+.login-container {
+
+    position: relative;
+
+    z-index: 5;
+
+    width: 100%;
+
+    max-width: 950px;
+
+    min-height: 540px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    background:
+    rgba(255,255,255,0.97);
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    box-shadow:
+    0 30px 80px
+    rgba(0,35,90,0.35);
+}
+
+
+/* ==============================
+   LEFT PANEL
+============================== */
+
+.login-info {
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding: 55px;
+
+    color: white;
+
+    background:
+
+    linear-gradient(
+        145deg,
+        rgba(11, 93, 160, 0.96),
+        rgba(37, 127, 190, 0.9)
+    ),
+
+    url("images/login-side.jpg")
+    center/cover no-repeat;
+}
+
+
+.login-info::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(0,62,145,0.25),
+        rgba(0,155,230,0.15)
+    );
+}
+
+
+.info-content {
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.info-small {
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    color: #c5edff;
+
+    margin-bottom: 18px;
+
+    display: block;
+}
+
+
+.login-info h1 {
+
+    font-size: 40px;
+
+    line-height: 1.12;
+
+    font-weight: 800;
+
+    margin-bottom: 20px;
+}
+
+
+.login-info p {
+
+    max-width: 360px;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+    color:
+    rgba(255,255,255,0.88);
+}
+
+
+/* ==============================
+   LEFT FEATURES
+============================== */
+
+.info-features {
+
+    margin-top: 35px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+
+.info-feature {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    font-size: 11px;
+
+    color:
+    rgba(255,255,255,0.92);
+}
+
+
+.feature-icon {
+
+    width: 30px;
+
+    height: 30px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+    rgba(255,255,255,0.16);
+
+    font-size: 13px;
+}
+
+
+/* ==============================
+   RIGHT LOGIN FORM
+============================== */
+
+.login-form {
+
+    padding: 55px 55px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    background: white;
+}
+
+
+.login-heading {
+
+    margin-bottom: 30px;
+}
+
+
+.login-heading h2 {
+
+    font-size: 28px;
+
+    color: #174a82;
+
+    font-weight: 800;
+
+    margin-bottom: 7px;
+}
+
+
+.login-heading p {
+
+    color: #8491a2;
+
+    font-size: 11px;
+}
+
+
+/* ==============================
+   FORM
+============================== */
+
+.form-group {
+
+    margin-bottom: 19px;
+}
+
+
+.form-group label {
+
+    display: block;
+
+    color: #36516d;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    margin-bottom: 7px;
+}
+
+
+.input-box {
+
+    position: relative;
+}
+
+
+.input-icon {
+
+    position: absolute;
+
+    left: 14px;
+
+    top: 50%;
+
+    transform:
+    translateY(-50%);
+
+    color: #6d9ac7;
+
+    font-size: 15px;
+}
+
+
+.form-group input {
+
+    width: 100%;
+
+    height: 46px;
+
+    border:
+    1px solid #dbe4ed;
+
+    border-radius: 6px;
+
+    outline: none;
+
+    padding:
+    0 15px 0 42px;
+
+    color: #27496c;
+
+    font-family: "Poppins",
+    sans-serif;
+
+    font-size: 11px;
+
+    transition: 0.3s;
+}
+
+
+.form-group input:focus {
+
+    border-color: #0876d9;
+
+    box-shadow:
+    0 0 0 3px
+    rgba(8,118,217,0.09);
+}
+
+
+.form-group input::placeholder {
+
+    color: #a6b0bc;
+}
+
+
+/* ==============================
+   PASSWORD
+============================== */
+
+.password-toggle {
+
+    position: absolute;
+
+    right: 14px;
+
+    top: 50%;
+
+    transform:
+    translateY(-50%);
+
+    border: none;
+
+    background: transparent;
+
+    color: #7d8fa3;
+
+    cursor: pointer;
+
+    font-size: 12px;
+}
+
+
+/* ==============================
+   OPTIONS
+============================== */
+
+.form-options {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 23px;
+}
+
+
+.remember {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: #77879a;
+
+    font-size: 10px;
+}
+
+
+.remember input {
+
+    accent-color: #0876d9;
+}
+
+
+.forgot {
+
+    color: #0876d9;
+
+    font-size: 10px;
+
+    font-weight: 600;
+}
+
+
+.forgot:hover {
+
+    text-decoration: underline;
+}
+
+
+/* ==============================
+   LOGIN BUTTON
+============================== */
+
+.login-button {
+
+    width: 100%;
+
+    height: 46px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    color: white;
+
+    font-family: "Poppins",
+    sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    background:
+
+    linear-gradient(
+        90deg,
+        #005dc8,
+        #087ee0
+    );
+
+    box-shadow:
+    0 8px 20px
+    rgba(0,95,200,0.22);
+
+    transition: 0.3s;
+}
+
+
+.login-button:hover {
+
+    transform:
+    translateY(-2px);
+
+    box-shadow:
+    0 12px 25px
+    rgba(0,95,200,0.30);
+}
+
+
+/* ==============================
+   DIVIDER
+============================== */
+
+.divider {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin: 25px 0;
+
+    color: #a4afbb;
+
+    font-size: 9px;
+}
+
+
+.divider::before,
+.divider::after {
+
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background: #e5eaf0;
+}
+
+
+/* ==============================
+   SOCIAL LOGIN
+============================== */
+
+.social-login {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+}
+
+
+.social-button {
+
+    height: 42px;
+
+    border:
+    1px solid #dce5ed;
+
+    border-radius: 6px;
+
+    background: white;
+
+    color: #526b84;
+
+    font-family: "Poppins",
+    sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.social-button:hover {
+
+    border-color: #0876d9;
+
+    color: #0876d9;
+
+    background: #f6fbff;
+}
+
+
+/* ==============================
+   REGISTER
+============================== */
+
+.register-text {
+
+    text-align: center;
+
+    margin-top: 25px;
+
+    font-size: 10px;
+
+    color: #8491a2;
+}
+
+
+.register-text a {
+
+    color: #0876d9;
+
+    font-weight: 700;
+}
+
+
+/* ==============================
+   COPYRIGHT
+============================== */
+
+.copyright {
+
+    position: absolute;
+
+    bottom: 12px;
+
+    left: 0;
+
+    width: 100%;
+
+    text-align: center;
+
+    color:
+    rgba(255,255,255,0.65);
+
+    font-size: 9px;
+
+    z-index: 5;
+}
+
+
+/* ==============================
+   RESPONSIVE
+============================== */
+
+@media (max-width: 850px) {
+
+    .nav-links a {
+        display: none;
+    }
+
+    .nav-links .nav-home {
+        display: block;
+    }
+
+    .login-container {
+
+        max-width: 550px;
+
+        grid-template-columns: 1fr;
+    }
+
+    .login-info {
+
+        display: none;
+    }
+
+    .login-form {
+
+        padding: 45px 40px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .navbar {
+
+        padding:
+        0 20px;
+    }
+
+    .logo {
+
+        font-size: 18px;
+    }
+
+    .login-page {
+
+        padding:
+        85px 15px 40px;
+    }
+
+    .login-form {
+
+        padding:
+        35px 25px;
+    }
+
+    .login-heading h2 {
+
+        font-size: 25px;
+    }
+
+    .social-login {
+
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ======================================
+     NAVBAR
+====================================== -->
+
+<header class="navbar">
+
+    <a href="index.html"
+       class="logo">
+
+        Prism Live
+
+    </a>
+
+
+    <nav class="nav-links">
+
+
+        <a href="prismlive_home_page.html" class="get-started">
+                    Back
+                
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- ======================================
+     LOGIN PAGE
+====================================== -->
+
+<main class="login-page">
+
+
+    <div class="login-container">
+
+
+        <!-- ==============================
+             LEFT INFORMATION
+        =============================== -->
+
+        <section class="login-info">
+
+            <div class="info-content">
+
+
+                <span class="info-small">
+                    WELCOME TO PRISM LIVE
+                </span>
+
+
+                <h1>
+
+                    Connect.<br>
+                    Create.<br>
+                    Grow.
+
+                </h1>
+
+
+                <p>
+
+                    Sign in to access your Prism Live
+                    account, creative opportunities,
+                    workshops, projects and community.
+
+                </p>
+
+
+                <div class="info-features">
+
+
+                    <div class="info-feature">
+
+                        <div class="feature-icon">
+                            ✓
+                        </div>
+
+                        <span>
+                            Access your creative community
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-feature">
+
+                        <div class="feature-icon">
+                            ★
+                        </div>
+
+                        <span>
+                            Discover new opportunities
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-feature">
+
+                        <div class="feature-icon">
+                            ✦
+                        </div>
+
+                        <span>
+                            Build your creative journey
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==============================
+             LOGIN FORM
+        =============================== -->
+
+        <section class="login-form">
+
+
+            <div class="login-heading">
+
+                <h2>
+                    Welcome Back
+                </h2>
+
+                <p>
+                    Please enter your details to sign in.
+                </p>
+
+            </div>
+
+
+
+         <form action="{{ url_for('login') }}" method="POST">
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+
+                    <div class="input-box">
+
+                        <span class="input-icon">
+                            ✉
+                        </span>
+
+<input
+    type="email"
+    id="email"
+    name="email"
+    placeholder="Enter your email address"
+    required
+>
+                    </div>
+
+                </div>
+
+
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+
+                    <div class="input-box">
+
+                        <span class="input-icon">
+                            🔒
+                        </span>
+
+
+                        <input
+    type="password"
+    id="password"
+    name="password"
+    placeholder="Enter your password"
+    required
+>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- OPTIONS -->
+
+                <div class="form-options">
+
+
+                    <label class="remember">
+
+                        <input
+                            type="checkbox"
+                            name="remember">
+
+                        Remember me
+
+                    </label>
+
+
+                    <a
+                        href="forgot-password.html"
+                        class="forgot">
+
+                        Forgot Password?
+
+                    </a>
+
+
+                </div>
+
+
+
+                <!-- LOGIN -->
+
+                <button
+                    type="submit"
+                    class="login-button">
+
+                    Sign In
+
+                </button>
+
+
+            </form>
+
+
+
+            <!-- DIVIDER -->
+
+            <div class="divider">
+                OR CONTINUE WITH
+            </div>
+
+
+
+            <!-- SOCIAL LOGIN -->
+
+            <div class="social-login">
+
+                <button
+                    type="button"
+                    class="social-button">
+
+                    G &nbsp; Google
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="social-button">
+
+                    in &nbsp; LinkedIn
+
+                </button>
+
+            </div>
+
+
+
+            <!-- REGISTER -->
+
+            <div class="register-text">
+
+                Don't have an account?
+
+                <a href="prismlive_register_page.html">
+                    Create Account
+                </a>
+
+            </div>
+
+
+        </section>
+
+
+    </div>
+
+
+
+    <!-- COPYRIGHT -->
+
+    <div class="copyright">
+
+        © 2026 Prism Live. All Rights Reserved.
+
+    </div>
+
+
+</main>
+
+
+
+<!-- ======================================
+     PASSWORD SCRIPT
+====================================== -->
+
+<script>
+
+function togglePassword() {
+
+    const password =
+        document.getElementById("password");
+
+    if (password.type === "password") {
+
+        password.type = "text";
+
+    } else {
+
+        password.type = "password";
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>

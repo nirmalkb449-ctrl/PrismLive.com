@@ -1,0 +1,1535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Prism Live | Project</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --blue: #075bc7;
+            --blue2: #0877e4;
+            --dark-blue: #063d83;
+            --text: #08458b;
+            --muted: #6c7f95;
+            --light: #f5f8fc;
+            --border: #dce5ef;
+            --white: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: var(--light);
+            color: var(--text);
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* =========================================
+           NAVBAR
+        ========================================= */
+
+        .navbar {
+            height: 67px;
+            background: linear-gradient(105deg, #084381, #1976d2);
+            position: relative;
+            z-index: 20;
+        }
+
+        .nav-container {
+            width: 94%;
+            max-width: 1240px;
+            height: 100%;
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            color: white;
+            font-size: 20px;
+            font-weight: 800;
+             letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            transition: 0.25s;
+        }
+
+        .nav-links a:hover {
+            opacity: .7;
+        }
+
+        .get-started {
+            padding: 9px 16px;
+            border: 1px solid rgba(255,255,255,.8);
+            border-radius: 5px;
+        }
+
+        .menu-button {
+            display: none;
+            border: 0;
+            background: transparent;
+            color: white;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+
+        /* =========================================
+           PROJECT HERO
+        ========================================= */
+
+        /* ================= PROJECT HERO ================= */
+
+.project-hero {
+    width: 100%;
+    min-height: 330px;
+
+    margin: 0;
+    padding: 55px 7%;
+
+    background: linear-gradient(
+        100deg,
+        #084381 0%,
+        #1760a5 45%,
+        #1976d2 100%
+        
+    );
+    /* url("images/photos3.avif")
+        center/cover no-repeat; */
+
+    
+
+     color: white;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hero content */
+.project-hero-content {
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.project-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+    color: white;
+}
+
+.project-hero h1 {
+    max-width: 650px;
+
+    font-size: 42px;
+    line-height: 1.12;
+    font-weight: 800;
+
+    margin-bottom: 15px;
+}
+
+.project-hero p {
+    max-width: 560px;
+
+    font-size: 13px;
+    line-height: 1.7;
+
+    color: #e5f2ff;
+
+    margin-bottom: 25px;
+}
+
+.project-btn {
+    display: inline-block;
+
+    padding: 12px 22px;
+
+    background: white;
+    color: #0755aa;
+
+    border-radius: 5px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+ .hero-btn.primary {
+            background: rgb(243, 244, 247);
+            color: var(--blue);
+        }
+       
+
+/* ===================================
+   INTRODUCTION
+=================================== */
+
+.introduction {
+
+    background: #ffffff;
+
+    padding: 55px 8%;
+
+    text-align: center;
+
+}
+
+.section-small {
+
+    color: #4c7aa8;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+}
+
+.introduction h2 {
+
+    font-size: 32px;
+
+    color: #244d78;
+
+    margin: 15px 0;
+
+}
+
+.introduction p {
+
+    max-width: 800px;
+
+    margin: auto;
+
+    color: #738096;
+
+    font-size: 12px;
+
+    line-height: 1.9;
+
+}
+
+
+/* ===================================
+   MEDIA CATEGORIES
+=================================== */
+
+.media-categories {
+
+    padding: 70px 8%;
+
+    background: #f4f6fa;
+
+}
+
+.section-title {
+
+    text-align: center;
+
+    margin-bottom: 40px;
+
+}
+
+.section-title h2 {
+
+    font-size: 32px;
+
+    color: #244d78;
+
+    margin-top: 10px;
+
+}
+
+.section-title p {
+
+    color: #758197;
+
+    font-size: 12px;
+
+    margin-top: 10px;
+
+}
+
+
+.category-grid {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+    repeat(4, 1fr);
+
+    gap: 18px;
+
+}
+
+.category-card {
+
+    background: white;
+
+    border: 1px solid #dce4ee;
+
+    border-radius: 8px;
+
+    padding: 30px 20px;
+
+    text-align: center;
+
+    transition: 0.3s;
+
+}
+
+.category-card:hover {
+
+    transform: translateY(-7px);
+
+    box-shadow:
+    0 15px 35px
+    rgba(0,60,130,0.12);
+
+}
+
+.category-icon {
+
+    width: 55px;
+
+    height: 55px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #eaf4ff;
+
+    color: #176fc0;
+
+    font-size: 22px;
+
+}
+
+.category-card h3 {
+
+    color: #244d78;
+
+    font-size: 15px;
+
+    margin-bottom: 8px;
+
+}
+
+.category-card p {
+
+    color: #7b8798;
+
+    font-size: 11px;
+
+    line-height: 1.7;
+
+}
+
+
+/* ===================================
+   PHOTO GALLERY
+=================================== */
+
+.gallery {
+
+    padding: 70px 8%;
+
+    background: white;
+
+}
+
+.gallery-grid {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+    repeat(3, 1fr);
+
+    gap: 18px;
+
+}
+
+.gallery-card {
+
+    position: relative;
+
+    height: 240px;
+
+    overflow: hidden;
+
+    border-radius: 7px;
+
+}
+
+.gallery-card img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: 0.5s;
+
+}
+
+.gallery-card:hover img {
+
+    transform: scale(1.08);
+
+}
+
+.gallery-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    padding: 20px;
+
+    color: white;
+
+    background:
+
+    linear-gradient(
+        transparent,
+        rgba(4,36,75,0.9)
+    );
+
+}
+
+.gallery-overlay span {
+
+    font-size: 10px;
+
+    color: #b9e4ff;
+
+    letter-spacing: 2px;
+
+}
+
+.gallery-overlay h3 {
+
+    font-size: 17px;
+
+    margin-top: 5px;
+
+}
+
+
+/* ===================================
+   VIDEO SECTION
+=================================== */
+
+.videos {
+
+    padding: 70px 8%;
+
+    background: #f4f6fa;
+
+}
+
+.video-grid {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+    repeat(3, 1fr);
+
+    gap: 20px;
+
+}
+
+.video-card {
+
+    background: white;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    border: 1px solid #e0e6ee;
+
+    transition: 0.3s;
+
+}
+
+.video-card:hover {
+
+    transform: translateY(-6px);
+
+}
+
+.video-image {
+
+    position: relative;
+
+    height: 200px;
+
+}
+
+.video-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+.play-button {
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform:
+    translate(-50%, -50%);
+
+    width: 55px;
+
+    height: 55px;
+
+    border-radius: 50%;
+
+    background: #176fc0;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 2px solid white;
+
+}
+
+.video-content {
+
+    padding: 20px;
+
+}
+
+.video-content small {
+
+    color: #2879bf;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+}
+
+.video-content h3 {
+
+    color: #244d78;
+
+    font-size: 16px;
+
+    margin: 8px 0;
+
+}
+
+.video-content p {
+
+    color: #7b8798;
+
+    font-size: 11px;
+
+    line-height: 1.7;
+
+}
+
+
+/* ===================================
+   NEWS SECTION
+=================================== */
+
+.news {
+
+    padding: 70px 8%;
+
+    background: white;
+
+}
+
+.news-grid {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+    repeat(3, 1fr);
+
+    gap: 20px;
+
+}
+
+.news-card {
+
+    border: 1px solid #e0e7ef;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    background: white;
+
+}
+
+.news-card img {
+
+    width: 100%;
+
+    height: 190px;
+
+    object-fit: cover;
+
+}
+
+.news-content {
+
+    padding: 20px;
+
+}
+
+.news-content small {
+
+    color: #2a78bc;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+}
+
+.news-content h3 {
+
+    color: #244d78;
+
+    font-size: 16px;
+
+    margin: 8px 0;
+
+}
+
+.news-content p {
+
+    color: #7b8798;
+
+    font-size: 11px;
+
+    line-height: 1.7;
+
+}
+
+.read-more {
+
+    display: inline-block;
+
+    margin-top: 15px;
+
+    color: #176fc0;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+}
+
+
+/* ===================================
+   MEDIA CTA
+=================================== */
+
+.media-cta {
+
+    position: relative;
+
+    padding: 75px 20px;
+
+    text-align: center;
+
+    color: rgb(23, 96, 179);
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #e8ecf0,
+        #e2e8ec
+    );
+
+    overflow: hidden;
+
+}
+
+.media-cta::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    opacity: 0.1;
+
+    background-image:
+
+    linear-gradient(
+        30deg,
+        rgb(39, 104, 165) 12%,
+        transparent 12.5%,
+        transparent 87%,
+        rgb(15, 130, 184) 87.5%
+    );
+
+    background-size: 100px 170px;
+
+}
+
+.cta-content {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+.media-cta h2 {
+
+    font-size: 34px;
+
+    margin-bottom: 12px;
+
+}
+
+.media-cta p {
+
+    max-width: 650px;
+
+    margin: auto;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+    color: rgba(29, 87, 153, 0.85);
+
+}
+
+.cta-button {
+
+    display: inline-block;
+
+    margin-top: 25px;
+
+    background: rgb(26, 94, 196);
+
+    color: #e4e8ec;
+
+    padding: 13px 25px;
+
+    border-radius: 5px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+}
+
+/* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+            width: 94%;
+            max-width: 1180px;
+
+            margin: 0 auto 20px;
+
+            padding: 20px 30px;
+
+            background: #06346f;
+
+            color: white;
+
+            display: flex;
+            justify-content: space-between;
+
+            border-radius: 0 0 10px 10px;
+        }
+
+        .footer-logo {
+            font-size: 17px;
+            font-weight: 800;
+        }
+
+        .footer-text {
+            color: #c4d6e9;
+            font-size: 8px;
+        }
+
+
+/* ===================================
+   RESPONSIVE
+=================================== */
+
+@media(max-width: 900px) {
+
+    .nav-menu {
+        display: none;
+    }
+
+    .hero-content h1 {
+        font-size: 46px;
+    }
+
+    .category-grid {
+        grid-template-columns:
+        repeat(2, 1fr);
+    }
+
+    .gallery-grid,
+    .video-grid,
+    .news-grid {
+        grid-template-columns:
+        repeat(2, 1fr);
+    }
+
+}
+
+
+@media(max-width: 600px) {
+
+    .media-hero {
+        min-height: 520px;
+    }
+
+    .hero-content h1 {
+        font-size: 38px;
+    }
+
+    .hero-content {
+        margin-left: 7%;
+        margin-right: 7%;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .category-grid,
+    .gallery-grid,
+    .video-grid,
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .introduction h2,
+    .section-title h2 {
+        font-size: 27px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+
+    <!-- =========================================
+         NAVBAR
+    ========================================= -->
+
+    <header class="navbar">
+
+        <div class="nav-container">
+
+            <a href="#" class="logo">
+                Prism Live
+            </a>
+
+            <nav class="nav-links">
+
+                <a href="{{ url_for('home') }}">Home</a>
+                <a href="{{ url_for('about') }}">about</a>
+
+                <a href="prismlive_project_page.html"
+                   style="font-weight:700;">
+                    Project
+                </a>
+
+                <a href="prismlive_program_page.html">Programs</a>
+                <a href="prismlive_talent_page.html">Talent</a>
+                <a href="prismlive_workshop_page.html">Workshops</a>
+                <a href="prismlive_sponsors_page.html">Sponsors</a>
+                <a class="active" href="prismlive_media_page.html">Media</a>
+                <a href="{{ url_for('contact') }}">contact</a>
+
+                <!-- <a href="#" class="get-started">
+                    Get Started
+                </a> -->
+
+            </nav>
+
+            <button
+                class="menu-button"
+                onclick="toggleMenu()">
+
+                ☰
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================
+         HERO
+    ========================================= -->
+
+    <section class="project-hero">
+
+        <div class="hero-content">
+
+            <div class="hero-label">
+                Prism Live Media
+            </div>
+
+            <h1 class="hero-title">
+                Stories, Moments &<br>
+                 Creativity in Motion
+            </h1>
+
+            <p class="hero-text">
+               Prism Live through inspiring stories, creative productions, behind-the-scenes moments, interviews, events and visual experiences.
+            </p>
+
+            <!-- <a href="prismlive_explore_page.html" class="project-btn">
+    Explore Project
+</a> -->
+
+        </div>
+
+    </section>
+
+
+
+<!-- ===============================
+     INTRODUCTION
+================================ -->
+
+<section class="introduction">
+
+    <div class="section-small">
+        PRISM LIVE MEDIA SPACE
+    </div>
+
+    <h2>
+        Creativity. Community. Connection.
+    </h2>
+
+    <p>
+        Prism Live Media brings together photographs, videos,
+        stories and updates from our creative ecosystem.
+        Discover the people and ideas that inspire meaningful
+        action and help communities grow.
+    </p>
+
+</section>
+
+
+
+<!-- ===============================
+     MEDIA CATEGORIES
+================================ -->
+
+<section class="media-categories">
+
+    <div class="section-title">
+
+        <div class="section-small">
+            EXPLORE MEDIA
+        </div>
+
+        <h2>
+            Discover Our Stories
+        </h2>
+
+        <p>
+            Explore different parts of the Prism Live journey.
+        </p>
+
+    </div>
+
+
+    <div class="category-grid">
+
+
+        <div class="category-card">
+
+            <div class="category-icon">
+                📷
+            </div>
+
+            <h3>
+                Photo Gallery
+            </h3>
+
+            <p>
+                Events, workshops, projects and community moments.
+            </p>
+
+        </div>
+
+
+        <div class="category-card">
+
+            <div class="category-icon">
+                ▶
+            </div>
+
+            <h3>
+                Video Stories
+            </h3>
+
+            <p>
+                Watch inspiring stories and creative experiences.
+            </p>
+
+        </div>
+
+
+        <div class="category-card">
+
+            <div class="category-icon">
+                📰
+            </div>
+
+            <h3>
+                News & Updates
+            </h3>
+
+            <p>
+                Stay updated with the latest Prism Live activities.
+            </p>
+
+        </div>
+
+
+        <div class="category-card">
+
+            <div class="category-icon">
+                ✦
+            </div>
+
+            <h3>
+                Creative Stories
+            </h3>
+
+            <p>
+                Discover ideas, talent and inspiring achievements.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ===============================
+     PHOTO GALLERY
+================================ -->
+
+<section class="gallery" id="gallery">
+
+    <div class="section-title">
+
+        <div class="section-small">
+            PHOTO GALLERY
+        </div>
+
+        <h2>
+            Moments That Matter
+        </h2>
+
+    </div>
+
+
+    <div class="gallery-grid">
+
+
+        <div class="gallery-card">
+
+            <img src="images/gallery1.jpg">
+
+            <div class="gallery-overlay">
+
+                <span>WORKSHOPS</span>
+
+                <h3>Creative Learning</h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="gallery-card">
+
+            <img src="images/gallery2.jpg">
+
+            <div class="gallery-overlay">
+
+                <span>EVENTS</span>
+
+                <h3>Community Connection</h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="gallery-card">
+
+            <img src="images/gallery3.jpg">
+
+            <div class="gallery-overlay">
+
+                <span>PROJECTS</span>
+
+                <h3>Ideas Into Action</h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="gallery-card">
+
+            <img src="images/gallery4.jpg">
+
+            <div class="gallery-overlay">
+
+                <span>TALENT</span>
+
+                <h3>Creative Potential</h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="gallery-card">
+
+            <img src="images/gallery5.jpg">
+
+            <div class="gallery-overlay">
+
+                <span>PROGRAMS</span>
+
+                <h3>Building Opportunities</h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="gallery-card">
+
+            <img src="images/gallery6.jpg">
+
+            <div class="gallery-overlay">
+
+                <span>COMMUNITY</span>
+
+                <h3>Growing Together</h3>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ===============================
+     VIDEO STORIES
+================================ -->
+
+<section class="videos" id="videos">
+
+    <div class="section-title">
+
+        <div class="section-small">
+            VIDEO STORIES
+        </div>
+
+        <h2>
+            Watch Prism Live
+        </h2>
+
+        <p>
+            Stories, experiences and moments in motion.
+        </p>
+
+    </div>
+
+
+    <div class="video-grid">
+
+
+        <div class="video-card">
+
+            <div class="video-image">
+
+                <img src="images/video1.jpg">
+
+                <div class="play-button">
+                    ▶
+                </div>
+
+            </div>
+
+            <div class="video-content">
+
+                <small>FEATURE STORY</small>
+
+                <h3>
+                    The Prism Live Journey
+                </h3>
+
+                <p>
+                    Discover the vision and people behind
+                    the Prism Live ecosystem.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="video-card">
+
+            <div class="video-image">
+
+                <img src="images/video2.jpg">
+
+                <div class="play-button">
+                    ▶
+                </div>
+
+            </div>
+
+            <div class="video-content">
+
+                <small>WORKSHOPS</small>
+
+                <h3>
+                    Learning Through Creativity
+                </h3>
+
+                <p>
+                    Highlights from our creative learning
+                    and professional workshops.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="video-card">
+
+            <div class="video-image">
+
+                <img src="images/video3.jpg">
+
+                <div class="play-button">
+                    ▶
+                </div>
+
+            </div>
+
+            <div class="video-content">
+
+                <small>COMMUNITY</small>
+
+                <h3>
+                    Connecting People
+                </h3>
+
+                <p>
+                    Stories about collaboration, creativity
+                    and community development.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ===============================
+     NEWS
+================================ -->
+
+<section class="news">
+
+    <div class="section-title">
+
+        <div class="section-small">
+            LATEST UPDATES
+        </div>
+
+        <h2>
+            News & Highlights
+        </h2>
+
+    </div>
+
+
+    <div class="news-grid">
+
+
+        <article class="news-card">
+
+            <img src="images/news1.jpg">
+
+            <div class="news-content">
+
+                <small>
+                    PRISM LIVE UPDATE
+                </small>
+
+                <h3>
+                    New Creative Programs
+                </h3>
+
+                <p>
+                    Discover new opportunities for learning,
+                    creativity and collaboration.
+                </p>
+
+                <a href="#"
+                   class="read-more">
+
+                    Read More →
+
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <article class="news-card">
+
+            <img src="images/news2.jpg">
+
+            <div class="news-content">
+
+                <small>
+                    COMMUNITY
+                </small>
+
+                <h3>
+                    Building New Partnerships
+                </h3>
+
+                <p>
+                    Organizations are joining the Prism Live
+                    ecosystem to create meaningful impact.
+                </p>
+
+                <a href="#"
+                   class="read-more">
+
+                    Read More →
+
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <article class="news-card">
+
+            <img src="images/news3.jpg">
+
+            <div class="news-content">
+
+                <small>
+                    EVENTS
+                </small>
+
+                <h3>
+                    Celebrating Creative Talent
+                </h3>
+
+                <p>
+                    A platform for people to share their
+                    ideas, skills and achievements.
+                </p>
+
+                <a href="#"
+                   class="read-more">
+
+                    Read More →
+
+                </a>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ===============================
+     CTA
+================================ -->
+
+<section class="media-cta">
+
+    <div class="cta-content">
+
+        <h2>
+            Share Your Story With Prism Live
+        </h2>
+
+        <p>
+            Have a creative project, inspiring story or community
+            initiative? Connect with us and become part of the
+            Prism Live ecosystem.
+        </p>
+
+        <a href="prismlive_contact_info_page.html"
+           class="cta-button">
+
+            Contact Us
+
+        </a>
+
+    </div>
+
+</section>
+
+
+ <!-- =========================================
+         FOOTER
+    ========================================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+            Prism Live
+        </div>
+
+        <div class="footer-text">
+            © Prism Live. All Rights Reserved.
+        </div>
+
+    </footer>
+
+</body>
+</html>

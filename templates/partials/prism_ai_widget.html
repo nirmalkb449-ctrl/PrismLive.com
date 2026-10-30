@@ -1,0 +1,65 @@
+<!-- Include this partial near the end of the live-chat page, before </body>. -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/prism-ai.css') }}">
+
+<div class="prism-ai-launch-wrap">
+  <span class="prism-ai-launch-label">Ask AI</span>
+  <button class="prism-ai-launcher" id="prismAiLauncher" type="button"
+          aria-label="Open Prism AI assistant" aria-expanded="false">
+    <svg viewBox="0 0 48 48" aria-hidden="true">
+      <defs>
+        <linearGradient id="prismAiGradient" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#54d5ff"/>
+          <stop offset="55%" stop-color="#3b82f6"/>
+          <stop offset="100%" stop-color="#7c3aed"/>
+        </linearGradient>
+      </defs>
+      <path d="M24 4 28.8 17.2 42 22 28.8 26.8 24 40 19.2 26.8 6 22 19.2 17.2Z"
+            fill="url(#prismAiGradient)"/>
+      <path d="M37 30 39.2 36.1 45 38.2 39.2 40.3 37 46 34.8 40.3 29 38.2 34.8 36.1Z"
+            fill="#8b5cf6"/>
+    </svg>
+  </button>
+</div>
+
+<section class="prism-ai-panel" id="prismAiPanel" aria-label="Prism AI chat" hidden>
+  <header class="prism-ai-header">
+    <div class="prism-ai-brand-icon" aria-hidden="true">
+      <svg viewBox="0 0 48 48">
+        <path d="M24 4 28.8 17.2 42 22 28.8 26.8 24 40 19.2 26.8 6 22 19.2 17.2Z" fill="currentColor"/>
+        <path d="M37 30 39.2 36.1 45 38.2 39.2 40.3 37 46 34.8 40.3 29 38.2 34.8 36.1Z" fill="#a5b4fc"/>
+      </svg>
+    </div>
+    <div class="prism-ai-title-block">
+      <strong>Prism AI</strong>
+      <span><i class="prism-ai-status-dot"></i> Your smart assistant</span>
+    </div>
+    <button class="prism-ai-icon-button" id="prismAiNewChat" type="button" title="New chat" aria-label="Start a new chat">↻</button>
+    <button class="prism-ai-icon-button" id="prismAiClose" type="button" title="Close" aria-label="Close AI assistant">×</button>
+  </header>
+
+  <div class="prism-ai-welcome" id="prismAiWelcome">
+    <div class="prism-ai-welcome-mark">✦</div>
+    <h3>What can I help with?</h3>
+    <p>Ask a question, get an idea, or work through a problem.</p>
+    <div class="prism-ai-suggestions">
+      <button type="button" data-prompt="What can you help me with?">✨ What can you do?</button>
+      <button type="button" data-prompt="Help me use the PrismLive website.">🧭 Help with this website</button>
+      <button type="button" data-prompt="Give me a simple step-by-step plan for my task.">📝 Make a step-by-step plan</button>
+    </div>
+  </div>
+
+  <div class="prism-ai-messages" id="prismAiMessages" role="log" aria-live="polite" aria-relevant="additions text"></div>
+  <div class="prism-ai-error" id="prismAiError" role="alert" hidden></div>
+
+  <form class="prism-ai-composer" id="prismAiForm">
+    <textarea id="prismAiInput" rows="1" maxlength="4000"
+              placeholder="Message Prism AI…" aria-label="Message Prism AI"></textarea>
+    <div class="prism-ai-composer-bottom">
+      <small>AI can make mistakes. Don't share passwords or private details.</small>
+      <button type="submit" id="prismAiSend" aria-label="Send message">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.8 21 3l-5.4 18-3.4-7.2L3 10.8Zm9.2 3 8.8-10.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </form>
+</section>
+<script src="{{ url_for('static', filename='js/prism-ai.js') }}" defer></script>

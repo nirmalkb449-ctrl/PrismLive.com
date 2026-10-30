@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Prism Live | Project</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --blue: #075bc7;
+            --blue2: #0877e4;
+            --dark-blue: #063d83;
+            --text: #08458b;
+            --muted: #6c7f95;
+            --light: #f5f8fc;
+            --border: #dce5ef;
+            --white: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: var(--light);
+            color: var(--text);
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* =========================================
+           NAVBAR
+        ========================================= */
+
+        .navbar {
+            height: 67px;
+            background: linear-gradient(105deg, #084381, #1976d2);
+            position: relative;
+            z-index: 20;
+        }
+
+        .nav-container {
+            width: 94%;
+            max-width: 1240px;
+            height: 100%;
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            color: white;
+            font-size: 20px;
+            font-weight: 800;
+             letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            transition: 0.25s;
+        }
+
+        .nav-links a:hover {
+            opacity: .7;
+        }
+
+        .get-started {
+            padding: 9px 16px;
+            border: 1px solid rgba(255,255,255,.8);
+            border-radius: 5px;
+        }
+
+        .menu-button {
+            display: none;
+            border: 0;
+            background: transparent;
+            color: white;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+
+        /* =========================================
+           PROJECT HERO
+        ========================================= */
+
+        /* ================= PROJECT HERO ================= */
+
+.project-hero {
+    width: 100%;
+    min-height: 330px;
+
+    margin: 0;
+    padding: 55px 7%;
+
+    background: linear-gradient(
+        100deg,
+        #084381 0%,
+        #1760a5 45%,
+        #1976d2 100%
+        
+    );
+    /* url("images/photos3.avif")
+        center/cover no-repeat; */
+
+    
+
+     color: white;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hero content */
+.project-hero-content {
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.project-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+    color: white;
+}
+
+.project-hero h1 {
+    max-width: 650px;
+
+    font-size: 42px;
+    line-height: 1.12;
+    font-weight: 800;
+
+    margin-bottom: 15px;
+}
+
+.project-hero p {
+    max-width: 560px;
+
+    font-size: 13px;
+    line-height: 1.7;
+
+    color: #e5f2ff;
+
+    margin-bottom: 25px;
+}
+
+.project-btn {
+    display: inline-block;
+
+    padding: 12px 22px;
+
+    background: white;
+    color: #0755aa;
+
+    border-radius: 5px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+ .hero-btn.primary {
+            background: rgb(243, 244, 247);
+            color: var(--blue);
+        }
+       
+
+        /* ================= PROGRAM INTRO ================= */
+
+        .intro {
+            background: white;
+            padding: 70px 5%;
+        }
+
+        .intro-container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-label {
+            color: #0871d5;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            color: #08468d;
+            font-size: 32px;
+            line-height: 1.2;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            color: #728197;
+            font-size: 11px;
+            line-height: 1.8;
+            max-width: 680px;
+        }
+
+
+        /* ================= PROGRAM CARDS ================= */
+
+        .program-section {
+            padding: 70px 5%;
+            background: #f5f8fc;
+        }
+
+        .program-container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .program-heading {
+            text-align: center;
+            margin-bottom: 38px;
+        }
+
+        .program-heading h2 {
+            color: #08468d;
+            font-size: 32px;
+            font-weight: 800;
+        }
+
+        .program-heading p {
+            color: #77869a;
+            font-size: 11px;
+            margin-top: 7px;
+        }
+
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .program-card {
+            position: relative;
+            min-height: 330px;
+            overflow: hidden;
+            border-radius: 10px;
+            background: white;
+            border: 1px solid var(--border);
+
+            box-shadow: 0 5px 18px rgba(15, 63, 110, .05);
+
+            transition:
+                transform .3s ease,
+                box-shadow .3s ease;
+        }
+
+        .program-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 18px 35px rgba(15, 63, 110, .14);
+        }
+
+        .program-image {
+            height: 145px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .program-image::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to top,
+                rgba(2, 53, 112, .65),
+                transparent
+            );
+        }
+
+        .program-number {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: white;
+            color: #075fc9;
+
+            font-size: 10px;
+            font-weight: 800;
+
+            z-index: 2;
+        }
+
+        .program-content {
+            padding: 20px;
+        }
+
+        .program-content h3 {
+            color: #08468d;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .program-content p {
+            color: #718196;
+            font-size: 10px;
+            line-height: 1.7;
+            margin-bottom: 13px;
+        }
+
+        .program-list {
+            list-style: none;
+            margin-bottom: 17px;
+        }
+
+        .program-list li {
+            color: #526c88;
+            font-size: 9px;
+            margin: 6px 0;
+        }
+
+        .program-list li::before {
+            content: "✓";
+            color: #0870d5;
+            font-weight: 700;
+            margin-right: 7px;
+        }
+
+        .program-link {
+            color: #075fc9;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+
+        /* Program images */
+
+        .writing-image {
+            background-image:
+                linear-gradient(
+                    rgba(0, 79, 165, .20),
+                    rgba(0, 79, 165, .20)
+                ),
+                url("images/writing.jpg");
+        }
+
+        .acting-image {
+            background-image:
+                linear-gradient(
+                    rgba(55, 15, 70, .20),
+                    rgba(55, 15, 70, .20)
+                ),
+                url("images/acting.jpg");
+        }
+
+        .technical-image {
+            background-image:
+                linear-gradient(
+                    rgba(0, 51, 110, .25),
+                    rgba(0, 51, 110, .25)
+                ),
+                url("images/technical.jpg");
+        }
+
+        .production-image {
+            background-image:
+                linear-gradient(
+                    rgba(0, 70, 140, .20),
+                    rgba(0, 70, 140, .20)
+                ),
+                url("images/production.jpg");
+        }
+
+        .digital-image {
+            background-image:
+                linear-gradient(
+                    rgba(0, 70, 150, .20),
+                    rgba(0, 70, 150, .20)
+                ),
+                url("images/digital-media.jpg");
+        }
+
+        .innovation-image {
+            background-image:
+                linear-gradient(
+                    rgba(0, 65, 130, .20),
+                    rgba(0, 65, 130, .20)
+                ),
+                url("images/innovation.jpg");
+        }
+
+
+        /* ================= PROGRAM JOURNEY ================= */
+
+        .journey {
+            padding: 75px 5%;
+            background:
+                linear-gradient(
+                    110deg,
+                    rgba(8, 76, 160, 0.97),
+                    rgba(89, 149, 206, 0.87)
+                ),
+                url("images/program-journey.jpg") center/cover;
+        }
+
+        .journey-container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .journey-heading {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .journey-heading h2 {
+            font-size: 32px;
+            font-weight: 800;
+        }
+
+        .journey-heading p {
+            color: #dbeeff;
+            font-size: 11px;
+            margin-top: 6px;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .step {
+            padding: 25px 18px;
+            text-align: center;
+
+            border: 1px solid rgba(255,255,255,.30);
+            border-radius: 9px;
+            background: rgba(255,255,255,.08);
+            backdrop-filter: blur(5px);
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            margin: auto auto 15px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+            background: white;
+            color: #075fc9;
+
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .step h3 {
+            color: white;
+            font-size: 14px;
+            margin-bottom: 7px;
+        }
+
+        .step p {
+            color: #d8ebff;
+            font-size: 9px;
+            line-height: 1.6;
+        }
+
+
+        /* ================= FEATURES ================= */
+
+        .features {
+            padding: 70px 5%;
+            background: white;
+        }
+
+        .features-container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .features-heading {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .features-heading h2 {
+            color: #08468d;
+            font-size: 30px;
+            font-weight: 800;
+        }
+
+        .features-heading p {
+            color: #77869a;
+            font-size: 10px;
+            margin-top: 6px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .feature {
+            padding: 28px 18px;
+            text-align: center;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: white;
+            transition: .3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            border-color: #8db9e8;
+            box-shadow: 0 12px 25px rgba(10, 75, 135, .08);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            margin: auto auto 15px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 2px solid #0870d2;
+            border-radius: 50%;
+
+            color: #0870d2;
+            font-size: 19px;
+        }
+
+        .feature h3 {
+            color: #08468d;
+            font-size: 12px;
+            margin-bottom: 7px;
+        }
+
+        .feature p {
+            color: #75859a;
+            font-size: 9px;
+            line-height: 1.6;
+        }
+
+
+        /* ================= CTA ================= */
+
+        .cta {
+            width: 94%;
+            max-width: 1100px;
+            margin: 55px auto;
+
+            padding: 35px 45px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+
+            color: white;
+
+            border-radius: 10px;
+
+            background:
+                linear-gradient(
+                    100deg,
+                    #0753bb,
+                    #087be9
+                );
+
+            box-shadow: 0 12px 30px rgba(0, 75, 160, .15);
+        }
+
+        .cta h2 {
+            font-size: 21px;
+            margin-bottom: 6px;
+        }
+
+        .cta p {
+            color: #dceeff;
+            font-size: 10px;
+        }
+
+        .cta-button {
+            background: white;
+            color: #075fc9;
+
+            padding: 12px 23px;
+            border-radius: 5px;
+
+            font-size: 10px;
+            font-weight: 700;
+
+            white-space: nowrap;
+        }
+
+
+       
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+            width: 94%;
+            max-width: 1180px;
+
+            margin: 0 auto 20px;
+
+            padding: 20px 30px;
+
+            background: #06346f;
+
+            color: white;
+
+            display: flex;
+            justify-content: space-between;
+
+            border-radius: 0 0 10px 10px;
+        }
+
+        .footer-logo {
+            font-size: 17px;
+            font-weight: 800;
+        }
+
+        .footer-text {
+            color: #c4d6e9;
+            font-size: 8px;
+        }
+
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 1000px) {
+
+            .nav-links {
+                gap: 14px;
+            }
+
+            .program-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+
+        @media (max-width: 700px) {
+
+            .navbar {
+                height: 65px;
+            }
+
+            .nav-links {
+                display: none;
+
+                position: absolute;
+                top: 65px;
+                left: 0;
+                width: 100%;
+
+                padding: 18px;
+
+                background: #075fc9;
+
+                flex-direction: column;
+                align-items: stretch;
+
+                gap: 4px;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 9px;
+            }
+
+            .menu-button {
+                display: block;
+            }
+
+            .hero {
+                min-height: 550px;
+            }
+
+            .hero-content {
+                padding-top: 100px;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+            }
+
+            .hero p {
+                font-size: 11px;
+            }
+
+            .program-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 30px;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-start;
+            }
+        }
+
+
+        @media (max-width: 450px) {
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .section-title,
+            .program-heading h2,
+            .journey-heading h2,
+            .features-heading h2 {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+ 
+    <!-- =========================================
+         NAVBAR
+    ========================================= -->
+
+    <header class="navbar">
+
+        <div class="nav-container">
+
+            <a href="#" class="logo">
+                Prism Live
+            </a>
+
+            <nav class="nav-links">
+
+                <a href="{{ url_for('home') }}">Home</a>
+                <a href="{{ url_for('about') }}">about</a>
+
+                <a class="active" href="prismlive_project_page.html"
+                   style="font-weight:700;">
+                    Project
+                </a>
+
+                <a href="prismlive_program_page.html">Programs</a>
+                <a href="prismlive_talent_page.html">Talent</a>
+                <a href="prismlive_workshop_page.html">Workshops</a>
+                <a href="prismlive_sponsors_page.html">Sponsors</a>
+                <a href="{{ url_for('media') }}">media</a>
+                <a href="{{ url_for('contact') }}">contact</a>
+
+                <!-- <a href="#" class="get-started">
+                    Get Started
+                </a> -->
+
+            </nav>
+
+            <button
+                class="menu-button"
+                onclick="toggleMenu()">
+
+                ☰
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================
+         HERO
+    ========================================= -->
+
+    <section class="project-hero">
+
+        <div class="hero-content">
+
+            <div class="hero-label">
+                Prism Live Programs
+            </div>
+
+            <h1 class="hero-title">
+               Discover<br>
+               Develop and
+               Create
+            </h1>
+
+            <p class="hero-text">
+                Prism Live programs are designed to transform
+                 creative potential into meaningful opportunities. Through structured learning, practical experiences, 
+                 mentorship and collaboration, participants can explore 
+                 their talents and develop the skills needed for the creative world.
+            </p>
+
+            <a href="prismlive_programs_info_page.html" class="project-btn">
+    More Programs
+</a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= INTRO ================= -->
+
+    <section class="intro">
+
+        <div class="intro-container">
+
+            <div class="section-label">
+                OUR PROGRAMS
+            </div>
+
+            <h2 class="section-title">
+                Building Creative Talent Through Action
+            </h2>
+
+            <p class="section-subtitle">
+                Prism Live brings together aspiring writers, performers,
+                technicians, creators and production professionals through
+                structured programs, practical learning, mentorship and
+                real-world creative experiences.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PROGRAM AREAS ================= -->
+
+    <section class="program-section" id="programs">
+
+        <div class="program-container">
+
+            <div class="program-heading">
+
+                <h2>
+                    Explore Our Programs
+                </h2>
+
+                <p>
+                    Choose your creative pathway and start your journey.
+                </p>
+
+            </div>
+
+
+            <div class="program-grid">
+
+
+                <!-- PROGRAM 01 -->
+
+                <article class="program-card">
+
+                    <div class="program-image writing-image">
+                        <div class="program-number">01</div>
+                    </div>
+
+                    <div class="program-content">
+
+                        <h3>
+                            Writing & Storytelling
+                        </h3>
+
+                        <p>
+                            Develop stories and scripts from the first idea
+                            to a complete creative concept.
+                        </p>
+
+                        <ul class="program-list">
+                            <li>Story Development</li>
+                            <li>Screenwriting</li>
+                            <li>Script Development</li>
+                        </ul>
+
+                        <a href="#" class="program-link">
+                            Explore Program →
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PROGRAM 02 -->
+
+                <article class="program-card">
+
+                    <div class="program-image acting-image">
+                        <div class="program-number">02</div>
+                    </div>
+
+                    <div class="program-content">
+
+                        <h3>
+                            Acting & Performance
+                        </h3>
+
+                        <p>
+                            Develop performance skills through practical
+                            training, rehearsal and creative collaboration.
+                        </p>
+
+                        <ul class="program-list">
+                            <li>Acting Practice</li>
+                            <li>Voice & Expression</li>
+                            <li>Performance</li>
+                        </ul>
+
+                        <a href="#" class="program-link">
+                            Explore Program →
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PROGRAM 03 -->
+
+                <article class="program-card">
+
+                    <div class="program-image technical-image">
+                        <div class="program-number">03</div>
+                    </div>
+
+                    <div class="program-content">
+
+                        <h3>
+                            Technical & Crew
+                        </h3>
+
+                        <p>
+                            Learn the technical disciplines that support
+                            professional creative productions.
+                        </p>
+
+                        <ul class="program-list">
+                            <li>Camera & Cinematography</li>
+                            <li>Sound & Lighting</li>
+                            <li>Editing</li>
+                        </ul>
+
+                        <a href="#" class="program-link">
+                            Explore Program →
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PROGRAM 04 -->
+
+                <article class="program-card">
+
+                    <div class="program-image production-image">
+                        <div class="program-number">04</div>
+                    </div>
+
+                    <div class="program-content">
+
+                        <h3>
+                            Production & Direction
+                        </h3>
+
+                        <p>
+                            Learn how creative productions are planned,
+                            coordinated and delivered.
+                        </p>
+
+                        <ul class="program-list">
+                            <li>Production Planning</li>
+                            <li>Direction</li>
+                            <li>Project Coordination</li>
+                        </ul>
+
+                        <a href="#" class="program-link">
+                            Explore Program →
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PROGRAM 05 -->
+
+                <article class="program-card">
+
+                    <div class="program-image digital-image">
+                        <div class="program-number">05</div>
+                    </div>
+
+                    <div class="program-content">
+
+                        <h3>
+                            Digital Media & Content
+                        </h3>
+
+                        <p>
+                            Create engaging digital content for modern
+                            audiences and creative platforms.
+                        </p>
+
+                        <ul class="program-list">
+                            <li>Content Creation</li>
+                            <li>Digital Storytelling</li>
+                            <li>Social Media</li>
+                        </ul>
+
+                        <a href="#" class="program-link">
+                            Explore Program →
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PROGRAM 06 -->
+
+                <article class="program-card">
+
+                    <div class="program-image innovation-image">
+                        <div class="program-number">06</div>
+                    </div>
+
+                    <div class="program-content">
+
+                        <h3>
+                            Creative Innovation
+                        </h3>
+
+                        <p>
+                            Explore new ideas, technologies and collaborative
+                            approaches to creative work.
+                        </p>
+
+                        <ul class="program-list">
+                            <li>Creative Thinking</li>
+                            <li>Innovation Projects</li>
+                            <li>Collaboration</li>
+                        </ul>
+
+                        <a href="#" class="program-link">
+                            Explore Program →
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PROGRAM JOURNEY ================= -->
+
+    <section class="journey">
+
+        <div class="journey-container">
+
+            <div class="journey-heading">
+
+                <h2>
+                    Your Creative Journey
+                </h2>
+
+                <p>
+                    From discovering your talent to creating meaningful work.
+                </p>
+
+            </div>
+
+
+            <div class="steps">
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        01
+                    </div>
+
+                    <h3>
+                        Discover
+                    </h3>
+
+                    <p>
+                        Identify your interests,
+                        strengths and creative pathway.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        02
+                    </div>
+
+                    <h3>
+                        Develop
+                    </h3>
+
+                    <p>
+                        Build practical skills through
+                        training and expert guidance.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        03
+                    </div>
+
+                    <h3>
+                        Create
+                    </h3>
+
+                    <p>
+                        Collaborate with other creators
+                        on meaningful projects.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        04
+                    </div>
+
+                    <h3>
+                        Showcase
+                    </h3>
+
+                    <p>
+                        Present your work and connect
+                        with new opportunities.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FEATURES ================= -->
+
+    <section class="features">
+
+        <div class="features-container">
+
+            <div class="features-heading">
+
+                <h2>
+                    Why Join Prism Live?
+                </h2>
+
+                <p>
+                    A creative ecosystem designed around people and opportunity.
+                </p>
+
+            </div>
+
+
+            <div class="feature-grid">
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        ♧
+                    </div>
+
+                    <h3>
+                        Practical Learning
+                    </h3>
+
+                    <p>
+                        Learn through practical activities,
+                        workshops and creative projects.
+                    </p>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        ♙
+                    </div>
+
+                    <h3>
+                        Expert Mentors
+                    </h3>
+
+                    <p>
+                        Learn from experienced professionals
+                        across creative disciplines.
+                    </p>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        ♡
+                    </div>
+
+                    <h3>
+                        Collaboration
+                    </h3>
+
+                    <p>
+                        Connect with writers, performers,
+                        technicians and creators.
+                    </p>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        ✓
+                    </div>
+
+                    <h3>
+                        Recognition
+                    </h3>
+
+                    <p>
+                        Showcase your talent through
+                        projects, events and opportunities.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="cta" id="register">
+
+        <div>
+
+            <h2>
+                Start Your Creative Journey
+            </h2>
+
+            <p>
+                Choose your program and become part of the Prism Live community.
+            </p>
+
+        </div>
+
+        <a href="#" class="cta-button">
+            Register Now
+        </a>
+
+    </section>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+            Prism Live
+        </div>
+
+        <div class="footer-text">
+            © Prism Live. All Rights Reserved.
+        </div>
+
+    </footer>
+
+
+    <script>
+
+        function toggleMenu() {
+
+            const nav =
+                document.querySelector(".nav-links");
+
+            nav.classList.toggle("show");
+
+        }
+
+    </script>
+
+</body>
+</html>

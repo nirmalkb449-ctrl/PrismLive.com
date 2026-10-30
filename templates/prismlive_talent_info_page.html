@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Talent Development Program | Prism Live</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:'Poppins',sans-serif;
+            background:#f3f7fc;
+            color:#26384d;
+            line-height:1.7;
+        }
+
+        /* ================= MAIN CONTAINER ================= */
+
+        .page{
+            width:820px;
+            max-width:92%;
+            margin:30px auto 60px;
+        }
+
+        /* ================= BACK BUTTON ================= */
+
+        .back{
+            display:inline-block;
+            margin-bottom:22px;
+
+            color:#1687c9;
+            text-decoration:none;
+
+            font-size:14px;
+            font-weight:600;
+        }
+
+        .back:hover{
+            text-decoration:underline;
+        }
+
+        /* ================= PROJECT CARD ================= */
+
+        .project-card{
+            background:#ffffff;
+
+            border-radius:16px;
+
+            overflow:hidden;
+
+            box-shadow:0 8px 30px rgba(35,60,90,0.08);
+        }
+
+        /* ================= HERO IMAGE ================= */
+
+        .hero-image{
+            width:100%;
+            height:350px;
+            overflow:hidden;
+        }
+
+        .hero-image img{
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            display:block;
+        }
+
+        /* ================= CONTENT ================= */
+
+        .content{
+            padding:42px 38px 38px;
+        }
+
+        .content h1{
+            font-size:32px;
+            line-height:1.3;
+            color:#203b59;
+            margin-bottom:16px;
+        }
+
+        .subtitle{
+            color:#718096;
+            font-size:15px;
+            line-height:1.8;
+            margin-bottom:28px;
+        }
+
+        .divider{
+            height:1px;
+            background:#e5e9ee;
+            margin:25px 0;
+        }
+
+        /* ================= SECTIONS ================= */
+
+        .section{
+            margin-bottom:28px;
+        }
+
+        .section h2{
+            font-size:19px;
+            color:#23384f;
+            margin-bottom:12px;
+        }
+
+        .section p{
+            font-size:14px;
+            color:#526274;
+            line-height:1.8;
+            margin-bottom:14px;
+        }
+
+        /* ================= FOCUS CARDS ================= */
+
+        .focus-grid{
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:16px;
+
+            margin-top:20px;
+        }
+
+        .focus-card{
+            border:1px solid #dce4ec;
+            background:#f9fbfd;
+
+            border-radius:10px;
+
+            padding:20px 18px;
+
+            transition:0.3s;
+        }
+
+        .focus-card:hover{
+            transform:translateY(-4px);
+
+            border-color:#b9d9ee;
+
+            box-shadow:0 8px 20px rgba(30,80,120,0.08);
+        }
+
+        .focus-card h3{
+            color:#263b52;
+            font-size:14px;
+            margin-bottom:8px;
+        }
+
+        .focus-card p{
+            color:#718096;
+            font-size:12px;
+            line-height:1.7;
+        }
+
+        /* ================= TALENT PATH ================= */
+
+        .path{
+            display:grid;
+            grid-template-columns:repeat(4,1fr);
+            gap:12px;
+            margin-top:20px;
+        }
+
+        .path-item{
+            text-align:center;
+            padding:17px 10px;
+
+            background:#f5f8fc;
+
+            border-radius:8px;
+        }
+
+        .number{
+            width:35px;
+            height:35px;
+
+            margin:0 auto 9px;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            border-radius:50%;
+
+            background:#1687c9;
+            color:white;
+
+            font-size:13px;
+            font-weight:600;
+        }
+
+        .path-item h3{
+            font-size:12px;
+            color:#29435f;
+        }
+
+        /* ================= IMPACT ================= */
+
+        .impact-box{
+            background:#f4f9fd;
+
+            border-left:4px solid #1687c9;
+
+            padding:20px;
+
+            border-radius:6px;
+
+            margin-top:15px;
+        }
+
+        .impact-box p{
+            margin:0;
+        }
+
+        /* ================= BUTTONS ================= */
+
+        .buttons{
+            display:flex;
+            gap:14px;
+            margin-top:30px;
+        }
+
+        .btn{
+            display:inline-block;
+
+            padding:12px 22px;
+
+            border-radius:6px;
+
+            text-decoration:none;
+
+            font-size:13px;
+            font-weight:600;
+
+            transition:0.3s;
+        }
+
+        .primary{
+            background:#1687c9;
+            color:#ffffff;
+        }
+
+        .primary:hover{
+            background:#0d72aa;
+        }
+
+        .secondary{
+            background:#e4ebf2;
+            color:#34495e;
+        }
+
+        .secondary:hover{
+            background:#d7e1ea;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media(max-width:750px){
+
+            .page{
+                max-width:94%;
+            }
+
+            .hero-image{
+                height:280px;
+            }
+
+            .content{
+                padding:30px 25px;
+            }
+
+            .focus-grid{
+                grid-template-columns:1fr;
+            }
+
+            .path{
+                grid-template-columns:repeat(2,1fr);
+            }
+
+        }
+
+        @media(max-width:500px){
+
+            .hero-image{
+                height:220px;
+            }
+
+            .content h1{
+                font-size:26px;
+            }
+
+            .buttons{
+                flex-direction:column;
+            }
+
+            .btn{
+                text-align:center;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+<div class="page">
+
+    <!-- BACK -->
+
+    <a href="prismlive_explore_page.html" class="back">
+        ← Back
+    </a>
+
+
+    <!-- MAIN PROJECT CARD -->
+
+    <div class="project-card">
+
+
+        <!-- HERO IMAGE -->
+
+        <div class="hero-image">
+
+            <img src="images/talent02.jpg"
+                 alt="Talent Development Program">
+
+        </div>
+
+
+        <!-- CONTENT -->
+
+        <div class="content">
+
+
+            <!-- TITLE -->
+
+            <h1>
+                Talent Development Program
+            </h1>
+
+            <p class="subtitle">
+                A development initiative helping individuals discover
+                their strengths, build practical skills and create
+                meaningful opportunities for personal and professional growth.
+            </p>
+
+
+            <div class="divider"></div>
+
+
+            <!-- ABOUT -->
+
+            <div class="section">
+
+                <h2>
+                    About the Program
+                </h2>
+
+                <p>
+                    The Talent Development Program is designed to identify,
+                    nurture and develop individual potential through learning,
+                    mentoring, creative activities and practical experiences.
+                </p>
+
+                <p>
+                    The program brings together learners, creators,
+                    professionals, mentors and emerging talents in an
+                    environment where people can discover their abilities
+                    and transform ideas into meaningful outcomes.
+                </p>
+
+            </div>
+
+
+            <!-- KEY FOCUS AREAS -->
+
+            <div class="section">
+
+                <h2>
+                    Key Focus Areas
+                </h2>
+
+
+                <div class="focus-grid">
+
+
+                    <div class="focus-card">
+
+                        <h3>
+                            Talent Discovery
+                        </h3>
+
+                        <p>
+                            Identifying individual strengths,
+                            interests, abilities and areas of potential.
+                        </p>
+
+                    </div>
+
+
+                    <div class="focus-card">
+
+                        <h3>
+                            Skill Development
+                        </h3>
+
+                        <p>
+                            Building practical knowledge and
+                            capabilities through structured learning.
+                        </p>
+
+                    </div>
+
+
+                    <div class="focus-card">
+
+                        <h3>
+                            Mentorship
+                        </h3>
+
+                        <p>
+                            Connecting emerging talent with
+                            experienced mentors and professionals.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- DEVELOPMENT PATH -->
+
+            <div class="section">
+
+                <h2>
+                    Talent Development Path
+                </h2>
+
+                <div class="path">
+
+
+                    <div class="path-item">
+
+                        <div class="number">
+                            1
+                        </div>
+
+                        <h3>
+                            Discover
+                        </h3>
+
+                    </div>
+
+
+                    <div class="path-item">
+
+                        <div class="number">
+                            2
+                        </div>
+
+                        <h3>
+                            Learn
+                        </h3>
+
+                    </div>
+
+
+                    <div class="path-item">
+
+                        <div class="number">
+                            3
+                        </div>
+
+                        <h3>
+                            Create
+                        </h3>
+
+                    </div>
+
+
+                    <div class="path-item">
+
+                        <div class="number">
+                            4
+                        </div>
+
+                        <h3>
+                            Achieve
+                        </h3>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- PROGRAM ACTIVITIES -->
+
+            <div class="section">
+
+                <h2>
+                    Program Activities
+                </h2>
+
+                <p>
+                    Participants can engage in workshops, skill-building
+                    sessions, mentoring, project development, creative
+                    challenges, collaborative activities and networking
+                    opportunities.
+                </p>
+
+            </div>
+
+
+            <!-- IMPACT -->
+
+            <div class="section">
+
+                <h2>
+                    Expected Impact
+                </h2>
+
+                <div class="impact-box">
+
+                    <p>
+                        The program aims to help participants develop
+                        confidence, practical skills, creative thinking,
+                        collaboration abilities and a clearer direction
+                        for their future.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- BUTTONS -->
+
+            <div class="buttons">
+
+                <a href="register.html"
+                   class="btn primary">
+                    Join This Program
+                </a>
+
+                <a href="talent-overview.pdf"
+                   class="btn secondary"
+                   target="_blank">
+                    Download Overview PDF
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

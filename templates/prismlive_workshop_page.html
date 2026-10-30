@@ -1,0 +1,1714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Prism Live | Project</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --blue: #075bc7;
+            --blue2: #0877e4;
+            --dark-blue: #063d83;
+            --text: #08458b;
+            --muted: #6c7f95;
+            --light: #f5f8fc;
+            --border: #dce5ef;
+            --white: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: var(--light);
+            color: var(--text);
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* =========================================
+           NAVBAR
+        ========================================= */
+
+        .navbar {
+            height: 67px;
+            background: linear-gradient(105deg, #084381, #1976d2);
+            position: relative;
+            z-index: 20;
+        }
+
+        .nav-container {
+            width: 94%;
+            max-width: 1240px;
+            height: 100%;
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            color: white;
+            font-size: 20px;
+            font-weight: 800;
+             letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            transition: 0.25s;
+        }
+
+        .nav-links a:hover {
+            opacity: .7;
+        }
+
+        .get-started {
+            padding: 9px 16px;
+            border: 1px solid rgba(255,255,255,.8);
+            border-radius: 5px;
+        }
+
+        .menu-button {
+            display: none;
+            border: 0;
+            background: transparent;
+            color: white;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+
+        /* =========================================
+           PROJECT HERO
+        ========================================= */
+
+        /* ================= PROJECT HERO ================= */
+
+.project-hero {
+    width: 100%;
+    min-height: 330px;
+
+    margin: 0;
+    padding: 55px 7%;
+
+    background: linear-gradient(
+        100deg,
+        #084381 0%,
+        #1760a5 45%,
+        #1976d2 100%
+        
+    );
+    /* url("images/photos3.avif")
+        center/cover no-repeat; */
+
+    
+
+     color: white;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hero content */
+.project-hero-content {
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.project-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+    color: white;
+}
+
+.project-hero h1 {
+    max-width: 650px;
+
+    font-size: 42px;
+    line-height: 1.12;
+    font-weight: 800;
+
+    margin-bottom: 15px;
+}
+
+.project-hero p {
+    max-width: 560px;
+
+    font-size: 13px;
+    line-height: 1.7;
+
+    color: #e5f2ff;
+
+    margin-bottom: 25px;
+}
+
+.project-btn {
+    display: inline-block;
+
+    padding: 12px 22px;
+
+    background: white;
+    color: #0755aa;
+
+    border-radius: 5px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+ .hero-btn.primary {
+            background: rgb(243, 244, 247);
+            color: var(--blue);
+        }
+       
+        /* =========================
+           INTRODUCTION
+        ========================== */
+
+        .intro {
+            background: white;
+            padding: 55px 5%;
+        }
+
+        .intro-container {
+            max-width: 1050px;
+            margin: auto;
+
+            text-align: center;
+        }
+
+        .small-title {
+            color: #0870d3;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .intro h2 {
+            color: var(--text);
+            font-size: 30px;
+            font-weight: 800;
+            margin-bottom: 9px;
+        }
+
+        .intro p {
+            max-width: 720px;
+            margin: auto;
+
+            color: var(--gray);
+            font-size: 10px;
+            line-height: 1.8;
+        }
+
+
+        /* =========================
+           WORKSHOP SECTION
+        ========================== */
+
+        .workshops {
+            padding: 65px 5%;
+            background: var(--light);
+        }
+
+        .workshop-container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-heading h2 {
+            color: var(--text);
+            font-size: 30px;
+            font-weight: 800;
+        }
+
+        .section-heading p {
+            color: var(--gray);
+            font-size: 10px;
+            margin-top: 5px;
+        }
+
+
+        /* =========================
+           WORKSHOP CARDS
+        ========================== */
+
+        .workshop-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .workshop-card {
+            background: white;
+
+            border: 1px solid var(--border);
+            border-radius: 9px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 5px 18px rgba(10, 60, 110, .05);
+
+            transition:
+                transform .3s ease,
+                box-shadow .3s ease;
+        }
+
+        .workshop-card:hover {
+            transform: translateY(-6px);
+
+            box-shadow:
+                0 16px 30px rgba(10, 60, 110, .13);
+        }
+
+        .workshop-image {
+            height: 155px;
+
+            position: relative;
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .workshop-image::after {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(3, 48, 105, .62),
+                    transparent 60%
+                );
+        }
+
+        .workshop-number {
+            position: absolute;
+
+            top: 13px;
+            left: 13px;
+
+            width: 36px;
+            height: 36px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: white;
+            color: var(--blue);
+
+            border-radius: 50%;
+
+            font-size: 10px;
+            font-weight: 800;
+
+            z-index: 2;
+        }
+
+        .workshop-tag {
+            position: absolute;
+
+            right: 13px;
+            top: 13px;
+
+            padding: 5px 9px;
+
+            background: rgba(255,255,255,.92);
+            color: var(--blue);
+
+            border-radius: 4px;
+
+            font-size: 8px;
+            font-weight: 700;
+
+            z-index: 2;
+        }
+
+        .workshop-content {
+            padding: 19px;
+        }
+
+        .workshop-content h3 {
+            color: var(--text);
+            font-size: 15px;
+            margin-bottom: 7px;
+        }
+
+        .workshop-content p {
+            color: var(--gray);
+            font-size: 9px;
+            line-height: 1.65;
+
+            margin-bottom: 12px;
+        }
+
+        .workshop-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+
+            margin-bottom: 15px;
+        }
+
+        .info {
+            padding: 5px 8px;
+
+            background: #eef5fc;
+            color: #416588;
+
+            border-radius: 4px;
+
+            font-size: 8px;
+        }
+
+        .workshop-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .workshop-link {
+            color: var(--blue);
+            font-size: 9px;
+            font-weight: 700;
+        }
+
+        .apply-button {
+            padding: 7px 11px;
+
+            background: var(--blue);
+            color: white;
+
+            border-radius: 4px;
+
+            font-size: 8px;
+            font-weight: 600;
+        }
+
+
+        /* =========================
+           WORKSHOP IMAGES
+        ========================== */
+
+        .storytelling {
+            background-image: url("images/workshop-storytelling.jpg");
+        }
+
+        .acting {
+            background-image: url("images/workshop-acting.jpg");
+        }
+
+        .camera {
+            background-image: url("images/workshop-camera.jpg");
+        }
+
+        .sound {
+            background-image: url("images/workshop-sound.jpg");
+        }
+
+        .editing {
+            background-image: url("images/workshop-editing.jpg");
+        }
+
+        .production {
+            background-image: url("images/workshop-production.jpg");
+        }
+
+
+        /* =========================
+           WORKSHOP PROCESS
+        ========================== */
+
+        .process {
+            padding: 70px 5%;
+
+            background:
+                linear-gradient(
+                    110deg,
+                    rgba(5, 81, 173, 0.97),
+                    rgba(46, 122, 197, 0.9)
+                ),
+                url("images/workshop-process.jpg")
+                center/cover;
+        }
+
+        .process-container {
+            max-width: 1080px;
+            margin: auto;
+        }
+
+        .process-heading {
+            text-align: center;
+            color: white;
+
+            margin-bottom: 35px;
+        }
+
+        .process-heading h2 {
+            font-size: 30px;
+            font-weight: 800;
+        }
+
+        .process-heading p {
+            color: #d9edff;
+            font-size: 10px;
+            margin-top: 5px;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .process-card {
+            padding: 23px 16px;
+
+            text-align: center;
+
+            border-radius: 8px;
+
+            border:
+                1px solid rgba(255,255,255,.30);
+
+            background:
+                rgba(255,255,255,.08);
+
+            backdrop-filter: blur(4px);
+        }
+
+        .process-number {
+            width: 45px;
+            height: 45px;
+
+            margin: auto auto 13px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: white;
+            color: var(--blue);
+
+            font-size: 11px;
+            font-weight: 800;
+        }
+
+        .process-card h3 {
+            color: white;
+            font-size: 12px;
+
+            margin-bottom: 6px;
+        }
+
+        .process-card p {
+            color: #d8ebff;
+            font-size: 8px;
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           BENEFITS
+        ========================== */
+
+        .benefits {
+            padding: 65px 5%;
+            background: white;
+        }
+
+        .benefits-container {
+            max-width: 1080px;
+            margin: auto;
+        }
+
+        .benefits-heading {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .benefits-heading h2 {
+            color: var(--text);
+            font-size: 28px;
+            font-weight: 800;
+        }
+
+        .benefits-heading p {
+            color: var(--gray);
+            font-size: 9px;
+            margin-top: 5px;
+        }
+
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .benefit {
+            padding: 25px 15px;
+
+            text-align: center;
+
+            border: 1px solid var(--border);
+            border-radius: 8px;
+
+            transition: .3s;
+        }
+
+        .benefit:hover {
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 12px 25px rgba(10, 65, 120, .09);
+        }
+
+        .benefit-icon {
+            width: 47px;
+            height: 47px;
+
+            margin: auto auto 13px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 2px solid #0870d2;
+            border-radius: 50%;
+
+            color: #0870d2;
+
+            font-size: 18px;
+        }
+
+        .benefit h3 {
+            color: var(--text);
+            font-size: 11px;
+            margin-bottom: 6px;
+        }
+
+        .benefit p {
+            color: var(--gray);
+            font-size: 8px;
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           CTA
+        ========================== */
+
+        .cta {
+            width: 94%;
+            max-width: 1080px;
+
+            margin: 45px auto;
+
+            padding: 30px 40px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+
+            border-radius: 9px;
+
+            background:
+                linear-gradient(
+                    100deg,
+                    #0753ba,
+                    #0879e8
+                );
+
+            color: white;
+        }
+
+        .cta h2 {
+            font-size: 19px;
+            margin-bottom: 5px;
+        }
+
+        .cta p {
+            color: #dceeff;
+            font-size: 9px;
+        }
+
+        .cta-button {
+            padding: 11px 20px;
+
+            background: white;
+            color: var(--blue);
+
+            border-radius: 5px;
+
+            font-size: 9px;
+            font-weight: 700;
+
+            white-space: nowrap;
+        }
+
+
+        
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+            width: 94%;
+            max-width: 1180px;
+
+            margin: 0 auto 20px;
+
+            padding: 20px 30px;
+
+            background: #06346f;
+
+            color: white;
+
+            display: flex;
+            justify-content: space-between;
+
+            border-radius: 0 0 10px 10px;
+        }
+
+        .footer-logo {
+            font-size: 17px;
+            font-weight: 800;
+        }
+
+        .footer-text {
+            color: #c4d6e9;
+            font-size: 8px;
+        }
+
+
+        /* =========================
+           TABLET
+        ========================== */
+
+        @media (max-width: 1000px) {
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .workshop-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .benefit-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 700px) {
+
+            .navbar {
+                height: 65px;
+            }
+
+            .nav-links {
+                display: none;
+
+                position: absolute;
+
+                top: 65px;
+                left: 0;
+
+                width: 100%;
+
+                padding: 15px;
+
+                background: #075dcc;
+
+                flex-direction: column;
+                align-items: stretch;
+
+                gap: 3px;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 9px;
+            }
+
+            .menu-button {
+                display: block;
+            }
+
+            .hero {
+                min-height: 540px;
+            }
+
+            .hero-content {
+                padding: 90px 25px 45px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero p {
+                font-size: 10px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .workshop-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefit-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 27px;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                gap: 9px;
+                align-items: flex-start;
+            }
+        }
+
+
+        /* =========================
+           SMALL MOBILE
+        ========================== */
+
+        @media (max-width: 430px) {
+
+            .hero h1 {
+                font-size: 35px;
+            }
+
+            .intro h2,
+            .section-heading h2,
+            .process-heading h2,
+            .benefits-heading h2 {
+                font-size: 25px;
+            }
+
+            .workshops,
+            .benefits,
+            .process {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+
+    <!-- =========================================
+         NAVBAR
+    ========================================= -->
+
+    <header class="navbar">
+
+        <div class="nav-container">
+
+            <a href="#" class="logo">
+                Prism Live
+            </a>
+
+            <nav class="nav-links">
+
+                <a href="{{ url_for('home') }}">Home</a>
+                <a href="{{ url_for('about') }}">about</a>
+
+                <a href="prismlive_project_page.html"
+                   style="font-weight:700;">
+                    Project
+                </a>
+
+                <a href="prismlive_program_page.html">Programs</a>
+                <a href="prismlive_talent_page.html">Talent</a>
+                <a class="active" href="prismlive_workshop_page.html">Workshops</a>
+                <a href="prismlive_sponsors_page.html">Sponsors</a>
+                <a href="{{ url_for('media') }}">media</a>
+                <a href="{{ url_for('contact') }}">contact</a>
+
+                <!-- <a href="#" class="get-started">
+                    Get Started
+                </a> -->
+
+            </nav>
+
+            <button
+                class="menu-button"
+                onclick="toggleMenu()">
+
+                ☰
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================
+         HERO
+    ========================================= -->
+
+    <section class="project-hero">
+
+        <div class="hero-content">
+
+            <div class="hero-label">
+                Prism Live Workshops
+            </div>
+
+            <h1 class="hero-title">
+               Learn ,Create <br>
+               Connect and Grow
+            </h1>
+
+            <p class="hero-text">
+                Our workshops are designed to help participants explore new ideas, strengthen practical skills, develop creative confidence, and build meaningful connections within the creative community.
+            </p>
+
+            <a href="prismlive_workshop_info_page.html" class="project-btn">
+    More Workshops
+</a>
+
+        </div>
+
+    </section>
+
+
+
+
+    <!-- =====================================
+         INTRO
+    ====================================== -->
+
+    <section class="intro">
+
+        <div class="intro-container">
+
+            <div class="small-title">
+                LEARN FROM EXPERIENCE
+            </div>
+
+            <h2>
+                Creative Workshops for Real-World Skills
+            </h2>
+
+            <p>
+                Prism Live workshops connect aspiring creators with
+                experienced professionals through practical sessions,
+                demonstrations, discussions, exercises and collaborative
+                creative activities.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         WORKSHOP PROGRAMS
+    ====================================== -->
+
+    <section
+        class="workshops"
+        id="workshops">
+
+        <div class="workshop-container">
+
+            <div class="section-heading">
+
+                <h2>
+                    Explore Our Workshops
+                </h2>
+
+                <p>
+                    Choose a skill. Learn from experts. Create something meaningful.
+                </p>
+
+            </div>
+
+
+            <div class="workshop-grid">
+
+
+                <!-- WORKSHOP 01 -->
+
+                <article class="workshop-card">
+
+                    <div
+                        class="workshop-image storytelling">
+
+                        <div class="workshop-number">
+                            01
+                        </div>
+
+                        <div class="workshop-tag">
+                            CREATIVE
+                        </div>
+
+                    </div>
+
+                    <div class="workshop-content">
+
+                        <h3>
+                            Storytelling & Screenwriting
+                        </h3>
+
+                        <p>
+                            Learn how ideas become compelling stories,
+                            scripts and screenplays.
+                        </p>
+
+                        <div class="workshop-info">
+
+                            <span class="info">
+                                2 Days
+                            </span>
+
+                            <span class="info">
+                                Beginner
+                            </span>
+
+                            <span class="info">
+                                Online / Offline
+                            </span>
+
+                        </div>
+
+                        <div class="workshop-bottom">
+
+                            <a
+                                href="#"
+                                class="workshop-link">
+
+                                View Details →
+
+                            </a>
+
+                            <a
+                                href="#"
+                                class="apply-button">
+
+                                Apply
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- WORKSHOP 02 -->
+
+                <article class="workshop-card">
+
+                    <div
+                        class="workshop-image acting">
+
+                        <div class="workshop-number">
+                            02
+                        </div>
+
+                        <div class="workshop-tag">
+                            PERFORMANCE
+                        </div>
+
+                    </div>
+
+                    <div class="workshop-content">
+
+                        <h3>
+                            Acting & Performance
+                        </h3>
+
+                        <p>
+                            Build confidence, expression and performance
+                            skills through practical exercises.
+                        </p>
+
+                        <div class="workshop-info">
+
+                            <span class="info">
+                                2 Days
+                            </span>
+
+                            <span class="info">
+                                All Levels
+                            </span>
+
+                            <span class="info">
+                                Studio
+                            </span>
+
+                        </div>
+
+                        <div class="workshop-bottom">
+
+                            <a
+                                href="#"
+                                class="workshop-link">
+
+                                View Details →
+
+                            </a>
+
+                            <a
+                                href="#"
+                                class="apply-button">
+
+                                Apply
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- WORKSHOP 03 -->
+
+                <article class="workshop-card">
+
+                    <div
+                        class="workshop-image camera">
+
+                        <div class="workshop-number">
+                            03
+                        </div>
+
+                        <div class="workshop-tag">
+                            TECHNICAL
+                        </div>
+
+                    </div>
+
+                    <div class="workshop-content">
+
+                        <h3>
+                            Camera & Cinematography
+                        </h3>
+
+                        <p>
+                            Understand camera techniques, composition,
+                            visual language and cinematography.
+                        </p>
+
+                        <div class="workshop-info">
+
+                            <span class="info">
+                                3 Days
+                            </span>
+
+                            <span class="info">
+                                Intermediate
+                            </span>
+
+                            <span class="info">
+                                Production
+                            </span>
+
+                        </div>
+
+                        <div class="workshop-bottom">
+
+                            <a
+                                href="#"
+                                class="workshop-link">
+
+                                View Details →
+
+                            </a>
+
+                            <a
+                                href="#"
+                                class="apply-button">
+
+                                Apply
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- WORKSHOP 04 -->
+
+                <article class="workshop-card">
+
+                    <div
+                        class="workshop-image sound">
+
+                        <div class="workshop-number">
+                            04
+                        </div>
+
+                        <div class="workshop-tag">
+                            TECHNICAL
+                        </div>
+
+                    </div>
+
+                    <div class="workshop-content">
+
+                        <h3>
+                            Sound & Lighting
+                        </h3>
+
+                        <p>
+                            Explore professional sound recording,
+                            lighting techniques and production setup.
+                        </p>
+
+                        <div class="workshop-info">
+
+                            <span class="info">
+                                2 Days
+                            </span>
+
+                            <span class="info">
+                                Beginner
+                            </span>
+
+                            <span class="info">
+                                Studio
+                            </span>
+
+                        </div>
+
+                        <div class="workshop-bottom">
+
+                            <a
+                                href="#"
+                                class="workshop-link">
+
+                                View Details →
+
+                            </a>
+
+                            <a
+                                href="#"
+                                class="apply-button">
+
+                                Apply
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- WORKSHOP 05 -->
+
+                <article class="workshop-card">
+
+                    <div
+                        class="workshop-image editing">
+
+                        <div class="workshop-number">
+                            05
+                        </div>
+
+                        <div class="workshop-tag">
+                            DIGITAL
+                        </div>
+
+                    </div>
+
+                    <div class="workshop-content">
+
+                        <h3>
+                            Editing & Post-Production
+                        </h3>
+
+                        <p>
+                            Learn editing principles, storytelling through
+                            cuts, sound design and post-production workflow.
+                        </p>
+
+                        <div class="workshop-info">
+
+                            <span class="info">
+                                3 Days
+                            </span>
+
+                            <span class="info">
+                                Intermediate
+                            </span>
+
+                            <span class="info">
+                                Lab
+                            </span>
+
+                        </div>
+
+                        <div class="workshop-bottom">
+
+                            <a
+                                href="#"
+                                class="workshop-link">
+
+                                View Details →
+
+                            </a>
+
+                            <a
+                                href="#"
+                                class="apply-button">
+
+                                Apply
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- WORKSHOP 06 -->
+
+                <article class="workshop-card">
+
+                    <div
+                        class="workshop-image production">
+
+                        <div class="workshop-number">
+                            06
+                        </div>
+
+                        <div class="workshop-tag">
+                            PRODUCTION
+                        </div>
+
+                    </div>
+
+                    <div class="workshop-content">
+
+                        <h3>
+                            Production & Direction
+                        </h3>
+
+                        <p>
+                            Discover planning, coordination, direction,
+                            teamwork and professional production workflow.
+                        </p>
+
+                        <div class="workshop-info">
+
+                            <span class="info">
+                                3 Days
+                            </span>
+
+                            <span class="info">
+                                Advanced
+                            </span>
+
+                            <span class="info">
+                                Production
+                            </span>
+
+                        </div>
+
+                        <div class="workshop-bottom">
+
+                            <a
+                                href="#"
+                                class="workshop-link">
+
+                                View Details →
+
+                            </a>
+
+                            <a
+                                href="#"
+                                class="apply-button">
+
+                                Apply
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         WORKSHOP PROCESS
+    ====================================== -->
+
+    <section class="process">
+
+        <div class="process-container">
+
+            <div class="process-heading">
+
+                <h2>
+                    How Our Workshops Work
+                </h2>
+
+                <p>
+                    A practical learning experience from preparation to creation.
+                </p>
+
+            </div>
+
+
+            <div class="process-grid">
+
+
+                <div class="process-card">
+
+                    <div class="process-number">
+                        01
+                    </div>
+
+                    <h3>
+                        Learn
+                    </h3>
+
+                    <p>
+                        Understand concepts and techniques
+                        from experienced professionals.
+                    </p>
+
+                </div>
+
+
+                <div class="process-card">
+
+                    <div class="process-number">
+                        02
+                    </div>
+
+                    <h3>
+                        Practice
+                    </h3>
+
+                    <p>
+                        Apply what you learn through practical
+                        exercises and demonstrations.
+                    </p>
+
+                </div>
+
+
+                <div class="process-card">
+
+                    <div class="process-number">
+                        03
+                    </div>
+
+                    <h3>
+                        Collaborate
+                    </h3>
+
+                    <p>
+                        Work with other participants and
+                        build creative connections.
+                    </p>
+
+                </div>
+
+
+                <div class="process-card">
+
+                    <div class="process-number">
+                        04
+                    </div>
+
+                    <h3>
+                        Create
+                    </h3>
+
+                    <p>
+                        Turn your learning into meaningful
+                        creative work and projects.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         BENEFITS
+    ====================================== -->
+
+    <section class="benefits">
+
+        <div class="benefits-container">
+
+            <div class="benefits-heading">
+
+                <h2>
+                    Why Join Prism Live Workshops?
+                </h2>
+
+                <p>
+                    More than training — an opportunity to connect, create and grow.
+                </p>
+
+            </div>
+
+
+            <div class="benefit-grid">
+
+
+                <div class="benefit">
+
+                    <div class="benefit-icon">
+                        ♧
+                    </div>
+
+                    <h3>
+                        Expert Trainers
+                    </h3>
+
+                    <p>
+                        Learn directly from experienced
+                        creative professionals.
+                    </p>
+
+                </div>
+
+
+                <div class="benefit">
+
+                    <div class="benefit-icon">
+                        ◉
+                    </div>
+
+                    <h3>
+                        Hands-On Learning
+                    </h3>
+
+                    <p>
+                        Practice skills through exercises,
+                        demonstrations and projects.
+                    </p>
+
+                </div>
+
+
+                <div class="benefit">
+
+                    <div class="benefit-icon">
+                        ♡
+                    </div>
+
+                    <h3>
+                        Creative Network
+                    </h3>
+
+                    <p>
+                        Connect with creators,
+                        performers and production teams.
+                    </p>
+
+                </div>
+
+
+                <div class="benefit">
+
+                    <div class="benefit-icon">
+                        ✓
+                    </div>
+
+                    <h3>
+                        Recognition
+                    </h3>
+
+                    <p>
+                        Build your portfolio and receive
+                        participation recognition.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         CTA
+    ====================================== -->
+
+    <section
+        class="cta"
+        id="register">
+
+        <div>
+
+            <h2>
+                Ready to Learn Something New?
+            </h2>
+
+            <p>
+                Choose a workshop and begin your creative learning journey with Prism Live.
+            </p>
+
+        </div>
+
+        <a
+            href="#"
+            class="cta-button">
+
+            Register for a Workshop
+
+        </a>
+
+    </section>
+
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+            Prism Live
+        </div>
+
+        <div class="footer-text">
+            © Prism Live. All Rights Reserved.
+        </div>
+
+    </footer>
+
+
+    <!-- =====================================
+         MOBILE MENU
+    ====================================== -->
+
+    <script>
+
+        function toggleMenu() {
+
+            const menu =
+                document.querySelector(".nav-links");
+
+            menu.classList.toggle("show");
+
+        }
+
+    </script>
+
+</body>
+</html>

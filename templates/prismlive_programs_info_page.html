@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prism Live - More Programs</title>
+  <style>
+    :root {
+      --primary-blue: #0A2540;
+      --accent-blue: #1A73E8;
+      --text-dark: #1E293B;
+      --text-muted: #64748B;
+      --bg-light: #F8FAFC;
+      --white: #FFFFFF;
+      --border-color: #E2E8F0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--white);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 80px;
+      background: linear-gradient(135deg, #0d3b66 0%, #1d70b8 100%);
+      color: var(--white);
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      opacity: 0.9;
+      transition: opacity 0.2s;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+    }
+
+    /* Hero Section (Clean/Light style variant matching user request) */
+    .hero-light {
+      text-align: center;
+      padding: 80px 20px 40px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-light .subtag {
+      font-size: 0.85rem;
+
+      
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent-blue);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .hero-light h1 {
+      font-size: 2.75rem;
+      color: rgb(29, 83, 155);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .hero-light p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 32px;
+    }
+
+    .back-btn {
+      display: inline-block;
+      padding: 12px 28px;
+      border: 1.5px solid var(--primary-blue);
+      color: var(--primary-blue);
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+    }
+
+    .back-btn:hover {
+      background: var(--primary-blue);
+      color: var(--white);
+    }
+
+    /* Extended Programs Grid Section */
+    .programs-section {
+      padding: 60px 80px 100px 80px;
+      background-color: var(--bg-light);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 60px auto;
+    }
+
+    .section-header h2 {
+      font-size: 2rem;
+      color: var(--primary-blue);
+      margin-bottom: 12px;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 32px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    /* Container Card (No blue background cards, clean image-top or clean structured cards) */
+    .program-card {
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .program-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+    }
+
+    .card-image-container {
+      width: 100%;
+      height: 200px;
+      position: relative;
+      overflow: hidden;
+      background-color: #f1f5f9;
+    }
+
+    .card-image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .program-card:hover .card-image-container img {
+      transform: scale(1.03);
+    }
+
+    .badge-num {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--primary-blue);
+      font-weight: 700;
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .card-content {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-content h3 {
+      font-size: 1.25rem;
+      color: var(--primary-blue);
+      margin-bottom: 10px;
+    }
+
+    .card-content p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      min-height: 42px;
+    }
+
+    .checklist {
+      list-style: none;
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+
+    .checklist li {
+      position: relative;
+      padding-left: 24px;
+      font-size: 0.88rem;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .checklist li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--accent-blue);
+      font-weight: bold;
+    }
+
+    .card-footer {
+      padding-top: 16px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .explore-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--primary-blue);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: gap 0.2s;
+    }
+
+    .explore-link:hover {
+      gap: 10px;
+      color: var(--accent-blue);
+    }
+
+    /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+            width: 94%;
+            max-width: 1180px;
+
+            margin: 0 auto 20px;
+
+            padding: 20px 30px;
+
+            background: #06346f;
+
+            color: white;
+
+            display: flex;
+            justify-content: space-between;
+
+            border-radius: 0 0 10px 10px;
+        }
+
+        .footer-logo {
+            font-size: 17px;
+            font-weight: 800;
+        }
+
+        .footer-text {
+            color: #c4d6e9;
+            font-size: 8px;
+        }
+
+
+    @media (max-width: 768px) {
+      .navbar { padding: 16px 24px; flex-direction: column; gap: 12px; }
+      .nav-links { flex-wrap: wrap; justify-content: center; }
+      .hero-light h1 { font-size: 2rem; }
+      .programs-section { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <!-- <header>
+    <nav class="navbar">
+      <div class="logo">Prism Live</div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Project</a></li>
+        <li><a href="#">Programs</a></li>
+        <li><a href="#">Talent</a></li>
+        <li><a href="#">Workshops</a></li>
+        <li><a href="#">Sponsors</a></li>
+        <li><a href="#">Media</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header> -->
+
+  <!-- Hero Section -->
+  <section class="hero-light">
+    <!-- <div class="subtag">Prism Live Extended Curriculum</div> -->
+    <h1>More Specialized Creative Programs</h1>
+    <p>Explore additional practical training tracks crafted to elevate creators across emerging digital media, production management, and experiential art.</p>
+    <!-- <a href="#" class="back-btn">← Back to Main Programs</a> -->
+  </section>
+
+  <!-- Extended Programs Grid -->
+  <section class="programs-section">
+    <div class="section-header">
+      <h2>Expanded Pathways</h2>
+      <p>Targeted modular tracks without background heavy themes, focusing on clarity, imagery, and structured learning outcomes.</p>
+    </div>
+
+    <div class="programs-grid">
+      <!-- Container 04 -->
+      <div class="program-card">
+        <div class="card-image-container">
+          <span class="badge-num">04</span>
+          <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80" alt="Digital Production">
+        </div>
+        <div class="card-content">
+          <h3>Digital & VFX Pipeline</h3>
+          <p>Master modern computer graphics, compositing pipelines, and real-time environment creation.</p>
+          <ul class="checklist">
+            <li>3D Asset Lookdev</li>
+            <li>Node Compositing</li>
+            <li>Realtime Unreal Pipeline</li>
+          </ul>
+          <div class="card-footer">
+            <a href="#" class="explore-link">Explore Program →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Container 05 -->
+      <div class="program-card">
+        <div class="card-image-container">
+          <span class="badge-num">05</span>
+          <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80" alt="Audio Production">
+        </div>
+        <div class="card-content">
+          <h3>Sonic Arts & Scoring</h3>
+          <p>Dive deep into spatial audio mixing, film scoring orchestration, and sound design architecture.</p>
+          <ul class="checklist">
+            <li>Scoring & Arrangement</li>
+            <li>Dolby Atmos Mixing</li>
+            <li>Field Recording Tech</li>
+          </ul>
+          <div class="card-footer">
+            <a href="#" class="explore-link">Explore Program →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Container 06 -->
+      <div class="program-card">
+        <div class="card-image-container">
+          <span class="badge-num">06</span>
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Creative Production Management">
+        </div>
+        <div class="card-content">
+          <h3>Production Management</h3>
+          <p>Learn budgeting, legal compliance, scheduling frameworks, and showrunning logistics.</p>
+          <ul class="checklist">
+            <li>Media Budgeting & Risk</li>
+            <li>IP & Contracts</li>
+            <li>Showrunner Workflow</li>
+          </ul>
+          <div class="card-footer">
+            <a href="#" class="explore-link">Explore Program →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+
+        <div class="footer-logo">
+            Prism Live
+        </div>
+
+        <div class="footer-text">
+            © Prism Live. All Rights Reserved.
+        </div>
+
+    </footer>
+
+
+</body>
+</html>
