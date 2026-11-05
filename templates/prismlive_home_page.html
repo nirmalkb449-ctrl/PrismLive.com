@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Prism Live | Creative Talent Platform</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+
+        /* =========================
+           GLOBAL
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #eef3f8;
+            color: #12345d;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        .website {
+            width: 100%;
+            max-width: 2280px;
+            margin: 8px auto;
+            background: #ffffff;
+            overflow: hidden;
+            border-radius: 9px;
+            box-shadow: 0 8px 30px rgba(0, 35, 80, 0.12);
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+   .navbar {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    transform: none;
+
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+
+    height: 62px;
+    padding: 0 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 20;
+    color: #ffffff;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.8px;
+}
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-menu a {
+            font-size: 12px;
+            font-weight: 600;
+            color: #f7f7f8;
+            transition: 0.25s;
+        }
+
+        .nav-menu a:hover {
+            opacity: 0.65;
+        }
+
+        .nav-button {
+            padding: 9px 15px;
+            border: 1px solid rgba(225, 231, 236, 0.85);
+            border-radius: 5px;
+        }
+        
+        
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            position: relative;
+            min-height: 490px;
+
+            display: flex;
+            align-items: center;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(27, 87, 177, 0.97) 0%,
+                    rgba(26, 107, 194, 0.88) 48%,
+                    rgba(71, 149, 194, 0.55) 100%
+                ),
+                url("images/photos1.avif");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero::after {
+            content: " ";
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0, 67, 150, 0.30),
+                    transparent
+                );
+
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+
+            width: 100%;
+            max-width: 760px;
+
+            padding: 125px 48px 85px;
+            color: white;
+        }
+
+        .small-title {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 5vw, 62px);
+            line-height: 1.08;
+            font-weight: 800;
+
+            max-width: 700px;
+
+            letter-spacing: -1.5px;
+            margin-bottom: 18px;
+        }
+
+        .hero-description {
+            max-width: 610px;
+
+            font-size: 13px;
+            line-height: 1.8;
+
+            color: rgba(255,255,255,0.94);
+
+            margin-bottom: 25px;
+        }
+
+
+        /* =========================
+           BUTTONS
+        ========================= */
+
+        .buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            min-width: 110px;
+
+            padding: 11px 20px;
+
+            border-radius: 4px;
+
+            font-size: 11px;
+            font-weight: 700;
+
+            transition: all 0.25s ease;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #0864c7;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+        }
+
+        .btn-outline {
+            color: white;
+            border: 1px solid rgba(255,255,255,0.8);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: #0864c7;
+        }
+
+
+        /* =========================
+           STATISTICS
+        ========================= */
+
+        .statistics {
+            position: relative;
+            z-index: 5;
+
+            width: calc(100% - 56px);
+
+            margin: -31px auto 0;
+
+            background: linear-gradient(
+                90deg,
+                #075fc5,
+                #0877e1
+            );
+
+            border-radius: 5px;
+
+            color: white;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+
+            box-shadow: 0 7px 20px rgba(0,65,145,0.18);
+        }
+
+        .stat {
+            min-height: 65px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            border-right: 1px solid rgba(255,255,255,0.28);
+
+            text-align: center;
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        .stat-number {
+            font-size: 21px;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 9px;
+            font-weight: 500;
+            opacity: 0.95;
+        }
+
+
+        /* =========================
+           PROGRAM SECTION
+        ========================= */
+
+        .program-section {
+            padding: 42px 28px 35px;
+
+            background: #ffffff;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .section-heading h2 {
+            font-size: 20px;
+            color: #064d9e;
+            font-weight: 800;
+
+            margin-bottom: 4px;
+        }
+
+        .section-heading p {
+            font-size: 9px;
+            color: #5d7795;
+        }
+
+
+        /* =========================
+           PROGRAM CARDS
+        ========================= */
+
+        .program-grid {
+            max-width: 1120px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 14px;
+        }
+
+        .program-card {
+            min-height: 142px;
+
+            background: #ffffff;
+
+            border: 1px solid #dfe8f1;
+
+            border-radius: 6px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 17px 13px;
+
+            transition: all 0.25s ease;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 12px 25px rgba(0, 70, 140, 0.10);
+
+            border-color: #bcd7f3;
+        }
+
+        .program-icon {
+            width: 39px;
+            height: 39px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 10px;
+
+            color: #075fc5;
+
+            font-size: 27px;
+
+            border: 2px solid #075fc5;
+
+            border-radius: 7px;
+        }
+
+        .program-card h3 {
+            color: #0751a4;
+
+            font-size: 11px;
+            font-weight: 700;
+
+            margin-bottom: 7px;
+        }
+
+        .program-card p {
+            color: #607894;
+
+            font-size: 8px;
+            line-height: 1.65;
+
+            max-width: 145px;
+        }
+
+
+        /* =========================
+           BOTTOM CTA
+        ========================= */
+
+        .bottom-cta {
+            background: linear-gradient(
+                90deg,
+                #075fc5,
+                #0877e2
+            );
+
+            color: white;
+
+            min-height: 74px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 55px;
+
+            padding: 12px 30px;
+        }
+
+        .cta-text {
+            text-align: center;
+        }
+
+        .cta-text h2 {
+            font-size: 15px;
+            font-weight: 700;
+
+            margin-bottom: 2px;
+        }
+
+        .cta-text p {
+            font-size: 8px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            padding: 9px 18px;
+
+            border: 1px solid rgba(255,255,255,0.8);
+
+            border-radius: 4px;
+
+            font-size: 9px;
+            font-weight: 600;
+
+            transition: 0.25s;
+        }
+
+        .cta-button:hover {
+            background: white;
+            color: #075fc5;
+        }
+
+         /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+    width: 100%;
+    max-width: 1180px;
+    margin: 18px auto 20px;
+    padding: 20px 30px;
+    border-radius: 10px;
+}
+
+        .footer-logo {
+            font-size: 17px;
+            font-weight: 800;
+        }
+
+        .footer-text {
+            color: #c4d6e9;
+            font-size: 8px;
+        }
+
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+       .hamburger{ display:none; font-size:28px; background:none; border:none; color:white; cursor:pointer; }
+
+@media (max-width: 768px){
+  .hamburger{ display:block !important; }
+  .nav-menu{ display:none; flex-direction:column; background:#0a4bd6; width:100%; padding:20px; gap:15px; position:absolute; top:70px; left:0; }
+  .nav-menu.open{ display:flex !important; }
+}
+    
+</style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mobile-responsive.css') }}">
+</head>
+
+
+<body>
+
+<div class="website">
+    {% if logged_in %}
+    <a class="side-chat-link" href="{{ url_for('chat') }}" aria-label="Open live chat" title="Live chat">
+        <svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a7.5 7.5 0 0 1-7.5 7.5H7l-4 2 1.2-4A7.5 7.5 0 1 1 21 11.5Z"/><path d="M8 11h8M8 14h5"/></svg><span>Live chat</span>
+    </a>
+    {% endif %}
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <header class="navbar">
+
+        <a href="#" class="logo">
+            Prism Live
+        </a>
+
+<button id="menuBtn" class="hamburger">☰</button>
+
+
+
+        <nav class="nav-menu">
+
+            <a class="active" href="prismlive_home_page.html">Home</a>
+            <a href="{{ url_for('about') }}">about</a>
+            <a href="prismlive_project_page.html">Project</a>
+            <a href="prismlive_program_page.html">Programs</a>
+            <a href="prismlive_talent_page.html">Talent</a>
+            <a href="prismlive_workshop_page.html">Workshops</a>
+            <a href="prismlive_sponsors_page.html">Sponsors</a>
+            <a href="{{ url_for('media') }}">media</a>
+            <a href="{{ url_for('contact') }}">contact</a>
+            {% if logged_in %}<a href="{{ url_for('payment') }}">Payment</a>{% endif %}
+
+            {% if logged_in %}
+            <a href="{{ url_for('logout') }}" onclick="event.preventDefault(); document.getElementById('nav-logout-form').submit();" class="nav-button">Log out</a>
+            <form id="nav-logout-form" action="{{ url_for('logout') }}" method="post" style="display:none"></form>
+            {% else %}
+            <a href="{{ url_for('login') }}">Log in</a>
+            <a href="{{ url_for('register') }}" class="nav-button">Join Prism Live</a>
+            {% endif %}
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="small-title">
+                DISCOVER • DEVELOP • CREATE
+            </div>
+
+            <h1>
+                Empowering Creative
+                <br>
+                Talent Through Action
+            </h1>
+
+            <p class="hero-description">
+                A platform connecting writers, performers,
+                technicians and creative communities.
+            </p>
+
+            <div class="buttons">
+
+                <a href="prismlive_explore_page.html" class="btn btn-primary">
+                    Explore Details
+                </a>
+
+                <a href="prismlive_register_page.html" class="btn btn-outline">
+                    Register Now
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         STATISTICS
+    ========================== -->
+
+    <section class="statistics">
+
+        <div class="stat">
+
+            <div class="stat-number">
+                6
+            </div>
+
+            <div class="stat-label">
+                Project Phases
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                10+
+            </div>
+
+            <div class="stat-label">
+                Months Journey
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                1000+
+            </div>
+
+            <div class="stat-label">
+                Talents Engaged
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                50+
+            </div>
+
+            <div class="stat-label">
+                Mentors & Experts
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROGRAM AREAS
+    ========================== -->
+
+    <section class="program-section">
+
+        <div class="section-heading">
+
+            <h2>
+                Our Program Areas
+            </h2>
+
+            <p>
+                Explore opportunities in multiple creative domains
+            </p>
+
+        </div>
+
+
+        <div class="program-grid">
+
+
+            <!-- WRITING -->
+
+            <div class="program-card">
+
+                <div class="program-icon">
+                    ☷
+                </div>
+
+                <h3>
+                    Writing
+                </h3>
+
+                <p>
+                    Scripts, stories and
+                    screenplays
+                </p>
+
+            </div>
+
+
+            <!-- ACTING -->
+
+            <div class="program-card">
+
+                <div class="program-icon">
+                    ♙
+                </div>
+
+                <h3>
+                    Acting & Performance
+                </h3>
+
+                <p>
+                    Stage, screen and
+                    voice performance
+                </p>
+
+            </div>
+
+
+            <!-- TECHNICAL -->
+
+            <div class="program-card">
+
+                <div class="program-icon">
+                    ♧
+                </div>
+
+                <h3>
+                    Technical & Crew
+                </h3>
+
+                <p>
+                    Camera, sound,
+                    lighting, editing and more
+                </p>
+
+            </div>
+
+
+            <!-- PRODUCTION -->
+
+            <div class="program-card">
+
+                <div class="program-icon">
+                    ▣
+                </div>
+
+                <h3>
+                    Production
+                </h3>
+
+                <p>
+                    Direction, management
+                    and production roles
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+       <!-- =========================
+         FOOTER
+    ========================= -->
+
+       <footer>
+
+        <div class="footer-logo">
+            Prism Live
+        </div>
+
+        <div class="footer-text">
+            © Prism Live. All Rights Reserved.
+        </div>
+
+    </footer>
+
+
+</div>
+
+<script>
+document.getElementById('menuBtn').onclick = () => {
+  document.querySelector('.nav-menu').classList.toggle('open');
+}
+</script>
+
+</body>
+</html>
