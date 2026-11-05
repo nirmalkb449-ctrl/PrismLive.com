@@ -56,31 +56,33 @@
         /* =========================
            NAVIGATION
         ========================= */
-   .navbar {
-    position: absolute;
-    top: 3px;
-    left: 0;
-    transform: none;
+ 
+        .navbar {
+            height: 67px;
+            background: linear-gradient(105deg, #084381, #1976d2);
+            position: relative;
+            z-index: 20;
+        }
 
+        .nav-container {
     width: 100%;
     max-width: none;
-    box-sizing: border-box;
+    height: 100%;
+    margin: 0;
 
-    height: 62px;
-    padding: 0 24px;
+    padding: 0 40px;
+    box-sizing: border-box;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    z-index: 20;
-    color: #ffffff;
 }
 
 .logo {
+    color: white;
     font-size: 20px;
     font-weight: 800;
-    letter-spacing: -0.8px;
+    letter-spacing: -0.5px;
 }
 
         .nav-menu {
