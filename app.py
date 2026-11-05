@@ -200,7 +200,7 @@ def ai_chat_api():
         for item in history[-10:]:
             if isinstance(item, dict) and item.get("role") in ("user", "model") and isinstance(item.get("text"), str):
                 contents.append({"role": item["role"], "parts": [{"text": item["text"][:4000]}]})
-    contents.append({"role": "user", "parts": [{"text": message}]})
+    contents.append({"role": "user", "parts": [{"text": PRISM_INFO + "\n\nUser question: " + message}]})
     model = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
     try:
         resp = requests.post(
