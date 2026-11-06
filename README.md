@@ -145,3 +145,36 @@ You can delete old files from the GitHub **Code** tab using the file's delete/tr
 7. Visit `/forgot-password`, submit a registered email, and confirm that the email arrives. Open the link, set a new password, and sign in with it.
 
 Do not add quotation marks around environment values in Render. Never put SMTP passwords in HTML, JavaScript, GitHub, or this README.
+
+
+## Updated account experience (November 2026)
+
+This version adds a signed-in account menu to the website pages, matching the supplied PrismLive About-page reference. The menu provides My Profile, Account Settings, My Projects, Activity History and Sign Out.
+
+### Authentication and protected pages
+- Register at `/register`; passwords are stored as Werkzeug password hashes.
+- Sign in at `/login`; unauthenticated visitors are redirected to sign in before opening the main site pages.
+- The home, about, media, contact, chat, payment, account and legacy `prismlive_*.html` content pages require an active login.
+- Forgot-password and reset-password routes remain public so users can recover access.
+- After a successful login, the app returns the user to the originally requested local page.
+- Profile name, phone and bio can be updated from `/profile`.
+- Account settings are available at `/account-settings`.
+- Activity events are stored in the `user_activity` SQLite table.
+
+### Local setup
+1. Extract the ZIP and open the `PrismLive.com` folder in VS Code.
+2. Create and activate a virtual environment:
+   - Windows PowerShell: `py -m venv venv` then `venv\\Scripts\\Activate.ps1`
+   - macOS/Linux: `python3 -m venv venv` then `source venv/bin/activate`
+3. Install packages: `pip install -r requirements.txt`
+4. Copy `.env.example` to `.env`; set a long random `SECRET_KEY`.
+5. Start the site using `python app.py` (or `run_local.bat` on Windows).
+6. Open `http://127.0.0.1:10000/register` to create an account, then sign in.
+
+### Render configuration
+The included `render.yaml` uses Gunicorn, a persistent disk mounted at `/var/data`, and `DATABASE_PATH=/var/data/prismlive.db`. Keep the persistent disk enabled so accounts and activity are retained across deployments. Set a strong `SECRET_KEY` and configure SMTP environment variables if email password resets are required. Configure `GEMINI_API_KEY` and UPI settings only if those features are used.
+
+### Notes
+- Existing page templates, images, chat, AI assistant, payment and admin modules are retained.
+- The SQLite database schema is upgraded automatically at app startup with profile and activity fields/tables.
+- The local execution environment used to prepare this ZIP did not have Flask dependencies installed, so the project could be syntax-checked but not launched end-to-end here. Run the local setup above before deploying.

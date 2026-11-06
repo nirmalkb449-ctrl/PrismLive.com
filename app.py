@@ -28,6 +28,38 @@ app.config.update(
     SESSION_COOKIE_SECURE=os.environ.get("COOKIE_SECURE", "1" if os.environ.get("RENDER") == "true" else "0") == "1",
     MAX_CONTENT_LENGTH=2 * 1024 * 1024,
 )
+
+# --- PrismLive Details - English Version ---
+PRISM_INFO = """
+You are the official AI assistant of PrismLive.com. P & L are capital letters - PrismLive.com.
+
+What is PrismLive.com?
+PrismLive.com is a platform to register programs and to book them through organisations. It is a platform with all-world access.
+
+Functions:
+1. You have to pay and register
+2. You can also book programs
+3. Chat with users and AI chatbot
+4. Upload videos and photos
+5. A person can book through this platform and conduct a program anywhere in the world
+
+Example:
+If a singer wants to conduct a program anywhere in India, if he registers on this platform, organisations / clubs / companies connected with this platform can book that program.
+
+Place: Veliyalukkal, Thrissur
+Service: Register programs and Booking the programs
+Registration Fee: 236/- Indian Rupees, including GST
+Contact: prismlive@gmail.com, 6238512583
+
+Rules:
+- Do NOT use ** or # or any markdown symbols. Use plain simple text only.
+- Always reply in short, friendly sentences, even if user says only "ok", "hi", "thanks".
+- Never return empty reply.
+- If user asks about PrismLive, use only these details.
+- Do not guess or add any other details.
+- Always say the fee, place and contact exactly as given above.
+- If user asks a general question, help normally.
+"""
 socketio = SocketIO(app, cors_allowed_origins=None, async_mode="threading", logger=False, engineio_logger=False)
 
 if not app.config.get('SECRET_KEY'):
@@ -102,16 +134,19 @@ def index():
 
 
 @app.route("/home")
+@login_required
 def home():
     return render_template("prismlive_home_page.html")
 
 
 @app.route("/about")
+@login_required
 def about():
     return render_template("prismlive_about_page.html")
 
 
 @app.route("/media")
+@login_required
 def media():
     return render_template("prismlive_media_page.html")
 
@@ -217,13 +252,13 @@ def ai_chat_api():
         for item in history[-10:]:
             if isinstance(item, dict) and item.get("role") in ("user", "model") and isinstance(item.get("text"), str):
                 contents.append({"role": item["role"], "parts": [{"text": item["text"][:4000]}]})
-    contents.append({"role": "user", "parts": [{"text": message}]})
+    contents.append({"role": "user", "parts": [{"text": PRISM_INFO + "\n\nUser question: " + message}]})
     model = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
     try:
         resp = requests.post(
             f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
             params={"key": api_key},
-            json={
+            json={ 
                 "systemInstruction": {"parts": [{"text":
                     "You are Prism AI, a friendly assistant on PrismLive. Give useful concise answers. "
                     "Do not claim to access private user data or complete website actions. Never request passwords, OTPs or payment secrets."}]},
@@ -280,6 +315,8 @@ def login():
             session.clear()
             session["user_id"] = user["id"]
             session["user_name"] = user["first_name"]
+            with get_db() as db:
+                db.execute("INSERT INTO user_activity(user_id, activity) VALUES (?, ?)", (user["id"], "Logged in"))
             if user["role"] in ("admin", "superadmin"):
                 return redirect(url_for("admin_dashboard"))
             target = request.args.get("next", "")
@@ -383,12 +420,16 @@ def reset_password(token):
 
 @app.route("/logout", methods=["POST"])
 def logout():
+    if session.get("user_id"):
+        with get_db() as db:
+            db.execute("INSERT INTO user_activity(user_id, activity) VALUES (?, ?)", (session["user_id"], "Signed out"))
     session.clear()
     flash("You have been logged out.", "info")
     return redirect(url_for("home"))
 
 
 @app.route("/contact", methods=["GET", "POST"])
+@login_required
 def contact():
     if request.method == "POST":
         name = request.form.get("name", "").strip()[:120]
@@ -548,6 +589,63 @@ def legacy_images(filename):
 
 
 # Keep the original .html navigation links working, while routing auth/chat through their real handlers.
+
+@app.route("/profile", methods=["GET", "POST"])
+@login_required
+def profile():
+    if request.method == "POST":
+        first = request.form.get("first_name", "").strip()[:80]
+        last = request.form.get("last_name", "").strip()[:80]
+        bio = request.form.get("bio", "").strip()[:500]
+        phone = request.form.get("phone", "").strip()[:30]
+        if not first or not last:
+            flash("First name and last name are required.", "error")
+        else:
+            with get_db() as db:
+                db.execute("UPDATE users SET first_name=?, last_name=?, bio=?, phone=? WHERE id=?",
+                           (first, last, bio, phone, session["user_id"]))
+                db.execute("INSERT INTO user_activity(user_id, activity) VALUES (?, ?)",
+                           (session["user_id"], "Updated profile"))
+            flash("Your profile has been updated.", "success")
+            return redirect(url_for("profile"))
+    user = current_user()
+    with get_db() as db:
+        details = db.execute("SELECT first_name,last_name,email,interest,bio,phone,created_at FROM users WHERE id=?",
+                             (session["user_id"],)).fetchone()
+    return render_template("account_page.html", page_title="My Profile", user=dict(details))
+
+
+@app.route("/account-settings", methods=["GET", "POST"])
+@login_required
+def account_settings():
+    if request.method == "POST":
+        phone = request.form.get("phone", "").strip()[:30]
+        with get_db() as db:
+            db.execute("UPDATE users SET phone=? WHERE id=?", (phone, session["user_id"]))
+        flash("Account settings saved.", "success")
+        return redirect(url_for("account_settings"))
+    with get_db() as db:
+        user = db.execute("SELECT first_name,last_name,email,phone FROM users WHERE id=?",
+                          (session["user_id"],)).fetchone()
+    return render_template("account_page.html", page_title="Account Settings", user=dict(user), settings_mode=True)
+
+
+@app.get("/my-projects")
+@login_required
+def my_projects():
+    return render_template("account_page.html", page_title="My Projects", user=current_user(), projects_mode=True)
+
+
+@app.get("/activity")
+@login_required
+def activity_history():
+    with get_db() as db:
+        rows = db.execute("SELECT activity,created_at FROM user_activity WHERE user_id=? ORDER BY id DESC LIMIT 50",
+                          (session["user_id"],)).fetchall()
+    return render_template("account_page.html", page_title="Activity History", user=current_user(),
+                           activities=[dict(row) for row in rows], activity_mode=True)
+
+
 PAGE_MAP = {
     "index.html": "home", "prismlive_home_page.html": "home",
     "prismlive_login_page.html": "login", "prismlive_register_page.html": "register",
@@ -561,6 +659,9 @@ def legacy_page(page):
         return redirect(url_for(endpoint))
     candidate = BASE_DIR / "templates" / filename
     if candidate.is_file() and filename.startswith("prismlive_"):
+        if "user_id" not in session:
+            flash("Please log in to view PrismLive pages.", "info")
+            return redirect(url_for("login", next=request.path))
         return render_template(filename)
     return render_template("404.html"), 404
 

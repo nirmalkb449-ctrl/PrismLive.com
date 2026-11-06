@@ -36,4 +36,5 @@ button,.paylink{display:block;width:100%;margin-top:16px;padding:14px;border:0;b
 <a class="paylink" href="{{ upi_link }}">Open UPI payment app</a>
 {% endif %}
 <div class="notice"><strong>Payment verification:</strong> This page only creates a UPI payment intent. It does not confirm receipt or automatically mark an order as paid. For production payments, integrate a payment provider with signed server-side webhooks and verify transactions before granting access. Never ask customers to share their UPI PIN or OTP.</div>
-</main></body></html>
+</main>{% include 'partials/account_menu.html' %}
+</body></html>

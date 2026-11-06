@@ -52,4 +52,5 @@ socket.on('chat_error',data=>setNotice(data.message||'Message could not be sent.
 document.getElementById('chat-form').addEventListener('submit',e=>{e.preventDefault();const message=input.value.trim();if(!message)return;if(!activeUserId){setNotice('Choose a person first.');return;}if(!socket.connected){setNotice('Chat is reconnecting. Please try again.');return;}socket.emit('send_message',{recipient_id:activeUserId,message});input.value='';setNotice('');input.focus();});
 </script>
 {% include "partials/prism_ai_widget.html" %}
+{% include 'partials/account_menu.html' %}
 </body></html>

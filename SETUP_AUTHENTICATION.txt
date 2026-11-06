@@ -1,0 +1,24 @@
+PRISMLIVE UPDATED PROJECT - QUICK START
+
+1. Extract this ZIP.
+2. Open the PrismLive.com folder in VS Code.
+3. Open Terminal > New Terminal.
+4. Run:
+   py -m venv venv
+   venv\Scripts\Activate.ps1
+   pip install -r requirements.txt
+5. Copy .env.example to .env and replace SECRET_KEY with a long random value.
+6. Run:
+   python app.py
+7. Open http://127.0.0.1:10000/register
+8. Create an account, then log in.
+9. Main pages require login. The account avatar menu appears at the top-right.
+10. Render uses render.yaml. Keep its persistent disk and DATABASE_PATH setting.
+
+PASSWORD RESET EMAIL:
+Set MAIL_SERVER, MAIL_PORT, MAIL_USE_TLS, MAIL_USERNAME, MAIL_PASSWORD,
+and MAIL_DEFAULT_SENDER in Render environment variables. For Gmail, use
+a Google App Password rather than your normal Gmail password.
+
+SECURITY:
+Never upload .env or real secrets to GitHub. The ZIP includes .env.example only.

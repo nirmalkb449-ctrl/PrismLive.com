@@ -21,4 +21,5 @@
 <section class="panel"><h2>Contact inbox</h2>{% if not contacts %}<p class="hint">No contact messages received yet.</p>{% endif %}{% for c in contacts %}<article class="contact"><b>{{ c.subject }}</b><div class="meta">{{ c.name }} · {{ c.email }} · {{ c.created_at }}</div><p>{{ c.message }}</p></article>{% endfor %}</section>
 {% endif %}
 </div><p class="hint">Security note: approval records a decision; it does not automatically change arbitrary HTML, Python, CSS, or server settings. Connect each approved request to a specific, validated content-management action before publishing.</p>
-</main></body></html>
+</main>{% include 'partials/account_menu.html' %}
+</body></html>

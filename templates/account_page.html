@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ page_title }} | PrismLive</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f4f7fc;color:#183d65;font-family:Poppins,Arial,sans-serif}
+header{height:68px;background:linear-gradient(105deg,#084381,#1976d2);display:flex;align-items:center;padding:0 5%;color:white}
+header a{color:white;text-decoration:none;font-weight:700;font-size:20px}
+main{max-width:920px;margin:55px auto;padding:0 20px}.panel{background:white;border:1px solid #e2eaf3;border-radius:14px;padding:30px;box-shadow:0 8px 28px #163b6410}
+h1{margin:0 0 8px;font-size:30px;color:#124e88}.muted{color:#71839a;font-size:13px;margin:0 0 25px}
+label{display:block;font-size:13px;font-weight:600;margin:16px 0 7px}input,textarea{width:100%;padding:12px;border:1px solid #d8e2ee;border-radius:7px;font:14px Poppins,Arial}textarea{min-height:100px;resize:vertical}
+button,.back{display:inline-block;margin-top:22px;background:#1265b3;color:white;border:0;border-radius:7px;padding:12px 20px;font-weight:600;text-decoration:none;cursor:pointer}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.item{padding:14px 0;border-bottom:1px solid #edf1f6;font-size:14px}.item small{display:block;color:#8492a3;margin-top:4px}
+.flash{padding:10px;background:#eef6ff;border-radius:6px;margin:10px 0}
+@media(max-width:600px){.grid{grid-template-columns:1fr}.panel{padding:20px}main{margin:30px auto}}
+</style></head><body>
+<header><a href="{{ url_for('home') }}">Prism Live</a></header>
+<main><section class="panel">
+<h1>{{ page_title }}</h1><p class="muted">Manage your PrismLive account and personal information.</p>
+{% with messages=get_flashed_messages(with_categories=true) %}{% for category,message in messages %}<div class="flash">{{ message }}</div>{% endfor %}{% endwith %}
+{% if projects_mode %}
+<p>Your project workspace will appear here as you register or save projects on PrismLive.</p>
+<a class="back" href="{{ url_for('home') }}">Explore PrismLive</a>
+{% elif activity_mode %}
+{% if activities %}{% for item in activities %}<div class="item">{{ item.activity }}<small>{{ item.created_at }}</small></div>{% endfor %}{% else %}<p>No account activity has been recorded yet.</p>{% endif %}
+{% elif settings_mode %}
+<form method="post"><label>Email address</label><input value="{{ user.email }}" disabled><label>Contact phone</label><input name="phone" value="{{ user.phone or '' }}" maxlength="30"><button type="submit">Save Settings</button></form>
+{% else %}
+<form method="post"><div class="grid"><div><label>First name</label><input name="first_name" value="{{ user.first_name }}" required maxlength="80"></div><div><label>Last name</label><input name="last_name" value="{{ user.last_name }}" required maxlength="80"></div></div>
+<label>Email address</label><input value="{{ user.email }}" disabled><label>Phone</label><input name="phone" value="{{ user.phone or '' }}" maxlength="30"><label>About me</label><textarea name="bio" maxlength="500" placeholder="Tell us a little about yourself">{{ user.bio or '' }}</textarea><button type="submit">Save Profile</button></form>
+{% endif %}
+<a class="back" href="{{ url_for('home') }}">Back to Home</a>
+</section></main>
+{% include 'partials/account_menu.html' %}
+</body></html>
