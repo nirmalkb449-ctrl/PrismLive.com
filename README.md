@@ -1,27 +1,24 @@
-# PrismLive — responsive Flask website
+# PrismLive — consolidated project (four ZIP packages merged)
 
-This package keeps the supplied PrismLive pages, branding, images, and features, and adds a responsive/touch-friendly stylesheet plus corrected deployment configuration.
+This is the single consolidated PrismLive project. Open the `PrismLive_Merged` folder in VS Code — the folder containing `app.py`.
 
-## Included
+## Included modules
+- Original PrismLive Flask website pages, templates and supplied images.
+- Responsive/mobile stylesheet (`static/css/mobile-responsive.css`).
+- Registration/login with password hashing and SQLite storage.
+- Member-to-member real-time chat using Flask-SocketIO.
+- Prism AI Gemini assistant endpoint and widget (integrated into the existing Flask app).
+- Login-protected UPI intent payment page.
+- Admin dashboard with a Super Admin approval workflow for admin change requests.
+- Render deployment files, health check, environment example and setup scripts.
+- `docs/` contains the standalone chatbot blueprint from the separate chatbot ZIP for reference. It is not registered as a second Flask app; the live endpoint is already integrated in `app.py`.
 
-- Original PrismLive templates, images, CSS and JavaScript
-- Flask application with registration, login/logout, admin dashboard, contact form, chat and optional Gemini AI endpoint
-- SQLite schema initialization (`db.py`)
-- Mobile/tablet responsive layer (`static/css/mobile-responsive.css`)
-- Render Blueprint (`render.yaml`), Procfile, environment example and deployment guide
+## Run locally on Windows / VS Code
 
-## Important fixes made
-
-1. Corrected Flask static-file configuration. The supplied app pointed Flask's static endpoint at an `images` folder, but its CSS and JavaScript are stored in `static/`; this could break CSS/JS loading.
-2. Added a responsive/touch stylesheet to every page and ensured each page has a viewport meta tag. Original design assets and page templates are retained.
-3. Added `/healthz` for Render health checks.
-4. Corrected Render YAML indentation and configured a Gunicorn threaded start command suitable for the current Flask-SocketIO setup.
-5. Removed `.git`, `.venv`, bytecode, and the local SQLite database from the distributable archive. Never deploy a local development database or secrets from a ZIP.
-6. Made production startup require a configured secret key; Render Blueprint generates one automatically.
-
-## Run locally on Windows
-
-Open this folder in VS Code (the folder containing `app.py`) and run in PowerShell:
+1. Install Python 3.11 and Git.
+2. Extract the ZIP.
+3. In VS Code, choose **File → Open Folder** and open `PrismLive_Merged`.
+4. Open **Terminal → New Terminal** and run:
 
 ```powershell
 py -3.11 -m venv .venv
@@ -29,73 +26,122 @@ py -3.11 -m venv .venv
 python -m pip install --upgrade pip
 pip install -r requirements.txt
 Copy-Item .env.example .env
+```
+
+5. Open `.env`. Set a long random `SECRET_KEY`. For the AI assistant, add your private `GEMINI_API_KEY`. For UPI intent, set your merchant `UPI_ID` and `UPI_PAYEE_NAME`.
+6. Initialize the database and create the first Super Admin:
+
+```powershell
 python db.py
-python app.py
-```
-
-Open `http://127.0.0.1:10000`. Edit `.env` and set a private `SECRET_KEY` before using the app beyond local testing. For example, generate one with:
-
-```powershell
-python -c "import secrets; print(secrets.token_hex(32))"
-```
-
-Create the owner/admin account from the project folder with:
-
-```powershell
 python create_superadmin.py
 ```
 
-Use a unique email and a strong password of at least 12 characters. Do not share the password.
+7. Start the website:
 
-## Push to GitHub
-
-1. Extract this ZIP.
-2. Open the extracted `PrismLive` folder in VS Code.
-3. Create an empty GitHub repository (for example, `PrismLive`).
-4. In the VS Code terminal, make sure the current directory contains `app.py`, then run:
-
-```bash
-git init
-git add .
-git status
-git commit -m "Prepare PrismLive responsive website for deployment"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
-git push -u origin main
+```powershell
+python app.py
 ```
 
-Replace the placeholders with your own GitHub username and repository. Check `git status` before committing: `.env`, `.venv`, `*.db` and secrets must not be included. If `origin` already exists, use `git remote set-url origin https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git` instead of adding it again.
+8. Visit `http://127.0.0.1:10000`.
 
-## Deploy on Render
+If PowerShell blocks virtual-environment activation, run this once in that terminal, then activate again:
 
-The included `render.yaml` is a Render Blueprint for a Flask web service. It configures Python, dependencies, Gunicorn, `/healthz`, a generated `SECRET_KEY`, HTTPS-only session cookies, and a persistent disk mounted at `/var/data` for SQLite.
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+```
 
-1. Push the project to GitHub as above.
-2. Sign in at https://render.com and connect your GitHub account.
-3. In Render, choose **New + → Blueprint** (or create a Web Service and connect the repository).
-4. Select the repository and confirm the `render.yaml` settings.
-5. The Blueprint requests a **Starter paid web service** because the SQLite database needs a persistent disk. Render persistent disks are available on paid web services; the disk is not available on the Free plan.
-6. Deploy. Render will install dependencies and start the app. Open the generated `https://prismlive.onrender.com` URL (the exact hostname may differ if already taken).
-7. In the service's Environment page, optionally add `GEMINI_API_KEY`, `GEMINI_MODEL`, `UPI_ID`, and `UPI_PAYEE_NAME` if you use those features. Keep all keys private.
-8. Create the first Super Admin account using Render Shell: run `python create_superadmin.py`, then follow the prompts. If Shell is not available on your plan, use a secure one-off local/admin provisioning process before opening admin functions publicly; do not put admin credentials in source code.
+## Important configuration and safety notes
 
-### Render database warning
+- Never upload `.env`, API keys, passwords, or `prismlive.db` to GitHub. `.gitignore` excludes local secrets/database files.
+- `GEMINI_API_KEY` is a server-side secret. Never paste it into HTML or JavaScript.
+- The payment page creates a UPI payment intent/link only. It does not verify that money was received. Do not mark orders paid based only on a redirect, screenshot, or user claim. For verified online payments, integrate a payment gateway with signed webhooks.
+- The Render configuration uses a persistent disk path for SQLite. A persistent disk requires a Render service plan that supports disks. If deploying on a plan without a persistent disk, SQLite data may be lost on redeploy/restart; use a managed PostgreSQL database for durable production data.
+- The Super Admin approval workflow records and approves/rejects requests. Approval does not automatically deploy arbitrary code or apply every requested website change; the corresponding approved change still needs to be implemented.
+- The current Socket.IO online-presence set is in process memory. For multi-instance scaling, configure a shared message queue and compatible persistent database.
 
-Render's default filesystem is ephemeral. This configuration attaches a persistent disk and points `DATABASE_PATH` to `/var/data/prismlive.db`, so user registrations and messages persist across restarts/deploys. Persistent disks are paid, attach to one service instance, and prevent zero-downtime deploys. For a scalable multi-instance production deployment, migrate from SQLite to Render Postgres and configure a shared Socket.IO message queue/presence store. Do not scale this SQLite+disk setup horizontally.
+## Replace old GitHub project files with this consolidated project
 
-### Socket.IO / chat note
+**Recommended: keep the same GitHub repository and replace its tracked files from your local clone.** Do not delete the repository itself.
 
-The current application stores chat messages in SQLite and tracks online users in process memory. It is designed for a single running web-service instance. Multi-instance scaling requires shared presence and a Socket.IO message queue.
+1. Download/clone your existing GitHub repository. In GitHub, open the repository, click **Code → HTTPS**, and copy its URL.
+2. In VS Code terminal, run (replace the URL):
 
-## Environment variables
+```powershell
+cd $HOME\Desktop
+git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
+```
 
-See `.env.example`. On Render, use the service's Environment page. Never commit `.env`, passwords, database files, or API keys.
+3. Extract this new ZIP. Open the extracted `PrismLive_Merged` folder in File Explorer.
+4. Open the cloned repository folder in another File Explorer window.
+5. In the cloned repository folder, delete the old project files and folders **but keep the hidden `.git` folder**. Do not delete `.git`.
+6. Copy everything inside `PrismLive_Merged` (including `app.py`, `db.py`, `templates`, `static`, `requirements.txt`, `Procfile`, `render.yaml`, `.gitignore`, and `docs`) into the cloned repository folder.
+7. Open the cloned repository folder in VS Code. Confirm `app.py` is directly in the opened folder, not nested one extra level.
+8. In Terminal run:
 
-## Before public launch
+```powershell
+git status
+git add -A
+git status
+git commit -m "Replace old PrismLive project with consolidated version"
+git push origin main
+```
 
-- Test registration, login, logout, forms, chat, admin permissions, and AI/payment options.
-- Configure a private `SECRET_KEY` (the Blueprint generates one).
-- Create the Super Admin account securely.
-- Add the Gemini API key only if you want the AI chat enabled.
-- Configure actual merchant UPI details only if you accept payments. The UPI link only launches a payment app; it does not verify or reconcile payment. Do not treat a redirect as proof of payment.
-- Review all content, external image/font/CDN dependencies, privacy notice, terms, and contact details.
+If your default branch is not `main`, replace `main` with the branch shown on GitHub. If Git says there is no remote named `origin`, add it:
+
+```powershell
+git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
+```
+
+If `origin` already points to a different repository, update it:
+
+```powershell
+git remote set-url origin https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
+```
+
+If GitHub rejects the push because the remote contains commits you do not have, first run:
+
+```powershell
+git pull --rebase origin main
+```
+
+Resolve any conflicts, then push again. Do not use `git push --force` unless you intentionally want to overwrite remote history.
+
+## Alternative: replace through GitHub website
+
+You can delete old files from the GitHub **Code** tab using the file's delete/trash option, but this is slow for a full project and can cause mistakes. The local clone method above is recommended because `git add -A` records both deleted old files and added new files in one commit.
+
+## Deploy the updated repository on Render
+
+1. Open Render Dashboard and select your existing PrismLive web service.
+2. Confirm it is connected to the same GitHub repository and the correct branch.
+3. Choose **Manual Deploy → Deploy latest commit** (or wait for automatic deploy).
+4. Check the deploy logs for `Build successful` and a healthy service.
+5. Set/verify environment variables in Render: `SECRET_KEY`, `COOKIE_SECURE=1`, `GEMINI_API_KEY` (optional), `GEMINI_MODEL`, `UPI_ID`, and `UPI_PAYEE_NAME`.
+6. Ensure the SQLite `DATABASE_PATH` matches the mounted persistent disk. Keep a backup of any existing production database before changing database paths or replacing the app.
+
+
+## Account registration, login and password reset
+
+- Registration is handled by `POST /register`; passwords are stored as Werkzeug password hashes.
+- Login is handled by `POST /login`. The registration/login cross-links now use Flask `url_for()` routes rather than static `.html` filenames.
+- Forgot password: open `/forgot-password`, submit the registered email, then use the one-time link delivered by email. The link expires after 30 minutes and can only be used once.
+- The reset token is stored as a SHA-256 hash in SQLite; the new password is hashed before it replaces the old hash. All outstanding reset links for that account are invalidated after a successful reset.
+- Configure `MAIL_SERVER`, `MAIL_PORT`, `MAIL_USE_TLS` or `MAIL_USE_SSL`, `MAIL_USERNAME`, `MAIL_PASSWORD`, and `MAIL_DEFAULT_SENDER` in local `.env` and in Render Environment. For Gmail, enable 2-Step Verification and create an App Password; do not use your normal Gmail password.
+- Email sending requires working SMTP credentials and an email provider that permits SMTP. Test the reset flow after deploying; do not publish SMTP credentials or commit `.env`.
+
+## Before making the site public
+- Test registration, login, logout, user-to-user chat, AI chat, payment intent, and admin approval.
+- Create the Super Admin account securely; do not publish its credentials.
+- Configure real UPI merchant details only if authorized. For automatic payment confirmation, add a gateway and webhook verification.
+
+### Configure email on Render
+
+1. Open Render Dashboard → your PrismLive web service → **Environment**.
+2. Add `MAIL_SERVER` = `smtp.gmail.com`, `MAIL_PORT` = `587`, `MAIL_USE_TLS` = `1`, `MAIL_USE_SSL` = `0`.
+3. Add `MAIL_USERNAME` = your full Gmail address.
+4. Add `MAIL_PASSWORD` = the Google App Password (16 characters). Create it in your Google Account after enabling 2-Step Verification.
+5. Add `MAIL_DEFAULT_SENDER` = `Prism Live <your-full-gmail-address>`.
+6. Save changes and redeploy/restart the service.
+7. Visit `/forgot-password`, submit a registered email, and confirm that the email arrives. Open the link, set a new password, and sign in with it.
+
+Do not add quotation marks around environment values in Render. Never put SMTP passwords in HTML, JavaScript, GitHub, or this README.

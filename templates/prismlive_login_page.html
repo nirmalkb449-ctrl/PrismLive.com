@@ -859,6 +859,11 @@ a {
 
 }
 
+
+.auth-alert{padding:11px 13px;margin:0 0 16px;border-radius:6px;font-size:11px;line-height:1.5}
+.auth-alert.success{background:#eaf8ef;color:#176b38;border:1px solid #bfe7cb}
+.auth-alert.error{background:#fff0f0;color:#a12c2c;border:1px solid #f0caca}
+.auth-alert.info{background:#eef6ff;color:#245b91;border:1px solid #c9def5}
 </style>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/mobile-responsive.css') }}">
@@ -874,7 +879,7 @@ a {
 
 <header class="navbar">
 
-    <a href="index.html"
+    <a href="{{ url_for('home') }}"
        class="logo">
 
         Prism Live
@@ -885,7 +890,7 @@ a {
     <nav class="nav-links">
 
 
-        <a href="prismlive_home_page.html" class="get-started">
+        <a href="{{ url_for('home') }}" class="get-started">
                     Back
                 
         </a>
@@ -1007,6 +1012,12 @@ a {
                 </p>
 
             </div>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {% for category, message in messages %}
+                <div class="auth-alert {{ category }}" role="alert">{{ message }}</div>
+              {% endfor %}
+            {% endwith %}
+
 
 
 
@@ -1090,7 +1101,7 @@ a {
 
 
                     <a
-                        href="forgot-password.html"
+                        href="{{ url_for('forgot_password') }}"
                         class="forgot">
 
                         Forgot Password?
@@ -1156,7 +1167,7 @@ a {
 
                 Don't have an account?
 
-                <a href="prismlive_register_page.html">
+                <a href="{{ url_for('register') }}">
                     Create Account
                 </a>
 

@@ -5,6 +5,11 @@ try:
 except ImportError:
     pass
 import sqlite3
+import hashlib
+import secrets
+import smtplib
+from datetime import datetime, timedelta, timezone
+from email.message import EmailMessage
 from functools import wraps
 from pathlib import Path
 
@@ -23,38 +28,6 @@ app.config.update(
     SESSION_COOKIE_SECURE=os.environ.get("COOKIE_SECURE", "1" if os.environ.get("RENDER") == "true" else "0") == "1",
     MAX_CONTENT_LENGTH=2 * 1024 * 1024,
 )
-
-# --- PrismLive Details - English Version ---
-PRISM_INFO = """
-You are the official AI assistant of PrismLive.com. P & L are capital letters - PrismLive.com.
-
-What is PrismLive.com?
-PrismLive.com is a platform to register programs and to book them through organisations. It is a platform with all-world access.
-
-Functions:
-1. You have to pay and register
-2. You can also book programs
-3. Chat with users and AI chatbot
-4. Upload videos and photos
-5. A person can book through this platform and conduct a program anywhere in the world
-
-Example:
-If a singer wants to conduct a program anywhere in India, if he registers on this platform, organisations / clubs / companies connected with this platform can book that program.
-
-Place: Veliyalukkal, Thrissur
-Service: Register programs and Booking the programs
-Registration Fee: 236/- Indian Rupees, including GST
-Contact: prismlive@gmail.com, 6238512583
-
-Rules:
-- Do NOT use ** or # or any markdown symbols. Use plain simple text only.
-- Always reply in short, friendly sentences, even if user says only "ok", "hi", "thanks".
-- Never return empty reply.
-- If user asks about PrismLive, use only these details.
-- Do not guess or add any other details.
-- Always say the fee, place and contact exactly as given above.
-- If user asks a general question, help normally.
-"""
 socketio = SocketIO(app, cors_allowed_origins=None, async_mode="threading", logger=False, engineio_logger=False)
 
 if not app.config.get('SECRET_KEY'):
@@ -143,6 +116,47 @@ def media():
     return render_template("prismlive_media_page.html")
 
 
+
+def send_password_reset_email(recipient, reset_url):
+    """Send a one-time password reset URL using SMTP settings from environment."""
+    host = os.environ.get("MAIL_SERVER", "").strip()
+    username = os.environ.get("MAIL_USERNAME", "").strip()
+    password = os.environ.get("MAIL_PASSWORD", "")
+    sender = os.environ.get("MAIL_DEFAULT_SENDER", username).strip()
+    port = int(os.environ.get("MAIL_PORT", "587"))
+    use_ssl = os.environ.get("MAIL_USE_SSL", "0") == "1"
+    use_tls = os.environ.get("MAIL_USE_TLS", "1") == "1"
+
+    if not all([host, username, password, sender]):
+        raise RuntimeError("Email is not configured. Set MAIL_SERVER, MAIL_USERNAME, MAIL_PASSWORD and MAIL_DEFAULT_SENDER.")
+
+    message = EmailMessage()
+    message["Subject"] = "Reset your Prism Live password"
+    message["From"] = sender
+    message["To"] = recipient
+    message.set_content(
+        "Hello,\n\n"
+        "We received a request to reset your Prism Live password.\n"
+        "Use the secure, one-time link below within 30 minutes:\n\n"
+        f"{reset_url}\n\n"
+        "If you did not request this, you can ignore this email. "
+        "Your password will not change unless the link is used.\n\n"
+        "Prism Live"
+    )
+    if use_ssl:
+        with smtplib.SMTP_SSL(host, port, timeout=20) as server:
+            server.login(username, password)
+            server.send_message(message)
+    else:
+        with smtplib.SMTP(host, port, timeout=20) as server:
+            server.ehlo()
+            if use_tls:
+                server.starttls()
+                server.ehlo()
+            server.login(username, password)
+            server.send_message(message)
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -203,7 +217,7 @@ def ai_chat_api():
         for item in history[-10:]:
             if isinstance(item, dict) and item.get("role") in ("user", "model") and isinstance(item.get("text"), str):
                 contents.append({"role": item["role"], "parts": [{"text": item["text"][:4000]}]})
-    contents.append({"role": "user", "parts": [{"text": PRISM_INFO + "\n\nUser question: " + message}]})
+    contents.append({"role": "user", "parts": [{"text": message}]})
     model = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
     try:
         resp = requests.post(
@@ -276,6 +290,95 @@ def login():
         flash("Invalid email or password.", "error")
         return redirect(url_for("login"))
     return render_template("prismlive_login_page.html")
+
+
+
+@app.route("/forgot-password", methods=["GET", "POST"])
+def forgot_password():
+    if request.method == "POST":
+        email = request.form.get("email", "").strip().lower()[:254]
+        # Always show the same response to avoid revealing registered addresses.
+        with get_db() as db:
+            user = db.execute(
+                "SELECT id, email FROM users WHERE email = ? COLLATE NOCASE AND is_active = 1",
+                (email,)
+            ).fetchone()
+            if user:
+                raw_token = secrets.token_urlsafe(32)
+                token_hash = hashlib.sha256(raw_token.encode("utf-8")).hexdigest()
+                expires_at = (datetime.now(timezone.utc) + timedelta(minutes=30)).isoformat()
+                db.execute("DELETE FROM password_reset_tokens WHERE user_id = ?", (user["id"],))
+                db.execute(
+                    "INSERT INTO password_reset_tokens (user_id, token_hash, expires_at) VALUES (?, ?, ?)",
+                    (user["id"], token_hash, expires_at)
+                )
+                reset_url = url_for("reset_password", token=raw_token, _external=True)
+                try:
+                    send_password_reset_email(user["email"], reset_url)
+                except Exception:
+                    app.logger.exception("Could not send password reset email")
+                    # Remove the unusable token; never expose SMTP details to the visitor.
+                    db.execute("DELETE FROM password_reset_tokens WHERE token_hash = ?", (token_hash,))
+                    flash("We could not send the reset email right now. Please try again later.", "error")
+                    return redirect(url_for("forgot_password"))
+        flash("If an active account uses that email, a password reset link has been sent.", "success")
+        return redirect(url_for("forgot_password"))
+    return render_template("prismlive_forgot_password_page.html")
+
+
+@app.route("/reset-password/<token>", methods=["GET", "POST"])
+def reset_password(token):
+    token_hash = hashlib.sha256(token.encode("utf-8")).hexdigest()
+    now = datetime.now(timezone.utc)
+    with get_db() as db:
+        record = db.execute(
+            """SELECT password_reset_tokens.user_id, password_reset_tokens.expires_at
+               FROM password_reset_tokens
+               JOIN users ON users.id = password_reset_tokens.user_id
+               WHERE password_reset_tokens.token_hash = ? AND users.is_active = 1""",
+            (token_hash,)
+        ).fetchone()
+    if not record:
+        flash("This reset link is invalid or has already been used. Request a new one.", "error")
+        return redirect(url_for("forgot_password"))
+    try:
+        expiry = datetime.fromisoformat(record["expires_at"])
+        if expiry.tzinfo is None:
+            expiry = expiry.replace(tzinfo=timezone.utc)
+    except ValueError:
+        expiry = now - timedelta(seconds=1)
+    if expiry <= now:
+        with get_db() as db:
+            db.execute("DELETE FROM password_reset_tokens WHERE token_hash = ?", (token_hash,))
+        flash("This reset link has expired. Please request a new one.", "error")
+        return redirect(url_for("forgot_password"))
+
+    if request.method == "POST":
+        password = request.form.get("password", "")
+        confirm_password = request.form.get("confirm_password", "")
+        if len(password) < 8:
+            flash("Your new password must contain at least 8 characters.", "error")
+        elif password != confirm_password:
+            flash("The passwords do not match.", "error")
+        else:
+            with get_db() as db:
+                # Re-check token inside the write transaction to prevent reuse.
+                valid = db.execute(
+                    "SELECT user_id FROM password_reset_tokens WHERE token_hash = ?",
+                    (token_hash,)
+                ).fetchone()
+                if not valid:
+                    flash("This reset link has already been used. Request a new one.", "error")
+                    return redirect(url_for("forgot_password"))
+                db.execute(
+                    "UPDATE users SET password_hash = ? WHERE id = ?",
+                    (generate_password_hash(password), valid["user_id"])
+                )
+                db.execute("DELETE FROM password_reset_tokens WHERE user_id = ?", (valid["user_id"],))
+            session.clear()
+            flash("Your password has been reset successfully. Please log in.", "success")
+            return redirect(url_for("login"))
+    return render_template("prismlive_reset_password_page.html", token=token)
 
 
 @app.route("/logout", methods=["POST"])
